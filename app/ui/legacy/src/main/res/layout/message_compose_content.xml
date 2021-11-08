@@ -19,7 +19,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center_vertical"
-            android:minHeight="50dp"
+            android:minHeight="56dp"
             android:orientation="horizontal">
 
             <EditText
