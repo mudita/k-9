@@ -13,7 +13,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:animateLayoutChanges="true"
-        android:minHeight="50dp"
+        android:minHeight="56dp"
         android:orientation="horizontal">
 
         <TextView
@@ -203,7 +203,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:gravity="center_vertical"
-        android:minHeight="50dp"
+        android:minHeight="56dp"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -244,7 +244,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:minHeight="50dp">
+        android:minHeight="56dp">
 
         <TextView
             android:id="@+id/to_label"
@@ -315,7 +315,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:gravity="center_vertical"
-        android:minHeight="50dp"
+        android:minHeight="56dp"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -359,7 +359,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:gravity="center_vertical"
-        android:minHeight="50dp"
+        android:minHeight="56dp"
         android:orientation="horizontal"
         android:visibility="gone">
 
