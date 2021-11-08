@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/windowBackground"
+    android:layout_marginBottom="1dp"
+    android:background="?settingsItemBackgroundColor"
     android:foreground="?attr/selectableItemBackground"
+    android:minHeight="@dimen/settings_item_min_height"
     android:stateListAnimator="@animator/draggable_state_list_anim">
 
     <LinearLayout
@@ -13,7 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="8dp">
+        android:paddingLeft="12dp">
 
         <ImageView
             android:layout_width="40dp"
