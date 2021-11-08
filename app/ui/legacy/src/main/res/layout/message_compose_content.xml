@@ -49,12 +49,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@null"
             android:gravity="top"
             android:hint="@string/message_compose_content_hint"
             android:imeOptions="actionDone|flagNoEnterAction|flagNoExtractUi"
             android:inputType="textMultiLine|textAutoCorrect|textCapSentences"
             android:minLines="3"
             android:paddingLeft="16dp"
+            android:paddingTop="16dp"
             android:paddingRight="16dp"
             tools:ignore="InefficientWeight" />
 
