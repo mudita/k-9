@@ -127,6 +127,7 @@
                     <!-- From -->
                     <TextView
                         android:id="@+id/from"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/status_icon_strip"
@@ -146,6 +147,7 @@
                     <!-- Sender -->
                     <TextView
                         android:id="@+id/sender"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/from"
@@ -162,6 +164,7 @@
                     <!-- To -->
                     <TextView
                         android:id="@+id/to_label"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/to"
@@ -175,6 +178,7 @@
 
                     <TextView
                         android:id="@+id/to"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/sender"
@@ -188,6 +192,7 @@
                     <!-- CC -->
                     <TextView
                         android:id="@+id/cc_label"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/to_label"
@@ -202,6 +207,7 @@
 
                     <TextView
                         android:id="@+id/cc"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/to"
@@ -215,6 +221,7 @@
                     <!-- BCC -->
                     <TextView
                         android:id="@+id/bcc_label"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/cc_label"
@@ -229,6 +236,7 @@
 
                     <TextView
                         android:id="@+id/bcc"
+                        style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/cc"
@@ -256,6 +264,8 @@
                         android:id="@+id/status_icon_strip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/from"
+                        android:layout_alignBottom="@id/sender"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
@@ -266,7 +276,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?selectableItemBackground"
-                            android:padding="8dp"
                             app:srcCompat="?iconActionSingleMessageOptions" />
 
                     </LinearLayout>
