@@ -22,6 +22,18 @@
             android:minHeight="56dp"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/from_label"
+                style="@style/ComposeTextLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/message_compose_subject_hint"
+                android:textSize="16sp" />
+
             <EditText
                 android:id="@+id/subject"
                 style="@style/ComposeEditTextLarge"
