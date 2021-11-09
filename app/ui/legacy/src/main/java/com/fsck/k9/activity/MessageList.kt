@@ -1216,7 +1216,7 @@ open class MessageList :
         val fab = getFab() ?: return
         hasScrollingListView?.setOnScrollListenerBuildingAction {
             object : AbsListView.OnScrollListener {
-                override fun onScrollStateChanged(p0: AbsListView?, p1: Int) {}
+                override fun onScrollStateChanged(p0: AbsListView?, p1: Int) = Unit
 
                 override fun onScroll(
                     p0: AbsListView?,
