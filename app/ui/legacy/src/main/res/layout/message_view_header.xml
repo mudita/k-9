@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:orientation="horizontal"
+        android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
@@ -85,8 +85,7 @@
                         android:id="@+id/contact_badge"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
                         tools:src="@drawable/ic_contact_picture" />
 
                     <!-- State icons -->
@@ -95,10 +94,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/contact_badge"
-                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="2dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingStart="4dp">
 
                         <View
                             android:id="@+id/answered"
@@ -120,9 +118,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:padding="6dp">
+                    android:layout_height="wrap_content">
 
                     <!-- From -->
                     <TextView
@@ -130,19 +126,16 @@
                         style="@style/MessageViewHeaderElement"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignBottom="@+id/status_icon_strip"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_toLeftOf="@+id/status_icon_strip"
                         android:ellipsize="end"
                         android:gravity="center_vertical"
-                        android:paddingTop="0dp"
                         android:paddingRight="6dp"
                         android:singleLine="true"
                         android:text="@string/general_no_sender"
                         android:textAppearance="@style/TextAppearance.K9.MediumSmall"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                     <!-- Sender -->
                     <TextView
@@ -158,7 +151,6 @@
                         android:paddingTop="0dp"
                         android:textAppearance="@style/TextAppearance.K9.Small"
                         android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold"
                         android:visibility="gone" />
 
                     <!-- To -->
@@ -169,7 +161,6 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/to"
                         android:layout_alignLeft="@+id/from"
-                        android:minHeight="24dp"
                         android:paddingTop="2dp"
                         android:paddingRight="7dp"
                         android:text="@string/message_to_label"
@@ -199,11 +190,10 @@
                         android:layout_alignBaseline="@+id/cc"
                         android:layout_alignLeft="@+id/to_label"
                         android:paddingTop="2dp"
-                        android:paddingRight="4dp"
+                        android:paddingRight="7dp"
                         android:text="@string/message_view_cc_label"
                         android:textAppearance="@style/TextAppearance.K9.MediumSmall"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                     <TextView
                         android:id="@+id/cc"
@@ -228,11 +218,10 @@
                         android:layout_alignBaseline="@+id/bcc"
                         android:layout_alignLeft="@+id/cc_label"
                         android:paddingTop="2dp"
-                        android:paddingRight="4dp"
+                        android:paddingRight="7dp"
                         android:text="@string/message_view_bcc_label"
                         android:textAppearance="@style/TextAppearance.K9.MediumSmall"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                     <TextView
                         android:id="@+id/bcc"
@@ -253,9 +242,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/bcc"
-                        android:layout_alignParentRight="true"
                         android:ellipsize="none"
-                        android:paddingTop="8dp"
+                        android:paddingTop="16dp"
                         android:singleLine="true"
                         android:textAppearance="@style/TextAppearance.K9.Small"
                         android:textColor="?android:attr/textColorSecondary" />
@@ -275,6 +263,7 @@
                             android:id="@+id/icon_single_message_options"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:background="?selectableItemBackground"
                             app:srcCompat="?iconActionSingleMessageOptions" />
 
