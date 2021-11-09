@@ -29,9 +29,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="18dp"
                 android:paddingBottom="11dp">
 
                 <TextView
@@ -45,7 +42,7 @@
                     android:maxLines="3"
                     android:textAppearance="@style/TextAppearance.K9.MediumSmall"
                     android:textColor="?android:attr/textColorPrimary"
-                    tools:text="(no subject)" />
+                    tools:text="Re: Moving files and folders" />
 
                 <ImageView
                     android:id="@+id/crypto_status_icon"
@@ -64,7 +61,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="2dp"
                     android:checked="false"
                     android:focusable="false" />
 
@@ -166,12 +162,12 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBaseline="@+id/to"
                         android:layout_alignLeft="@+id/from"
+                        android:minHeight="24dp"
                         android:paddingTop="2dp"
-                        android:paddingRight="4dp"
+                        android:paddingRight="7dp"
                         android:text="@string/message_to_label"
                         android:textAppearance="@style/TextAppearance.K9.MediumSmall"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold" />
+                        android:textColor="?android:attr/textColorPrimary" />
 
                     <TextView
                         android:id="@+id/to"
@@ -282,7 +278,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/divider_horizontal_email" />
+        android:background="@color/message_details_divider_color" />
 
 </com.fsck.k9.view.MessageHeader>
