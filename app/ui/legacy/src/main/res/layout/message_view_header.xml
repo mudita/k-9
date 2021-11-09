@@ -17,6 +17,7 @@
             android:id="@+id/chip"
             android:layout_width="8dip"
             android:layout_height="match_parent"
+            android:visibility="gone"
             tools:background="#FF1976D2" />
 
         <LinearLayout
