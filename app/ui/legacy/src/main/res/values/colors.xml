@@ -23,4 +23,5 @@
     <color name="black_pure">#000000</color>
 
     <color name="compose_text_label">@color/grey_dark</color>
+    <color name="message_details_divider_color">@color/grey_light</color>
 </resources>
