@@ -110,6 +110,5 @@
     <style name="MessageViewHeaderElement">
         <item name="minHeight">24dp</item>
     </style>
-
 </resources>
 
