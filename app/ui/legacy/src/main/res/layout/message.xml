@@ -56,16 +56,15 @@
                     android:layout_margin="8dp">
 
                     <ProgressBar
+                        android:id="@+id/message_progress"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:indeterminate="false"
+                        android:max="1000"
                         android:paddingTop="30dp"
                         android:paddingBottom="30dp"
-                        android:indeterminate="false"
-                        android:id="@+id/message_progress"
-                        android:max="1000"
-                        tools:progress="300"
-                        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
-                        />
+                        tools:progress="300" />
 
                     <TextView
                         android:layout_width="wrap_content"
