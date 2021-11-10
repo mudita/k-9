@@ -69,7 +69,6 @@ import com.fsck.k9.view.fadeOut
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.mikepenz.materialdrawer.util.getOptimalDrawerWidth
-import kotlin.properties.Delegates
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
@@ -106,9 +105,11 @@ open class MessageList :
     private var menu: Menu? = null
     private var progressBar: ProgressBar? = null
     private var messageViewPlaceHolder: PlaceholderFragment? = null
-    private var messageListFragment: MessageListFragment? by Delegates.observable(null) { _, _, fragment ->
-        setupListViewWithFloatingActionButtonInteraction(fragment)
-    }
+    private var messageListFragment: MessageListFragment? = null
+        set(value) {
+            field = value
+            setupListViewWithFloatingActionButtonInteraction(value)
+        }
     private var messageViewFragment: MessageViewFragment? = null
     private var firstBackStackId = -1
     private var account: Account? = null
@@ -1215,7 +1216,7 @@ open class MessageList :
         val fab = getFab() ?: return
         hasScrollingListView?.setOnScrollListenerBuildingAction {
             object : AbsListView.OnScrollListener {
-                override fun onScrollStateChanged(p0: AbsListView?, p1: Int) {}
+                override fun onScrollStateChanged(p0: AbsListView?, p1: Int) = Unit
 
                 override fun onScroll(
                     p0: AbsListView?,
