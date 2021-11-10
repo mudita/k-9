@@ -19,8 +19,19 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:gravity="center_vertical"
-            android:minHeight="50dp"
+            android:minHeight="56dp"
             android:orientation="horizontal">
+
+            <TextView
+                style="@style/ComposeTextLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/message_compose_subject_hint"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/subject"
@@ -73,12 +84,16 @@
 
         <Button
             android:id="@+id/quoted_text_show"
+            style="@style/BaseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:padding="0dp"
-            android:text="@string/message_compose_show_quoted_text_action"
-            android:textSize="16sp" />
+            android:layout_gravity="center"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
+            android:padding="17.5dp"
+            android:text="@string/message_compose_show_quoted_text_action" />
 
         <!-- Quoted text bar -->
         <RelativeLayout
@@ -98,7 +113,7 @@
 
             <com.fsck.k9.view.MessageWebView
                 android:id="@+id/quoted_html"
-                   android:layout_width="fill_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
