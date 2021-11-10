@@ -21,4 +21,8 @@
     <color name="grey_dark">#545A5E</color>
     <color name="white_pure">#FFFFFF</color>
     <color name="black_pure">#000000</color>
+
+    <color name="base_button_color">@color/grey_light</color>
+    <color name="base_button_clicked">#BCC0C3</color>
+    <color name="compose_text_label">@color/grey_dark</color>
 </resources>
