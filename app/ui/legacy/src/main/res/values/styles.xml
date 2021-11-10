@@ -110,5 +110,12 @@
     <style name="MessageViewHeaderElement">
         <item name="minHeight">24dp</item>
     </style>
+
+    <style name="BaseButton" parent="TextAppearance.AppCompat.Button">
+        <item name="background">@drawable/base_button_background</item>
+        <item name="android:textAppearance">@style/TextAppearance.K9.Medium</item>
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
 </resources>
 
