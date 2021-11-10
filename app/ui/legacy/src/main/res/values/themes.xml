@@ -21,6 +21,7 @@
         <item name="android:textColorPrimary">@color/black_pure</item>
         <item name="android:textColorSecondary">@color/grey_dark</item>
         <item name="android:textColorHint">@color/grey_dark</item>
+        <item name="settingsItemBackgroundColor">@color/white_pure</item>
         <item name="bottomBarBackground">@color/md_grey_50</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="iconUnifiedInbox">@drawable/ic_inbox_multiple</item>
@@ -145,6 +146,7 @@
         <item name="android:textColorSecondary">@color/white_pure</item>
         <item name="android:textColorPrimary">@color/white_pure</item>
         <item name="android:textColorHint">@color/grey_dark</item>
+        <item name="settingsItemBackgroundColor">@color/black_pure</item>
         <item name="bottomBarBackground">@color/md_grey_900</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="iconUnifiedInbox">@drawable/ic_inbox_multiple</item>

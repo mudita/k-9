@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/windowBackground"
+    android:layout_marginBottom="1dp"
+    android:background="?settingsItemBackgroundColor"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground">
@@ -13,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:paddingLeft="8dp"
+        android:minHeight="@dimen/settings_item_min_height"
+        android:paddingLeft="12dp"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
