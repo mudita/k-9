@@ -8,5 +8,6 @@
     <dimen name="input_label_horizontal_spacing">4dp</dimen>
     <dimen name="account_setup_margin_between_items_incoming_and_outgoing">12dp</dimen>
     <dimen name="settings_item_min_height">56dp</dimen>
-    <dimen name="drawer_item_padding">4dp</dimen>
+    <dimen name="drawer_item_padding_start_end">4dp</dimen>
+    <dimen name="drawer_item_padding_top_bottom">0dp</dimen>
 </resources>
