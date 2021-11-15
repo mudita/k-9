@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginEnd="8dp"
+    android:paddingStart="8dp"
+    android:paddingLeft="8dp"
+    android:paddingEnd="8dp"
+    android:paddingRight="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/material_drawer_icon"
+        android:layout_width="40dp"
+        android:layout_height="56dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="18dp"
+        android:src="@drawable/ic_inbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/material_drawer_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="middle"
+        android:gravity="center_vertical|start"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearance.K9.MediumSmall"
+        android:textDirection="anyRtl"
+        android:textSize="@dimen/material_drawer_item_primary_text"
+        app:layout_constraintBottom_toTopOf="@id/material_drawer_description"
+        app:layout_constraintEnd_toStartOf="@+id/material_drawer_barrier"
+        app:layout_constraintStart_toEndOf="@id/material_drawer_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Some drawer text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/material_drawer_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_vertical|start"
+        android:lines="1"
+        android:singleLine="true"
+        android:textDirection="anyRtl"
+        android:textSize="@dimen/material_drawer_item_primary_description"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/material_drawer_barrier"
+        app:layout_constraintStart_toEndOf="@id/material_drawer_icon"
+        app:layout_constraintTop_toBottomOf="@id/material_drawer_name"
+        tools:text="Some drawer text" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/material_drawer_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="material_drawer_badge" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/material_drawer_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_drawer_padding"
+        android:layout_marginLeft="@dimen/material_drawer_padding"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:lines="1"
+        android:minWidth="20dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:singleLine="true"
+        android:textSize="@dimen/material_drawer_item_primary_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/material_drawer_barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="99" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
