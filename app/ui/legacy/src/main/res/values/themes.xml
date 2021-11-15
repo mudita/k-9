@@ -21,6 +21,8 @@
         <item name="android:textColorPrimary">@color/black_pure</item>
         <item name="android:textColorSecondary">@color/grey_dark</item>
         <item name="android:textColorHint">@color/grey_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/black_pure</item>
+        <item name="android:textColorSecondaryInverse">@color/grey_dark</item>
         <item name="settingsItemBackgroundColor">@color/white_pure</item>
         <item name="bottomBarBackground">@color/md_grey_50</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
@@ -145,6 +147,8 @@
         <item name="colorPrimaryDark">@color/md_grey_900</item>
         <item name="android:textColorSecondary">@color/white_pure</item>
         <item name="android:textColorPrimary">@color/white_pure</item>
+        <item name="android:textColorPrimaryInverse">@color/white_pure</item>
+        <item name="android:textColorSecondaryInverse">@color/grey_light</item>
         <item name="android:textColorHint">@color/grey_dark</item>
         <item name="settingsItemBackgroundColor">@color/black_pure</item>
         <item name="bottomBarBackground">@color/md_grey_900</item>
