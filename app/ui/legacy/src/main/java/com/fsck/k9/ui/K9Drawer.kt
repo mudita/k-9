@@ -33,6 +33,7 @@ import com.fsck.k9.ui.folders.FolderList
 import com.fsck.k9.ui.folders.FolderNameFormatter
 import com.fsck.k9.ui.folders.FoldersViewModel
 import com.fsck.k9.ui.settings.SettingsActivity
+import com.google.android.material.shape.ShapeAppearanceModel
 import com.mikepenz.materialdrawer.holder.BadgeStyle
 import com.mikepenz.materialdrawer.holder.ImageHolder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
@@ -51,6 +52,7 @@ import com.mikepenz.materialdrawer.util.DrawerImageLoader
 import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.getDrawerItem
 import com.mikepenz.materialdrawer.util.removeAllItems
+import com.mikepenz.materialdrawer.util.themeDrawerItem
 import com.mikepenz.materialdrawer.widget.AccountHeaderView
 import com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -81,6 +83,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
     private val drawer: DrawerLayout = parent.findViewById(R.id.drawerLayout)
     private val sliderView: MaterialDrawerSliderView = parent.findViewById(R.id.material_drawer_slider)
     private val headerView: AccountHeaderView = AccountHeaderView(parent).apply {
+        onlyMainProfileImageVisible = true
         attachToSliderView(this@K9Drawer.sliderView)
         dividerBelowHeader = false
         displayBadgesOnCurrentProfileImage = false
@@ -164,10 +167,10 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
     }
 
     private fun configureAccountHeader() {
-        headerView.headerBackground = ImageHolder(R.drawable.drawer_header_background)
+        headerView.headerBackground = ImageHolder(R.drawable.drawer_header_background_solid)
 
         headerView.onAccountHeaderListener = { _, profile, _ ->
-            val account = (profile as ProfileDrawerItem).tag as Account
+            val account = (profile as FixedMarginProfileDrawerItem).tag as Account
             openedAccountUuid = account.uuid
             val eventHandled = !parent.openRealAccount(account)
             updateButtonBarVisibility(false)
@@ -262,7 +265,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
             val drawerColors = getDrawerColorsForAccount(account)
             val selectedTextColor = drawerColors.accentColor.toSelectedColorStateList()
 
-            val accountItem = ProfileDrawerItem().apply {
+            val accountItem = FixedMarginProfileDrawerItem().apply {
                 isNameShown = true
                 nameText = account.description ?: ""
                 descriptionText = account.email
@@ -271,7 +274,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 textColor = selectedTextColor
                 descriptionTextColor = selectedTextColor
                 selectedColorInt = drawerColors.selectedColor
-                icon = ImageHolder(createAccountImageUri(account))
+                icon = ImageHolder(R.drawable.ic_avatar)
                 buildBadgeText(displayAccount)?.let { text ->
                     badgeText = text
                     badgeStyle = BadgeStyle().apply {
@@ -367,13 +370,14 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         }
 
         folderList.unifiedInbox?.let { unifiedInbox ->
-            val unifiedInboxItem = PrimaryDrawerItem().apply {
+            val unifiedInboxItem = UnifiedInboxDrawerItem().apply {
                 iconRes = R.drawable.ic_inbox_multiple
                 identifier = DRAWER_ID_UNIFIED_INBOX
                 nameRes = R.string.integrated_inbox_title
                 selectedColorInt = selectedBackgroundColor
                 textColor = selectedTextColor
                 isSelected = unifiedInboxSelected
+                iconColor = selectedTextColor
                 buildBadgeText(unifiedInbox)?.let { text ->
                     badgeText = text
                     badgeStyle = folderBadgeStyle
@@ -401,9 +405,11 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 buildBadgeText(displayFolder)?.let { text ->
                     badgeText = text
                     badgeStyle = folderBadgeStyle
+
                 }
                 selectedColorInt = selectedBackgroundColor
                 textColor = selectedTextColor
+                iconColor = selectedTextColor
             }
 
             sliderView.addItems(drawerItem)
@@ -469,8 +475,8 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
             account.chipColor
         }
         return DrawerColors(
-            accentColor = baseColor,
-            selectedColor = baseColor.and(0xffffff).or(0x22000000)
+            accentColor = 0xFF000000.toInt(),
+            selectedColor = 0xFFD7D9DB.toInt()
         )
     }
 
@@ -562,4 +568,58 @@ private class FixedDividerDrawerItem(override var identifier: Long) : DividerDra
 private class FolderDrawerItem : PrimaryDrawerItem() {
     override val type: Int = R.id.drawer_list_folder_item
     override val layoutRes: Int = R.layout.drawer_folder_list_item
+
+    override var isIconTinted: Boolean = true
+
+    override fun applyDrawerItemTheme(
+        ctx: Context,
+        view: View,
+        selected_color: Int,
+        animate: Boolean,
+        shapeAppearanceModel: ShapeAppearanceModel
+    ) {
+        themeDrawerItem(
+            ctx,
+            view,
+            selected_color,
+            animate,
+            shapeAppearanceModel,
+            paddingTopBottomRes = R.dimen.drawer_item_padding_top_bottom,
+            paddingEndRes = R.dimen.drawer_item_padding_start_end,
+            paddingStartRes = R.dimen.drawer_item_padding_start_end,
+            isSelected = isSelected
+        )
+    }
+}
+
+private class UnifiedInboxDrawerItem : PrimaryDrawerItem() {
+
+    override val layoutRes = R.layout.drawer_unified_folder_list_item
+
+    override var isIconTinted: Boolean = true
+
+    override fun applyDrawerItemTheme(
+        ctx: Context,
+        view: View,
+        selected_color: Int,
+        animate: Boolean,
+        shapeAppearanceModel: ShapeAppearanceModel
+    ) {
+        themeDrawerItem(
+            ctx,
+            view,
+            selected_color,
+            animate,
+            shapeAppearanceModel,
+            paddingTopBottomRes = R.dimen.drawer_item_padding_top_bottom,
+            paddingEndRes = R.dimen.drawer_item_padding_start_end,
+            paddingStartRes = R.dimen.drawer_item_padding_start_end,
+            isSelected = isSelected
+        )
+    }
+}
+
+private class FixedMarginProfileDrawerItem: ProfileDrawerItem() {
+
+    override val layoutRes = R.layout.drawer_profile_list_item
 }
