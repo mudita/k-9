@@ -630,7 +630,7 @@ class AccountPreferenceSerializer(
         const val IDENTITY_EMAIL_KEY = "email"
         const val IDENTITY_DESCRIPTION_KEY = "description"
 
-        const val FALLBACK_ACCOUNT_COLOR = 0x0099CC
+        const val FALLBACK_ACCOUNT_COLOR = 0xEBEBEB
 
         @JvmField
         val DEFAULT_MESSAGE_FORMAT = MessageFormat.HTML
