@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">حساب‌های K-9</string>
-  <string name="unread_widget_label">نخوانده‌های K-9</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">حساب‌های Mudita</string>
+  <string name="unread_widget_label">نخوانده‌های Mudita</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">The K-9 Dog Walkers</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_authors">The Mudita Dog Walkers</string>
+  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">کد منبع</string>
   <string name="app_license">مجوز آپاچی، نسخهٔ ۲٫۰</string>
   <string name="about_project_title">پروژهٔ متن‌باز</string>
@@ -28,7 +28,7 @@
   <string name="welcome_message_title">به «کِی‌ناین میل» خوش آمدید</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-‏K-9 Mail برنامه‌ای رایگان برای مدیریت رایانامه در اندروید است.
+‏Mudita Mail برنامه‌ای رایگان برای مدیریت رایانامه در اندروید است.
 </p><p>
 برخی از قابلیت‌های بهبودیافتهٔ آن:
 </p>
@@ -49,16 +49,16 @@
   <li>و خیلی قابلیت‌های دیگر...</li>
 </ul>
 <p>
-لطفاً توجه کنید که K-9، مانند بسیاری از برنامه‌های مدیریت رایانامه، از بیشتر حساب‌های رایگان Hotmail پشتیبانی نمی‌کند و هنگام برقراری ارتباط‌ با Microsoft Exchange مشکلاتی وجود دارد.
+لطفاً توجه کنید که Mudita، مانند بسیاری از برنامه‌های مدیریت رایانامه، از بیشتر حساب‌های رایگان Hotmail پشتیبانی نمی‌کند و هنگام برقراری ارتباط‌ با Microsoft Exchange مشکلاتی وجود دارد.
 </p><p>
 لطفاً گزارش‌های خطا، همکاری برای قابلیت جدید و پرسش‌هایتان را در اینجا مطرح کنید:
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nاز دستگاه اندرویدی‌ام و به‌وسیلهٔ K-9 Mail ارسال شد.</string>
+  <string name="default_signature">-- \nاز دستگاه اندرویدی‌ام و به‌وسیلهٔ Mudita Mail ارسال شد.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">حساب «<xliff:g id="account">%s</xliff:g>» از K-9 Mail حذف خواهد شد.</string>
+  <string name="account_delete_dlg_instructions_fmt">حساب «<xliff:g id="account">%s</xliff:g>» از Mudita Mail حذف خواهد شد.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">سازندگان</string>
   <string name="app_revision">اطلاعات نسخه‌ها</string>
@@ -66,7 +66,7 @@
   <string name="read_messages_desc">به این برنامه اجازه می‌دهد رایانامه‌های شما را بخواند.</string>
   <string name="delete_messages_label">پاک‌کردن رایانامه‌ها</string>
   <string name="delete_messages_desc">به این برنامه اجازه می‌دهد رایانامه‌های شما را پاک کند.</string>
-  <string name="about_title">دربارهٔ K-9 Mail</string>
+  <string name="about_title">دربارهٔ Mudita Mail</string>
   <string name="accounts_title">حساب‌ها</string>
   <string name="folders_title">پوشه‌ها</string>
   <string name="advanced">پیشرفته</string>
@@ -272,7 +272,7 @@
   <string name="global_settings_confirm_menu_mark_all_read">همهٔ پیام‌ها خوانده شد</string>
   <string name="global_settings_confirm_action_delete_notif">حذف (از اعلان)</string>
   <string name="global_settings_privacy_hide_useragent">کارخواه رایانامه را مخفی کن</string>
-  <string name="global_settings_privacy_hide_useragent_detail">شناسهٔ K-9 User-Agent را از سرایند رایانامه‌ها بردار</string>
+  <string name="global_settings_privacy_hide_useragent_detail">شناسهٔ Mudita User-Agent را از سرایند رایانامه‌ها بردار</string>
   <string name="global_settings_privacy_hide_timezone">منطقهٔ زمانی را مخفی کن</string>
   <string name="global_settings_privacy_hide_timezone_detail">در سرایند رایانامه و سرایند پاسخ به‌جای زمان محلی از UTC استفاده کن</string>
   <string name="global_settings_notification_quick_delete_title">نمایش دکمهٔ «حذف»</string>
@@ -987,7 +987,7 @@
   <string name="unsigned_text_divider_label">متن امضانشده</string>
   <string name="apg_deprecated_title">هشدار وَرافتادگی APG</string>
   <string name="apg_deprecated_1">دیگر کسی APG را توسعه نمی‌دهد!</string>
-  <string name="apg_deprecated_2">بر این اساس، K-9 Mail به پشتیبانی از APG پایان داده است.</string>
+  <string name="apg_deprecated_2">بر این اساس، Mudita Mail به پشتیبانی از APG پایان داده است.</string>
   <string name="apg_deprecated_bullet_1">توسعهٔ آن در اوایل سال ۲۰۱۴ متوقف شد</string>
   <string name="apg_deprecated_bullet_2">مشکلات امنتی حل‌نشده‌ای دارد</string>
   <string name="apg_learn_more">برای اطلاعات بیشتر <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">اینجا کلیک کنید</a>.</string>
@@ -996,7 +996,7 @@
   <string name="crypto_no_provider_title">این رایانامه رمزنگاری شده است</string>
   <string name="crypto_no_provider_message">این رایانامه با OpenPGP رمزنگاری شده است.\nبرای خواندن آن، باید برنامه‌ای سازگار با OpenPGP را نصب و پیکربندی کنید.</string>
   <string name="crypto_no_provider_button">برو به تنظیمات</string>
-  <string name="mail_list_widget_text">لیست پیام K-9</string>
+  <string name="mail_list_widget_text">لیست پیام Mudita</string>
   <string name="mail_list_widget_loading">بارگیری پیام‌ها...</string>
   <string name="fetching_folders_failed">واکشی لیست پوشه ناموفق بود</string>
   <string name="error_recipient_crypto_retrieve">هنگام بازیابی وضعیت گیرنده از فراهم‌ساز OpenPGP خطایی رخ داد!</string>
@@ -1019,7 +1019,7 @@
   <string name="general_settings_title">تنظیمات کلی</string>
   <string name="dialog_openkeychain_info_title">برنامه‌ای برای OpenPGP نصب نیست</string>
   <string name="dialog_openkeychain_info_install">نصب</string>
-  <string name="dialog_openkeychain_info_text">‏K-9 Mail برای رمزنگاری سرتاسر به OpenKeychain نیاز دارد.</string>
+  <string name="dialog_openkeychain_info_text">‏Mudita Mail برای رمزنگاری سرتاسر به OpenKeychain نیاز دارد.</string>
   <string name="encrypted_subject">پیام رمزنگاری‌شده</string>
   <string name="account_settings_crypto_encrypt_subject">موضوع پیام رمزنگاری شود</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">شاید برخی گیرندگان از آن پشتیبانی نکنند</string>
@@ -1057,7 +1057,7 @@
   <string name="push_notification_state_wait_network">می‌خوابد تا هنگامی که شبکه در دسترس باشد</string>
   <string name="push_notification_info">لمس کنید تا بیشتر بدانید.</string>
   <string name="push_info_title">اطلاعات پیشرانی</string>
-  <string name="push_info_notification_explanation_text">هنگام استفاده از پیشرانی، K-9 Mail اتصالی به کارساز رایانامه برقرار می‌کند. اندروید نیاز دارد هنگامی که برنامه‌ای در پس‌زمینه فعال است اعلان مداومی را نشان دهد. %s</string>
+  <string name="push_info_notification_explanation_text">هنگام استفاده از پیشرانی، Mudita Mail اتصالی به کارساز رایانامه برقرار می‌کند. اندروید نیاز دارد هنگامی که برنامه‌ای در پس‌زمینه فعال است اعلان مداومی را نشان دهد. %s</string>
   <string name="push_info_configure_notification_text">البته اندروید این امکان را به شما می‌دهد که اعلان را پنهان کنید.</string>
   <string name="push_info_learn_more_text">بیشتر بدانید</string>
   <string name="push_info_configure_notification_action">پیکربندی اعلان</string>

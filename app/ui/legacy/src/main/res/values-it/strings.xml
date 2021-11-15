@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">Account di K-9</string>
-  <string name="unread_widget_label">K-9 Nuovi messaggi</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">Account di Mudita</string>
+  <string name="unread_widget_label">Mudita Nuovi messaggi</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">The K-9 Dog Walkers</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_authors">The Mudita Dog Walkers</string>
+  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">Codice sorgente</string>
   <string name="app_license">Apache License, Versione 2.0</string>
   <string name="about_project_title">Progetto Open Source</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Mostra le modifiche recenti quando l\'applicazione è stata aggiornata</string>
   <string name="changelog_snackbar_text">Scopri le novità di questa versione </string>
   <!--Welcome message-->
-  <string name="welcome_message_title">Benvenuto in K-9 Mail</string>
+  <string name="welcome_message_title">Benvenuto in Mudita Mail</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail è un potente client di posta libero e gratuito per Android.
+Mudita Mail è un potente client di posta libero e gratuito per Android.
 </p><p>
 Le sue funzioni migliorate includono:
 </p>
@@ -49,7 +49,7 @@ Le sue funzioni migliorate includono:
   <li>…e altro</li>
 </ul>
 <p>
-Nota che K-9 non supporta la maggior parte degli account gratuiti Hotmail e, come molti altri client di posta, ha
+Nota che Mudita non supporta la maggior parte degli account gratuiti Hotmail e, come molti altri client di posta, ha
 qualche problema quando dialoga con Microsoft Exchange.
 </p><p>
 Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande su
@@ -57,9 +57,9 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nInviato dal mio dispositivo Android con K-9 Mail. Perdonate la brevità.</string>
+  <string name="default_signature">-- \nInviato dal mio dispositivo Android con Mudita Mail. Perdonate la brevità.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">L\'account \"<xliff:g id="account">%s</xliff:g>\" sarà rimosso da K-9 Mail.</string>
+  <string name="account_delete_dlg_instructions_fmt">L\'account \"<xliff:g id="account">%s</xliff:g>\" sarà rimosso da Mudita Mail.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Autori</string>
   <string name="app_revision">Informazioni di revisione</string>
@@ -67,7 +67,7 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
   <string name="read_messages_desc">Consenti all\'applicazione di leggere i messaggi.</string>
   <string name="delete_messages_label">Elimina messaggi</string>
   <string name="delete_messages_desc">Permetti all\'applicazione di eliminare i messaggi.</string>
-  <string name="about_title">Informazioni su K-9 Mail</string>
+  <string name="about_title">Informazioni su Mudita Mail</string>
   <string name="accounts_title">Account</string>
   <string name="folders_title">Cartelle</string>
   <string name="advanced">Avanzate</string>
@@ -273,7 +273,7 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
   <string name="global_settings_confirm_menu_mark_all_read">Marca tutti i messaggi come letti</string>
   <string name="global_settings_confirm_action_delete_notif">Elimina (da notifica)</string>
   <string name="global_settings_privacy_hide_useragent">Nascondi User-Agent</string>
-  <string name="global_settings_privacy_hide_useragent_detail">Rimuove lo User-Agent di K-9 dalle intestazioni dei messaggi</string>
+  <string name="global_settings_privacy_hide_useragent_detail">Rimuove lo User-Agent di Mudita dalle intestazioni dei messaggi</string>
   <string name="global_settings_privacy_hide_timezone">Nascondi fuso orario</string>
   <string name="global_settings_privacy_hide_timezone_detail">Usa UTC invece del fuso orario locale nelle intestazioni dei messaggi e nell\'intestazione delle risposte</string>
   <string name="global_settings_notification_quick_delete_title">Mostra il pulsante \'Elimina\'</string>
@@ -985,7 +985,7 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
   <string name="unsigned_text_divider_label">Testo non firmato</string>
   <string name="apg_deprecated_title">Avviso di disapprovazione di APG</string>
   <string name="apg_deprecated_1">APG non è più mantenuto!</string>
-  <string name="apg_deprecated_2">Per questo motivo, il supporto di APG è stato rimosso da K-9 Mail.</string>
+  <string name="apg_deprecated_2">Per questo motivo, il supporto di APG è stato rimosso da Mudita Mail.</string>
   <string name="apg_deprecated_bullet_1">Sviluppo interrotto all\'inizio del 2014</string>
   <string name="apg_deprecated_bullet_2">Contiene problemi di sicurezza non corretti</string>
   <string name="apg_learn_more">Puoi fare <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">clic qui</a> per ulteriori informazioni.</string>
@@ -994,7 +994,7 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
   <string name="crypto_no_provider_title">Questo messaggio è cifrato</string>
   <string name="crypto_no_provider_message">Questo messaggio è stato cifrato con OpenPGP.\nPer leggerlo, devi installare e configurare un\'applicazione compatibile con OpenPGP.</string>
   <string name="crypto_no_provider_button">Vai alle impostazioni</string>
-  <string name="mail_list_widget_text">Elenco messaggi di K-9</string>
+  <string name="mail_list_widget_text">Elenco messaggi di Mudita</string>
   <string name="mail_list_widget_loading">Caricamento messaggi…</string>
   <string name="fetching_folders_failed">Recupero elenco cartelle non riuscito</string>
   <string name="error_recipient_crypto_retrieve">Errore durante il recupero dello stato del destinatario dal fornitore OpenPGP!</string>
@@ -1017,7 +1017,7 @@ Invia segnalazioni di bug, contribuisci con nuove funzionalità e poni domande s
   <string name="general_settings_title">Impostazioni generali</string>
   <string name="dialog_openkeychain_info_title">Nessuna applicazione OpenPGP installata</string>
   <string name="dialog_openkeychain_info_install">Installa</string>
-  <string name="dialog_openkeychain_info_text">K-9 Mail richiede OpenKeychain la cifratura end-to-end.</string>
+  <string name="dialog_openkeychain_info_text">Mudita Mail richiede OpenKeychain la cifratura end-to-end.</string>
   <string name="encrypted_subject">Messaggio cifrato</string>
   <string name="account_settings_crypto_encrypt_subject">Cifra l\'oggetto dei messaggi</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Potrebbe non essere supportato da alcuni destinatari</string>
@@ -1055,7 +1055,7 @@ Puoi conservare questo messaggio e utilizza come una copia di sicurezza della tu
   <string name="push_notification_state_wait_network">Inattivo fino a quando la rete non sarà disponibile</string>
   <string name="push_notification_info">Tocca per saperne di più.</string>
   <string name="push_info_title">Push Info</string>
-  <string name="push_info_notification_explanation_text">Quando si utilizza Push, K-9 Mail mantiene una connessione al server di posta. Android richiede la visualizzazione di una notifica in corso mentre l\'applicazione è attiva in background. %s</string>
+  <string name="push_info_notification_explanation_text">Quando si utilizza Push, Mudita Mail mantiene una connessione al server di posta. Android richiede la visualizzazione di una notifica in corso mentre l\'applicazione è attiva in background. %s</string>
   <string name="push_info_configure_notification_text">Tuttavia, Android ti consente anche di nascondere la notifica.</string>
   <string name="push_info_learn_more_text">Per saperne di più</string>
   <string name="push_info_configure_notification_action">Configura notifica</string>

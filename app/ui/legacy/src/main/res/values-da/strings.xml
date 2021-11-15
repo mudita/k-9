@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">K-9 konti</string>
-  <string name="unread_widget_label">K-9 ulæst</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">Mudita konti</string>
+  <string name="unread_widget_label">Mudita ulæst</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">The K-9 Dog Walkers</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Visse dele Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_authors">The Mudita Dog Walkers</string>
+  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Visse dele Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">Kildekode</string>
   <string name="app_license">Apache licens, version 2.0</string>
   <string name="about_project_title">Opensource Projekt</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Vis ændringer efter opdatering</string>
   <string name="changelog_snackbar_text">Find ud af hvad der er nyt i denne version</string>
   <!--Welcome message-->
-  <string name="welcome_message_title">Velkommen til K-9 Mail</string>
+  <string name="welcome_message_title">Velkommen til Mudita Mail</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail er en slagkraftig gratis mail-klient til Android.
+Mudita Mail er en slagkraftig gratis mail-klient til Android.
 </p><p>
 Dens forbedrede funktioner omfatter:
 </p>
@@ -49,7 +49,7 @@ Dens forbedrede funktioner omfatter:
   <li>…og mere</li>
 </ul>
 <p>
-Bemærk, at K-9 ikke understøtter de fleste gratis Hotmail-konti, og ligesom mange mail-klienter, har nogle uhensigtsmæssigheder, når den kommunikerer med Microsoft Exchange.
+Bemærk, at Mudita ikke understøtter de fleste gratis Hotmail-konti, og ligesom mange mail-klienter, har nogle uhensigtsmæssigheder, når den kommunikerer med Microsoft Exchange.
 </p><p>
 Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
@@ -58,7 +58,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <!--Default signature-->
   <string name="default_signature">-- \nDette er sendt fra min mobiltelefon. Undskyld at jeg fatter mig i korthed.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">Kontoen  \"<xliff:g id="account">%s</xliff:g>\" vil blive fjernet fra K-9 Mail.</string>
+  <string name="account_delete_dlg_instructions_fmt">Kontoen  \"<xliff:g id="account">%s</xliff:g>\" vil blive fjernet fra Mudita Mail.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Forfattere</string>
   <string name="app_revision">Revision information</string>
@@ -66,7 +66,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <string name="read_messages_desc">Tillad dette program at læse dine mails.</string>
   <string name="delete_messages_label">Slet mails</string>
   <string name="delete_messages_desc">Tillad dette program at slette dine mails.</string>
-  <string name="about_title">Om K-9 Mail</string>
+  <string name="about_title">Om Mudita Mail</string>
   <string name="accounts_title">Konti</string>
   <string name="folders_title">Mapper</string>
   <string name="advanced">Avanceret</string>
@@ -271,7 +271,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <string name="global_settings_confirm_menu_mark_all_read">Marker alle meddelelser som læst</string>
   <string name="global_settings_confirm_action_delete_notif">Slet (fra beskedbjælke)</string>
   <string name="global_settings_privacy_hide_useragent">Skjul mail klient</string>
-  <string name="global_settings_privacy_hide_useragent_detail">Fjern K-9 Bruger-Agent fra mail headers</string>
+  <string name="global_settings_privacy_hide_useragent_detail">Fjern Mudita Bruger-Agent fra mail headers</string>
   <string name="global_settings_privacy_hide_timezone">Skjul tidszone</string>
   <string name="global_settings_privacy_hide_timezone_detail">Brug UTC som tidszone i mail headers og svar header</string>
   <string name="global_settings_notification_quick_delete_title">Vis \'Slet\' knap</string>
@@ -976,7 +976,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <string name="unsigned_text_divider_label">Ikke-signeret tekst</string>
   <string name="apg_deprecated_title">APG udfasningsadvarsel</string>
   <string name="apg_deprecated_1">APG er ikke længere vedligeholdt!</string>
-  <string name="apg_deprecated_2">Grundet dette, understøttelse af APG er blevet fjernet fra K-9 Mail.</string>
+  <string name="apg_deprecated_2">Grundet dette, understøttelse af APG er blevet fjernet fra Mudita Mail.</string>
   <string name="apg_deprecated_bullet_1">Udviklingen stoppede tidlig 2014</string>
   <string name="apg_deprecated_bullet_2">Indeholder ikke-rettede sikkerhedsfejl</string>
   <string name="apg_learn_more">Du kan <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">klikke her</a> for at lære mere.</string>
@@ -985,7 +985,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <string name="crypto_no_provider_title">Denne email er krypteret</string>
   <string name="crypto_no_provider_message">Denne email er krypteret med OpenPGP.\nFor at læse den skal du installere en kompatibel OpenPGP applikation.</string>
   <string name="crypto_no_provider_button">Gå til opsætning</string>
-  <string name="mail_list_widget_text">K-9 Meddelelsesliste</string>
+  <string name="mail_list_widget_text">Mudita Meddelelsesliste</string>
   <string name="mail_list_widget_loading">Indlæser meddelelser…</string>
   <string name="fetching_folders_failed">Hentning af mappeliste mislykkedes</string>
   <string name="error_recipient_crypto_retrieve">Fejl ved hentning af modtagerstatus fra OpenPGP-udbyder!</string>
@@ -1008,7 +1008,7 @@ Rapporter venligst fejl, forslag til nye funktioner eller stil spørgsmål på:
   <string name="general_settings_title">Generelt</string>
   <string name="dialog_openkeychain_info_title">Intet OpenPGP program installeret</string>
   <string name="dialog_openkeychain_info_install">Installere</string>
-  <string name="dialog_openkeychain_info_text">K-9 Mail kræver OpenKeychain for ende-til-ende kryptering.</string>
+  <string name="dialog_openkeychain_info_text">Mudita Mail kræver OpenKeychain for ende-til-ende kryptering.</string>
   <string name="encrypted_subject">Krypteret besked</string>
   <string name="account_settings_crypto_encrypt_subject">Kryptér besked emner</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Understøttes ikke af alle modtagere</string>
@@ -1046,7 +1046,7 @@ Beskeden kan beholdes og bruges som sikkerhedskopi til den hemmelige nøgle. Hvi
   <string name="push_notification_state_wait_network">I dvale indtil netværk er tilgængelig</string>
   <string name="push_notification_info">Tryk for at lære mere.</string>
   <string name="push_info_title">Skub handling</string>
-  <string name="push_info_notification_explanation_text">Når skub handling bruges, opretholder K-9 Mail en forbindelse til post server. Android kræver, at der vises en løbende påmindelse, når app er aktiv i baggrunden. %s</string>
+  <string name="push_info_notification_explanation_text">Når skub handling bruges, opretholder Mudita Mail en forbindelse til post server. Android kræver, at der vises en løbende påmindelse, når app er aktiv i baggrunden. %s</string>
   <string name="push_info_configure_notification_text">Android giver dog også mulighed for at skjule påmindelsen.</string>
   <string name="push_info_learn_more_text">Lær mere</string>
   <string name="push_info_configure_notification_action">Indstille påmindelse</string>

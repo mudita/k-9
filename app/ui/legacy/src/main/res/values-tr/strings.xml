@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Posta</string>
-  <string name="shortcuts_title">K-9 Hesaplar</string>
-  <string name="unread_widget_label">K-9 Okunmamış</string>
+  <string name="app_name">Mudita Posta</string>
+  <string name="shortcuts_title">Mudita Hesaplar</string>
+  <string name="unread_widget_label">Mudita Okunmamış</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">K-9 Köpek Gezdiricileri</string>
-  <string name="app_copyright_fmt">Telif Hakkı 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Portions Telif hakkı 2006-<xliff:g>%s</xliff:g> Android Açık Kaynak Projesi.</string>
+  <string name="app_authors">Mudita Köpek Gezdiricileri</string>
+  <string name="app_copyright_fmt">Telif Hakkı 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Telif hakkı 2006-<xliff:g>%s</xliff:g> Android Açık Kaynak Projesi.</string>
   <string name="source_code">Kaynak kodu</string>
   <string name="app_license">Apache Lisansı Uyarlama 2.0</string>
   <string name="about_project_title">Açık Kaynak Projesi</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Uygulama güncellendiğinde son değişiklikleri göster </string>
   <string name="changelog_snackbar_text">Bu sürümdeki yenilikleri öğrenin </string>
   <!--Welcome message-->
-  <string name="welcome_message_title">K-9 Posta\'ya Hoşgeldiniz</string>
+  <string name="welcome_message_title">Mudita Posta\'ya Hoşgeldiniz</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail Android için güçlü ve özgür bir eposta istemcisidir.
+Mudita Mail Android için güçlü ve özgür bir eposta istemcisidir.
 </p><p>
 Geliştirilmiş özellikler içerir:
 </p>
@@ -49,16 +49,16 @@ Geliştirilmiş özellikler içerir:
 <li>…ve daha fazlası</li>
 </ul>
 <p>
-Lütfen K-9\'un çoğu ücretsiz Hotmail hesabını desteklemediğini ve pekçok eposta istemcisi gibi
+Lütfen Mudita\'un çoğu ücretsiz Hotmail hesabını desteklemediğini ve pekçok eposta istemcisi gibi
 Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz.
 </p><p>Lütfen yeni özelliklere katkıda bulunmak ve soru sormak için hata raporu bildiriniz
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
 </p>
  ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nAndroid için K-9 Posta\'dan gönderildi. Lütfen bu kısa notumu mazur görün.</string>
+  <string name="default_signature">-- \nAndroid için Mudita Posta\'dan gönderildi. Lütfen bu kısa notumu mazur görün.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">Hesap \"<xliff:g id="account">%s</xliff:g>\" K-9 Mail\'den kaldırılacak.</string>
+  <string name="account_delete_dlg_instructions_fmt">Hesap \"<xliff:g id="account">%s</xliff:g>\" Mudita Mail\'den kaldırılacak.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Yapanlar</string>
   <string name="app_revision">Gözden Geçirme Bilgisi</string>
@@ -66,7 +66,7 @@ Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz
   <string name="read_messages_desc">Bu uygulamaya E-postalarınızı okumaya izin ver.</string>
   <string name="delete_messages_label">E-postaları sil</string>
   <string name="delete_messages_desc">Bu uygulamaya E-postalarınızı silmeye izin ver.</string>
-  <string name="about_title">K-9 Mail Hakkında</string>
+  <string name="about_title">Mudita Mail Hakkında</string>
   <string name="accounts_title">Hesaplar</string>
   <string name="folders_title">Klasörler</string>
   <string name="advanced">Gelişmiş</string>
@@ -271,7 +271,7 @@ Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz
   <string name="global_settings_confirm_menu_mark_all_read">Tüm iletileri okundu olarak işaretle</string>
   <string name="global_settings_confirm_action_delete_notif">Sil (bildirimden)</string>
   <string name="global_settings_privacy_hide_useragent">Posta istemcisini gizle</string>
-  <string name="global_settings_privacy_hide_useragent_detail">Posta başlığından K-9 Kullanıcı Aracısını kaldır</string>
+  <string name="global_settings_privacy_hide_useragent_detail">Posta başlığından Mudita Kullanıcı Aracısını kaldır</string>
   <string name="global_settings_privacy_hide_timezone">Zaman dilimini gizle</string>
   <string name="global_settings_privacy_hide_timezone_detail">Posta ve yanıt başlıklarında yerel zaman dilimi yerine UTC kullan</string>
   <string name="global_settings_notification_quick_delete_title">\'Sil\' butonunu göster</string>
@@ -984,7 +984,7 @@ Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz
   <string name="unsigned_text_divider_label">İmzasız Metin</string>
   <string name="apg_deprecated_title">APG Reddetme Uyarısı</string>
   <string name="apg_deprecated_1">APG artık sürdürülmüyor!</string>
-  <string name="apg_deprecated_2">Bu nedenle K-9 Mail\'den APG desteği kaldırıldı.</string>
+  <string name="apg_deprecated_2">Bu nedenle Mudita Mail\'den APG desteği kaldırıldı.</string>
   <string name="apg_deprecated_bullet_1">2014\'den önce geliştirilmesi durduruldu</string>
   <string name="apg_deprecated_bullet_2">Düzeltilmemiş güvenlik sorunları içerir</string>
   <string name="apg_learn_more">Daha fazlasını öğrenmek için <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">buraya tıkla</a> .</string>
@@ -993,7 +993,7 @@ Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz
   <string name="crypto_no_provider_title">Bu eposta şifreli</string>
   <string name="crypto_no_provider_message">Bu eposta OpenPGP ile şifrelendi. On okumak için uyumlu bir OpenPGP uygulaması kurup yapılandırmanız gerekir.</string>
   <string name="crypto_no_provider_button">Ayarlara Git</string>
-  <string name="mail_list_widget_text">K-9 İleti Listesi</string>
+  <string name="mail_list_widget_text">Mudita İleti Listesi</string>
   <string name="mail_list_widget_loading">İletiler Yükleniyor…</string>
   <string name="fetching_folders_failed">Klasör listesi alınırken başarısız oldu</string>
   <string name="error_recipient_crypto_retrieve">OpenPGP sağlayıcıdan alıcı durumu alınırken hata oluştu!</string>
@@ -1016,7 +1016,7 @@ Microsoft Exchange ile konuşurken bazı tuhaflıklar yaşadığını not ediniz
   <string name="general_settings_title">Genel Ayarlar</string>
   <string name="dialog_openkeychain_info_title">Kurulu OpenPGP uygulaması yok</string>
   <string name="dialog_openkeychain_info_install">Kur</string>
-  <string name="dialog_openkeychain_info_text">K-9 Maili uçtan uca şifreleme için OpenKeychain gerekir.</string>
+  <string name="dialog_openkeychain_info_text">Mudita Maili uçtan uca şifreleme için OpenKeychain gerekir.</string>
   <string name="encrypted_subject">Şifreli İleti</string>
   <string name="account_settings_crypto_encrypt_subject">İleti konularını şifrele</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Bazı alıcılar tarafından desteklenmeyebilir</string>

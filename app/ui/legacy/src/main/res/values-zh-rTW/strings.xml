@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">K-9 帳號</string>
-  <string name="unread_widget_label">K-9 未讀</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">Mudita 帳號</string>
+  <string name="unread_widget_label">Mudita 未讀</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">K-9 使用者</string>
-  <string name="app_copyright_fmt">版權所有 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_authors">Mudita 使用者</string>
+  <string name="app_copyright_fmt">版權所有 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">原始碼</string>
   <string name="app_license">Apache 授權條款， 版本 2.0</string>
   <string name="about_project_title">開放原始碼專案</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">顯示應用程式更新後的最新變更</string>
   <string name="changelog_snackbar_text">了解此版本的新增功能</string>
   <!--Welcome message-->
-  <string name="welcome_message_title">歡迎使用 K-9 Mail</string>
+  <string name="welcome_message_title">歡迎使用 Mudita Mail</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
+Mudita Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
 </p><p>
 其改進的功能包括：
 </p>
@@ -49,7 +49,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <li>…以及更多</li>
 </ul>
 <p>
-請注意 K-9 不支援大部分免費 Hotmail 帳號，而且和其他大部分郵件客戶端一樣，
+請注意 Mudita 不支援大部分免費 Hotmail 帳號，而且和其他大部分郵件客戶端一樣，
 在使用 Microsoft Exchange 協定時會有一些問題。
 </p><p>
 請到下述網址提交問題報告，新功能建議或者提問：
@@ -57,9 +57,9 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \n使用 K-9 Mail 寄送。來自我的 Android 裝置。</string>
+  <string name="default_signature">-- \n使用 Mudita Mail 寄送。來自我的 Android 裝置。</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">帳號「<xliff:g id="account">%s</xliff:g>」將從 K-9 Mail 中刪除。</string>
+  <string name="account_delete_dlg_instructions_fmt">帳號「<xliff:g id="account">%s</xliff:g>」將從 Mudita Mail 中刪除。</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">作者</string>
   <string name="app_revision">修訂資訊</string>
@@ -67,7 +67,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="read_messages_desc">允許該程式讀取郵件。</string>
   <string name="delete_messages_label">刪除郵件</string>
   <string name="delete_messages_desc">允許該程式刪除郵件。</string>
-  <string name="about_title">關於 K-9 Mail</string>
+  <string name="about_title">關於 Mudita Mail</string>
   <string name="accounts_title">帳號</string>
   <string name="folders_title">信件匣</string>
   <string name="advanced">進階</string>
@@ -270,7 +270,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="global_settings_confirm_menu_mark_all_read">全部標記為已讀</string>
   <string name="global_settings_confirm_action_delete_notif">刪除 (從通知欄)</string>
   <string name="global_settings_privacy_hide_useragent">隱藏郵件客戶端</string>
-  <string name="global_settings_privacy_hide_useragent_detail">從郵件標頭中移除 K-9 的 User-Agent</string>
+  <string name="global_settings_privacy_hide_useragent_detail">從郵件標頭中移除 Mudita 的 User-Agent</string>
   <string name="global_settings_privacy_hide_timezone">隱藏時區</string>
   <string name="global_settings_privacy_hide_timezone_detail">在郵件標頭及回覆標頭中使用 UTC 時間而不是本地時間</string>
   <string name="global_settings_notification_quick_delete_title">顯示「刪除」按鈕</string>
@@ -979,7 +979,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="unsigned_text_divider_label">未簽名文字</string>
   <string name="apg_deprecated_title">APG 棄用警告</string>
   <string name="apg_deprecated_1">APG 已停止維護！</string>
-  <string name="apg_deprecated_2">因此，K-9 Mail 移除了對 APG 的支援。</string>
+  <string name="apg_deprecated_2">因此，Mudita Mail 移除了對 APG 的支援。</string>
   <string name="apg_deprecated_bullet_1">開發於 2014 年初停止</string>
   <string name="apg_deprecated_bullet_2">包括未修復的安全漏洞</string>
   <string name="apg_learn_more">你可以<a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">點擊這裡</a>了解更多。</string>
@@ -988,7 +988,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="crypto_no_provider_title">郵件已被加密</string>
   <string name="crypto_no_provider_message">這封郵件使用 OpenPGP 進行了加密。\n請安裝並設定一個相容 OpenPGP 的應用程式來查看郵件。</string>
   <string name="crypto_no_provider_button">前往設定</string>
-  <string name="mail_list_widget_text">K-9 訊息列表</string>
+  <string name="mail_list_widget_text">Mudita 訊息列表</string>
   <string name="mail_list_widget_loading">正在載入郵件…</string>
   <string name="fetching_folders_failed">收取信件匣列表失敗</string>
   <string name="error_recipient_crypto_retrieve">檢索支持 OpenPGP 的收件人狀態出錯！</string>
@@ -1011,7 +1011,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="general_settings_title">一般設定</string>
   <string name="dialog_openkeychain_info_title">未安裝 OpenPGP 應用程式</string>
   <string name="dialog_openkeychain_info_install">安裝</string>
-  <string name="dialog_openkeychain_info_text">K-9 Mail 需要 OpenKeychain 提供端到端加密。</string>
+  <string name="dialog_openkeychain_info_text">Mudita Mail 需要 OpenKeychain 提供端到端加密。</string>
   <string name="encrypted_subject">已加密的訊息。</string>
   <string name="account_settings_crypto_encrypt_subject">加密訊息主題</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">有些收件人可能不支援加密</string>
@@ -1049,7 +1049,7 @@ K-9 Mail 是 Android 上一款功能強大，免費的電子郵件用戶端。
   <string name="push_notification_state_wait_network">等待網路可用</string>
   <string name="push_notification_info">按一下了解更多</string>
   <string name="push_info_title">推送資訊</string>
-  <string name="push_info_notification_explanation_text">使用推送時，K-9 Mail 會保持與郵件伺服器的連線。當應用程式在背景執行時，Android 需要開啟顯示持續的通知的權限。%s</string>
+  <string name="push_info_notification_explanation_text">使用推送時，Mudita Mail 會保持與郵件伺服器的連線。當應用程式在背景執行時，Android 需要開啟顯示持續的通知的權限。%s</string>
   <string name="push_info_configure_notification_text">不過，Android 也允許你隱藏通知。</string>
   <string name="push_info_learn_more_text">了解更多</string>
   <string name="push_info_configure_notification_action">設定通知</string>
