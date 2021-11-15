@@ -33,7 +33,7 @@
         <item name="iconFolderArchive">@drawable/ic_archive</item>
         <item name="iconFolderDrafts">@drawable/ic_drafts_folder</item>
         <item name="iconFolderSent">@drawable/ic_send</item>
-        <item name="iconFolderSpam">@drawable/ic_alert_octagon</item>
+        <item name="iconFolderSpam">@drawable/ic_trash_can</item>
         <item name="iconFolderTrash">@drawable/ic_trash_can</item>
         <item name="iconActionAddAttachment">@drawable/ic_attachment</item>
         <item name="iconActionArchive">@drawable/ic_archive</item>
