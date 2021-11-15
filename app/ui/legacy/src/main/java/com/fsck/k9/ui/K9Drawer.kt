@@ -405,7 +405,6 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
                 buildBadgeText(displayFolder)?.let { text ->
                     badgeText = text
                     badgeStyle = folderBadgeStyle
-
                 }
                 selectedColorInt = selectedBackgroundColor
                 textColor = selectedTextColor
@@ -619,7 +618,7 @@ private class UnifiedInboxDrawerItem : PrimaryDrawerItem() {
     }
 }
 
-private class FixedMarginProfileDrawerItem: ProfileDrawerItem() {
+private class FixedMarginProfileDrawerItem : ProfileDrawerItem() {
 
     override val layoutRes = R.layout.drawer_profile_list_item
 }
