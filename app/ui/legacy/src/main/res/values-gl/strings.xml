@@ -7,7 +7,7 @@
   <string name="shortcuts_title">Contas Mudita</string>
   <string name="unread_widget_label">Mudita non lidos</string>
   <!--Used in the about dialog-->
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Porcións Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_copyright_fmt">Copyright 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Porcións Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <!--Welcome message-->
   <string name="welcome_message_title">Benvido/a a Mudita Mail</string>
   <string name="accounts_welcome"><![CDATA[

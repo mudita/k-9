@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita olvasatlan</string>
   <!--Used in the about dialog-->
   <string name="app_authors">The Mudita Dog Walkers</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Egyes részek: Copyright 2006-<xliff:g>%s</xliff:g>az Android Nyílt Forráskódú Projekt.</string>
+  <string name="app_copyright_fmt">Copyright 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Egyes részek: Copyright 2006-<xliff:g>%s</xliff:g>az Android Nyílt Forráskódú Projekt.</string>
   <string name="source_code">Forráskód</string>
   <string name="app_license">Apache licenc, 2.0-s verzió</string>
   <string name="about_project_title">Nyílt forráskódú projekt</string>

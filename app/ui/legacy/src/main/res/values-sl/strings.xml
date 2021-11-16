@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Neprebrano Mudita</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Sprehajalci psov v skupini The Mudita Dog Walkers</string>
-  <string name="app_copyright_fmt">Avtorske pravice 2008–<xliff:g>%s</xliff:g> The Mudita Dog Walkers in 2006–<xliff:g>%s</xliff:g> Odprtokodna skupnost projekta Android.</string>
+  <string name="app_copyright_fmt">Avtorske pravice 2021–<xliff:g>%s</xliff:g> The Mudita Dog Walkers in 2006–<xliff:g>%s</xliff:g> Odprtokodna skupnost projekta Android.</string>
   <string name="source_code">Izvorna koda</string>
   <string name="app_license">Licenca Apache, različica 2.0</string>
   <string name="about_project_title">Odprtokodni projekt</string>

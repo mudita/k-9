@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita non lus</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Les auteurs de Mudita (« The Mudita Dog Walkers »)</string>
-  <string name="app_copyright_fmt">Tous droits réservés 2008 à <xliff:g>%s</xliff:g> The Mudita Dog Walkers. Parties protégées par droits d’auteur 2006 à<xliff:g>%s</xliff:g> le projet à code source ouvert Android.</string>
+  <string name="app_copyright_fmt">Tous droits réservés 2021 à <xliff:g>%s</xliff:g> The Mudita Dog Walkers. Parties protégées par droits d’auteur 2006 à<xliff:g>%s</xliff:g> le projet à code source ouvert Android.</string>
   <string name="source_code">Code source</string>
   <string name="app_license">Licence Apache, Version 2.0</string>
   <string name="about_project_title">Projet à code source ouvert</string>

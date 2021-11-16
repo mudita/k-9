@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita Heb eu Darllen</string>
   <!--Used in the about dialog-->
   <string name="app_authors">The Mudita Dog Walkers</string>
-  <string name="app_copyright_fmt">Hawlfraint 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Hawlfraint Cyfrannau 2006-<xliff:g>%s</xliff:g> Android Open Source Project.</string>
+  <string name="app_copyright_fmt">Hawlfraint 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Hawlfraint Cyfrannau 2006-<xliff:g>%s</xliff:g> Android Open Source Project.</string>
   <string name="source_code">Cod ffynhonnell</string>
   <string name="app_license">Trwydded Apache, Fersiwn 2.0</string>
   <string name="about_project_title">Prosiect Cod Agored</string>

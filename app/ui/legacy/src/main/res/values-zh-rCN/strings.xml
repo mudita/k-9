@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita 未读</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Mudita 遛狗人</string>
-  <string name="app_copyright_fmt">Mudita 遛狗人 版权所有 2008-<xliff:g>%s</xliff:g> 。 部分版权归属 Android 开源项目 2006-<xliff:g>%s</xliff:g> 。</string>
+  <string name="app_copyright_fmt">Mudita 遛狗人 版权所有 2021-<xliff:g>%s</xliff:g> 。 部分版权归属 Android 开源项目 2006-<xliff:g>%s</xliff:g> 。</string>
   <string name="source_code">源代码</string>
   <string name="app_license">Apache许可证，2.0版</string>
   <string name="about_project_title">开源项目</string>

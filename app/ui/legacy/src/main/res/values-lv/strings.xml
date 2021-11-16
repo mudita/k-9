@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita Nelasīts</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Mudita Suņa Staigātāji</string>
-  <string name="app_copyright_fmt">Autortiesības 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Daļējas autortiesības 2006-<xliff:g>%s</xliff:g> Android atvērtā koda projekts.</string>
+  <string name="app_copyright_fmt">Autortiesības 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Daļējas autortiesības 2006-<xliff:g>%s</xliff:g> Android atvērtā koda projekts.</string>
   <string name="source_code">Avota kods</string>
   <string name="app_license">Apache licence, Versija 2.0</string>
   <string name="about_project_title">Atvērtā koda projekts</string>

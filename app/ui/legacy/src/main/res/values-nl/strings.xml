@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita Ongelezen</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Het Mudita ontwikkelingsteam</string>
-  <string name="app_copyright_fmt">Auteursrecht 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Voor gedeeltes geldt auteursrecht 2006-<xliff:g>%s</xliff:g> het Android Open Source Project.</string>
+  <string name="app_copyright_fmt">Auteursrecht 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Voor gedeeltes geldt auteursrecht 2006-<xliff:g>%s</xliff:g> het Android Open Source Project.</string>
   <string name="source_code">Broncode</string>
   <string name="app_license">Apache Licentie, versie 2.0</string>
   <string name="about_project_title">Openbroncode-project</string>

@@ -8,7 +8,7 @@
   <string name="unread_widget_label">رسائل Mudita غير المقروءة</string>
   <!--Used in the about dialog-->
   <string name="app_authors">فريق The Mudita Dog Walkers</string>
-  <string name="app_copyright_fmt">حقوق النشر محفوظة 2008 - <xliff:g>%s</xliff:g> The Mudita Dog Walkers. جزء من حقوق النشر محفوظة 2006 - <xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_copyright_fmt">حقوق النشر محفوظة 2021 - <xliff:g>%s</xliff:g> The Mudita Dog Walkers. جزء من حقوق النشر محفوظة 2006 - <xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">الكود المصدري</string>
   <string name="app_license">Apache License, Version 2.0</string>
   <string name="about_project_title">مشروع مفتوح المصدر</string>

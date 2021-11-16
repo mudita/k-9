@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita 未讀</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Mudita 使用者</string>
-  <string name="app_copyright_fmt">版權所有 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_copyright_fmt">版權所有 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Portions Copyright 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">原始碼</string>
   <string name="app_license">Apache 授權條款， 版本 2.0</string>
   <string name="about_project_title">開放原始碼專案</string>

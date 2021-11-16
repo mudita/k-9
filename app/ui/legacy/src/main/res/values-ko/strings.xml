@@ -7,7 +7,7 @@
   <string name="shortcuts_title">Mudita 계정</string>
   <string name="unread_widget_label">Mudita 읽지 않은 메일</string>
   <!--Used in the about dialog-->
-  <string name="app_copyright_fmt">저작권: 2008년 -<xliff:g>%s</xliff:g> The Mudita Dog Walkers. 일부의 저작권: 2006년-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_copyright_fmt">저작권: 2021년 -<xliff:g>%s</xliff:g> The Mudita Dog Walkers. 일부의 저작권: 2006년-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <!--Welcome message-->
   <string name="welcome_message_title">Mudita 메일을 사용하시게 된 것을 환영합니다</string>
   <!--Default signature-->

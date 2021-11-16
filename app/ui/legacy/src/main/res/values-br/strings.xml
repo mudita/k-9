@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita Anlennet</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Diorroerien Mudita</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> Ar valeerien Mudita Dog. Lodennoù Copyright 2006-<xliff:g>%s</xliff:g> and Android Open Source Project.</string>
+  <string name="app_copyright_fmt">Copyright 2021-<xliff:g>%s</xliff:g> Ar valeerien Mudita Dog. Lodennoù Copyright 2006-<xliff:g>%s</xliff:g> and Android Open Source Project.</string>
   <string name="app_license">Lañvaz Apache, Handelv 2.0</string>
   <string name="about_libraries">Levraouegoù</string>
   <string name="license">Lañvaz</string>

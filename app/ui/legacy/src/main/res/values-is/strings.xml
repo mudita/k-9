@@ -8,7 +8,7 @@
   <string name="unread_widget_label">Mudita - Ólesið</string>
   <!--Used in the about dialog-->
   <string name="app_authors">Mudita hundatemjararnir</string>
-  <string name="app_copyright_fmt">Höfundarréttur 2008-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Höfundarréttur að hluta 2006-<xliff:g>%s</xliff:g> til Android Open Source verkefnisins.</string>
+  <string name="app_copyright_fmt">Höfundarréttur 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Höfundarréttur að hluta 2006-<xliff:g>%s</xliff:g> til Android Open Source verkefnisins.</string>
   <string name="source_code">Grunnkóði</string>
   <string name="app_license">Apache notkunarleyfi, útgáfa 2.0</string>
   <string name="about_project_title">Verkefni með opnum grunnkóða</string>
