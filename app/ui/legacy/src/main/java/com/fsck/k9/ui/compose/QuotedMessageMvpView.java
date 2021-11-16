@@ -9,6 +9,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.fsck.k9.DI;
 import com.fsck.k9.FontSizes;
@@ -28,7 +29,7 @@ public class QuotedMessageMvpView {
     private final DisplayHtml displayHtml = DI.get(DisplayHtmlUiFactory.class).createForMessageCompose();
     private final WebViewConfigProvider webViewConfigProvider = DI.get(WebViewConfigProvider.class);
 
-    private final Button mQuotedTextShow;
+    private final ImageView mQuotedTextShow;
     private final View mQuotedTextBar;
     private final ImageButton mQuotedTextEdit;
     private final EditText mQuotedText;
