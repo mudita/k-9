@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">K-9 fiókok</string>
-  <string name="unread_widget_label">K-9 olvasatlan</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">Mudita fiókok</string>
+  <string name="unread_widget_label">Mudita olvasatlan</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">The K-9 Dog Walkers</string>
-  <string name="app_copyright_fmt">Copyright 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Egyes részek: Copyright 2006-<xliff:g>%s</xliff:g>az Android Nyílt Forráskódú Projekt.</string>
+  <string name="app_authors">The Mudita Dog Walkers</string>
+  <string name="app_copyright_fmt">Copyright 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Egyes részek: Copyright 2006-<xliff:g>%s</xliff:g>az Android Nyílt Forráskódú Projekt.</string>
   <string name="source_code">Forráskód</string>
   <string name="app_license">Apache licenc, 2.0-s verzió</string>
   <string name="about_project_title">Nyílt forráskódú projekt</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Friss változások megjelenítése az alkalmazás frissítésekor</string>
   <string name="changelog_snackbar_text">Tudja meg, hogy mik az újdonságok ebben a kiadásban</string>
   <!--Welcome message-->
-  <string name="welcome_message_title">Üdvözlet a K-9 Mail alkalmazásban.</string>
+  <string name="welcome_message_title">Üdvözlet a Mudita Mail alkalmazásban.</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-A K-9 Mail egy hatékony, ingyenes e-mail alkalmazás Androidra.
+A Mudita Mail egy hatékony, ingyenes e-mail alkalmazás Androidra.
 </p><p>
 Továbbfejlesztett funkciók:
 </p>
@@ -48,16 +48,16 @@ Továbbfejlesztett funkciók:
   <li>Üzenetek rendezése</li>
   <li>…és egyebek</li>
 </ul>
-<p>A K-9 nem támogatja a legtöbb Hotmail-fiókot, és sok e-mail alkalmazáshoz hasonlóan, vannak furcsaságok a Microsoft Exchange kezelésében.
+<p>A Mudita nem támogatja a legtöbb Hotmail-fiókot, és sok e-mail alkalmazáshoz hasonlóan, vannak furcsaságok a Microsoft Exchange kezelésében.
 </p><p>
 Hibajelentések beküldésével közreműködhet az új funkciókban, és kérdéseket tehet fel a
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a> webcímen.
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nAndroidos készülékről küldve K-9 Mail használatával. Elnézést a rövidségért.</string>
+  <string name="default_signature">-- \nAndroidos készülékről küldve Mudita Mail használatával. Elnézést a rövidségért.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">A(z) „<xliff:g id="account">%s</xliff:g>” fiók eltávolításra kerül a K-9 Mail alkalmazásból.</string>
+  <string name="account_delete_dlg_instructions_fmt">A(z) „<xliff:g id="account">%s</xliff:g>” fiók eltávolításra kerül a Mudita Mail alkalmazásból.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Szerzők</string>
   <string name="app_revision">Kiadási megjegyzések</string>
@@ -65,7 +65,7 @@ Hibajelentések beküldésével közreműködhet az új funkciókban, és kérd�
   <string name="read_messages_desc">Az alkalmazás olvashatja az emaileket.</string>
   <string name="delete_messages_label">E-mailek törlése</string>
   <string name="delete_messages_desc">Az alkalmazás törölheti ez e-maileket.</string>
-  <string name="about_title">A K-9 Mail névjegye</string>
+  <string name="about_title">A Mudita Mail névjegye</string>
   <string name="accounts_title">Fiókok</string>
   <string name="folders_title">Mappák</string>
   <string name="advanced">Bővített</string>
@@ -270,7 +270,7 @@ Hibajelentések beküldésével közreműködhet az új funkciókban, és kérd�
   <string name="global_settings_confirm_menu_mark_all_read">Összes üzenet megjelölése olvasottként</string>
   <string name="global_settings_confirm_action_delete_notif">Törlés (az értesítésekből)</string>
   <string name="global_settings_privacy_hide_useragent">Levelező alkalmazás elrejtése</string>
-  <string name="global_settings_privacy_hide_useragent_detail">A K-9 azonosító eltávolítása a levél fejlécéből</string>
+  <string name="global_settings_privacy_hide_useragent_detail">A Mudita azonosító eltávolítása a levél fejlécéből</string>
   <string name="global_settings_privacy_hide_timezone">Időzóna elrejtése</string>
   <string name="global_settings_privacy_hide_timezone_detail">UTC használata a helyi időzóna helyett a levelek fejlécében és a válasz fejlécében</string>
   <string name="global_settings_notification_quick_delete_title">„Törlés” gomb megjelenítése</string>
@@ -985,7 +985,7 @@ Hibajelentések beküldésével közreműködhet az új funkciókban, és kérd�
   <string name="unsigned_text_divider_label">Aláíratlan szöveg</string>
   <string name="apg_deprecated_title">APG elavultsági figyelmeztetés</string>
   <string name="apg_deprecated_1">Az APG többé nincs karbantartva!</string>
-  <string name="apg_deprecated_2">Emiatt az APG támogatás eltávolításra került a K-9 Mail alkalmazásból.</string>
+  <string name="apg_deprecated_2">Emiatt az APG támogatás eltávolításra került a Mudita Mail alkalmazásból.</string>
   <string name="apg_deprecated_bullet_1">A fejlesztés 2014 elején leállt</string>
   <string name="apg_deprecated_bullet_2">Javítatlan biztonsági hibákat tartalmaz</string>
   <string name="apg_learn_more"><a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">Kattintson ide</a>, ha többet szeretne megtudni.</string>
@@ -994,7 +994,7 @@ Hibajelentések beküldésével közreműködhet az új funkciókban, és kérd�
   <string name="crypto_no_provider_title">Ez az e-mail titkosított</string>
   <string name="crypto_no_provider_message">Az e-mail titkosítva lett OpenPGP használatával.\nAz elolvasásához egy megfelelő OpenPGP alkalmazást kell telepítenie és beállítania.</string>
   <string name="crypto_no_provider_button">Ugrás a beállításokhoz</string>
-  <string name="mail_list_widget_text">K-9 üzenetlista</string>
+  <string name="mail_list_widget_text">Mudita üzenetlista</string>
   <string name="mail_list_widget_loading">Üzenetek betöltése…</string>
   <string name="fetching_folders_failed">A mappalista lekérése sikertelen</string>
   <string name="error_recipient_crypto_retrieve">Hiba a címzettek állapotának lekérésekor az OpenPGP szolgáltatótól!</string>
@@ -1017,7 +1017,7 @@ Hibajelentések beküldésével közreműködhet az új funkciókban, és kérd�
   <string name="general_settings_title">Általános beállítások</string>
   <string name="dialog_openkeychain_info_title">Nincs OpenPGP alkalmazás telepítve</string>
   <string name="dialog_openkeychain_info_install">Telepítés</string>
-  <string name="dialog_openkeychain_info_text">A K-9 Mail az OpenKeychain alkalmazást igényli a végpontok közötti titkosításhoz.</string>
+  <string name="dialog_openkeychain_info_text">A Mudita Mail az OpenKeychain alkalmazást igényli a végpontok közötti titkosításhoz.</string>
   <string name="encrypted_subject">Titkosított üzenet</string>
   <string name="account_settings_crypto_encrypt_subject">Üzenet tárgyainak titkosítása</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Néhány címzett esetleg nem támogatja</string>
@@ -1055,7 +1055,7 @@ Megtarthatja ezt az üzenetet, és felhasználhatja a titkos kulcs biztonsági m
   <string name="push_notification_state_wait_network">Alvás addig, amíg a hálózat elérhetővé nem válik</string>
   <string name="push_notification_info">Koppintson ide a további tudnivalókért.</string>
   <string name="push_info_title">Leküldési információk</string>
-  <string name="push_info_notification_explanation_text">Amikor leküldést használ, a K-9 Mail egy kapcsolatot tart fenn a levelezőkiszolgálóval. Az Android megköveteli, hogy értesítést jelenítsen meg az alkalmazás, ha aktív a háttérben. %s</string>
+  <string name="push_info_notification_explanation_text">Amikor leküldést használ, a Mudita Mail egy kapcsolatot tart fenn a levelezőkiszolgálóval. Az Android megköveteli, hogy értesítést jelenítsen meg az alkalmazás, ha aktív a háttérben. %s</string>
   <string name="push_info_configure_notification_text">Viszont az Android azt is lehetővé teszi, hogy elrejtse az értesítést.</string>
   <string name="push_info_learn_more_text">További tudnivaló</string>
   <string name="push_info_configure_notification_action">Értesítés beállítása</string>

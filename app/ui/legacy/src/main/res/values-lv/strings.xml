@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Pasts</string>
-  <string name="shortcuts_title">K-9 Konti</string>
-  <string name="unread_widget_label">K-9 Nelasīts</string>
+  <string name="app_name">Mudita Pasts</string>
+  <string name="shortcuts_title">Mudita Konti</string>
+  <string name="unread_widget_label">Mudita Nelasīts</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">K-9 Suņa Staigātāji</string>
-  <string name="app_copyright_fmt">Autortiesības 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Daļējas autortiesības 2006-<xliff:g>%s</xliff:g> Android atvērtā koda projekts.</string>
+  <string name="app_authors">Mudita Suņa Staigātāji</string>
+  <string name="app_copyright_fmt">Autortiesības 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Daļējas autortiesības 2006-<xliff:g>%s</xliff:g> Android atvērtā koda projekts.</string>
   <string name="source_code">Avota kods</string>
   <string name="app_license">Apache licence, Versija 2.0</string>
   <string name="about_project_title">Atvērtā koda projekts</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Parādīt pēdējās izmaiņas kopš lietotnes atjaunošanas</string>
   <string name="changelog_snackbar_text">Uzzināt, kas jauns šajā versijā</string>
   <!--Welcome message-->
-  <string name="welcome_message_title">Laipni lūdzam K-9 Pastā</string>
+  <string name="welcome_message_title">Laipni lūdzam Mudita Pastā</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail ir spēcīga bezmaksas e-pasta programma Android operētājsistēmai.
+Mudita Mail ir spēcīga bezmaksas e-pasta programma Android operētājsistēmai.
 </p><p>
 Tās uzlaboto iespēju skaitā ir:
 </p>
@@ -49,16 +49,16 @@ Tās uzlaboto iespēju skaitā ir:
   <li>…un daudz kas cits</li>
 </ul>
 <p>
-Lūdzu, ņemiet vērā, kā K-9 neatbalsta lielāko daļu bezmaksas Hotmail kontu, un tāpat kā daudzām citām e-pasta programmām tai mēdz būt problēmas ar Microsoft Exchange.
+Lūdzu, ņemiet vērā, kā Mudita neatbalsta lielāko daļu bezmaksas Hotmail kontu, un tāpat kā daudzām citām e-pasta programmām tai mēdz būt problēmas ar Microsoft Exchange.
 </p><p>
 Lūdzu, iesniedziet kļūdu ziņojumus, ierosiniet jaunas iespējas un uzdodiet jautājumus
 <a href="https://github.com/k9mail/k-9/">https://github.com/k9mail/k-9/</a>.
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nNosūtīts ar K-9 Pastu no manas Android ierīces. Atvainojiet, ka esmu tik kodolīgs.</string>
+  <string name="default_signature">-- \nNosūtīts ar Mudita Pastu no manas Android ierīces. Atvainojiet, ka esmu tik kodolīgs.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">Konts \"<xliff:g id="account">%s</xliff:g>\" tiks noņemts no K-9 Pasta.</string>
+  <string name="account_delete_dlg_instructions_fmt">Konts \"<xliff:g id="account">%s</xliff:g>\" tiks noņemts no Mudita Pasta.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Autori</string>
   <string name="app_revision">Informācija par izmaiņām</string>
@@ -66,7 +66,7 @@ Lūdzu, iesniedziet kļūdu ziņojumus, ierosiniet jaunas iespējas un uzdodiet 
   <string name="read_messages_desc">Atļauj šai aplikācijai lasīt Jūsu e-pastus</string>
   <string name="delete_messages_label">Izdzēst e-pastus</string>
   <string name="delete_messages_desc">Atļauj šai aplikācijai izdzēst Jūsu e-pastus</string>
-  <string name="about_title">Par K-9 Pastu</string>
+  <string name="about_title">Par Mudita Pastu</string>
   <string name="accounts_title">Konti</string>
   <string name="folders_title">Mapes</string>
   <string name="advanced">Detalizētāk</string>
@@ -274,7 +274,7 @@ pat <xliff:g id="messages_to_load">%d</xliff:g> vairāk</string>
   <string name="global_settings_confirm_menu_mark_all_read">Atzīmēt visas vēstules kā izlasītas</string>
   <string name="global_settings_confirm_action_delete_notif">Dzēst (no paziņojuma)</string>
   <string name="global_settings_privacy_hide_useragent">Paslēpt pasta programmu</string>
-  <string name="global_settings_privacy_hide_useragent_detail">Noņemt K-9 lietotāju-aģentu no vēstules papildinformācijas</string>
+  <string name="global_settings_privacy_hide_useragent_detail">Noņemt Mudita lietotāju-aģentu no vēstules papildinformācijas</string>
   <string name="global_settings_privacy_hide_timezone">Paslēpt laika zonu</string>
   <string name="global_settings_privacy_hide_timezone_detail">Izmantot UTC laika zonu vēstules papildinformācijā</string>
   <string name="global_settings_notification_quick_delete_title">Rādīt \'Dzēst\' pogu</string>
@@ -992,7 +992,7 @@ pat <xliff:g id="messages_to_load">%d</xliff:g> vairāk</string>
   <string name="unsigned_text_divider_label">Neparakstīts teksts</string>
   <string name="apg_deprecated_title">APG koda brīdinājums</string>
   <string name="apg_deprecated_1">APG vairs netiek atbalstīts!</string>
-  <string name="apg_deprecated_2">Tāpēc APG atbalsts ir izņemts no K-9 Pasta.</string>
+  <string name="apg_deprecated_2">Tāpēc APG atbalsts ir izņemts no Mudita Pasta.</string>
   <string name="apg_deprecated_bullet_1">Izstrāde pārtraukta 2014. gada sākumā</string>
   <string name="apg_deprecated_bullet_2">Satur neatrisinātas drošības problēmas</string>
   <string name="apg_learn_more">Šeit <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">uzspiežot</a>, varat uzzināt vairāk.</string>
@@ -1001,7 +1001,7 @@ pat <xliff:g id="messages_to_load">%d</xliff:g> vairāk</string>
   <string name="crypto_no_provider_title">Vēstule ir šifrēta</string>
   <string name="crypto_no_provider_message">Šī vēstule ir šifrēta ar OpenPGP. Lai to apskatītos, jāinstalē un jāiestata saderīga OpenPGP lietotne</string>
   <string name="crypto_no_provider_button">Doties uz iestatījumiem</string>
-  <string name="mail_list_widget_text">K-9 Vēstuļu saraksts</string>
+  <string name="mail_list_widget_text">Mudita Vēstuļu saraksts</string>
   <string name="mail_list_widget_loading">Ielādē vēstules…</string>
   <string name="fetching_folders_failed">Neizdevās saņemt mapju sarakstu</string>
   <string name="error_recipient_crypto_retrieve">Kļūda, saņemot saņēmēja statusu no OpenPGP lietotnes!</string>
@@ -1024,7 +1024,7 @@ pat <xliff:g id="messages_to_load">%d</xliff:g> vairāk</string>
   <string name="general_settings_title">Vispārīgie iestatījumi</string>
   <string name="dialog_openkeychain_info_title">OpenPGP lietotne nav instalēta</string>
   <string name="dialog_openkeychain_info_install">Instalēt</string>
-  <string name="dialog_openkeychain_info_text">K-9 Pastam nepieciešama OpenKeychain, lai nodrošinātu privāto šifrēšanu.</string>
+  <string name="dialog_openkeychain_info_text">Mudita Pastam nepieciešama OpenKeychain, lai nodrošinātu privāto šifrēšanu.</string>
   <string name="encrypted_subject">Šifrēta vēstule</string>
   <string name="account_settings_crypto_encrypt_subject">Šifrēt vēstules tematus</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Daži saņēmēji var to neatpazīt</string>
@@ -1062,7 +1062,7 @@ Lai jaunajā ierīcē iestatītu automātisko šifrēšanu, lūdzu sekojiet nor�
   <string name="push_notification_state_wait_network">Snaust, kamēr pieejams tīkls</string>
   <string name="push_notification_info">Pieskarieties, lai uzzinātu vairāk.</string>
   <string name="push_info_title">Pārbaudes informācija</string>
-  <string name="push_info_notification_explanation_text">Kad tiek izmantota pārbaude, K-9 Pasts saglabā savienojumu ar e-pasta serveri. Android pieprasa parādīt paziņojumu, kad lietotne fonā ir aktīva. %s</string>
+  <string name="push_info_notification_explanation_text">Kad tiek izmantota pārbaude, Mudita Pasts saglabā savienojumu ar e-pasta serveri. Android pieprasa parādīt paziņojumu, kad lietotne fonā ir aktīva. %s</string>
   <string name="push_info_configure_notification_text">Taču Android arī ļauj paslēpt paziņojumu.</string>
   <string name="push_info_learn_more_text">Uzzināt vairāk</string>
   <string name="push_info_configure_notification_action">Iestatīt paziņojumu</string>
