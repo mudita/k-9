@@ -39,7 +39,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="@string/message_compose_subject_hint"
                 android:imeOptions="actionNext|flagNoExtractUi"
                 android:inputType="textEmailSubject|textAutoCorrect|textCapSentences"
                 android:paddingTop="10dp"

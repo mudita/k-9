@@ -3,12 +3,12 @@
   <!--=== App-specific strings =============================================================-->
   <!--This should make it easier for forks to change the branding-->
   <!--Used in AndroidManifest.xml-->
-  <string name="app_name">K-9 Mail</string>
-  <string name="shortcuts_title">Облікові записи K-9 Mail</string>
-  <string name="unread_widget_label">K-9 Непрочитані</string>
+  <string name="app_name">Mudita Mail</string>
+  <string name="shortcuts_title">Облікові записи Mudita Mail</string>
+  <string name="unread_widget_label">Mudita Непрочитані</string>
   <!--Used in the about dialog-->
-  <string name="app_authors">The K-9 Dog Walkers</string>
-  <string name="app_copyright_fmt">Авторське право 2008-<xliff:g>%s</xliff:g> The K-9 Dog Walkers. Часткові авторські права 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
+  <string name="app_authors">The Mudita Dog Walkers</string>
+  <string name="app_copyright_fmt">Авторське право 2021-<xliff:g>%s</xliff:g> The Mudita Dog Walkers. Часткові авторські права 2006-<xliff:g>%s</xliff:g> the Android Open Source Project.</string>
   <string name="source_code">Програмний код</string>
   <string name="app_license">Ліцензія Apache версії 2.0</string>
   <string name="about_project_title">Проект з відкритим кодом</string>
@@ -25,10 +25,10 @@
   <string name="changelog_show_recent_changes">Показувати останні зміни при оновленні додатка</string>
   <string name="changelog_snackbar_text">Дізнатися, що нового у цьому релізі</string>
   <!--Welcome message-->
-  <string name="welcome_message_title">Ласкаво просимо до K-9 Mail</string>
+  <string name="welcome_message_title">Ласкаво просимо до Mudita Mail</string>
   <string name="accounts_welcome"><![CDATA[
 <p>
-K-9 Mail — це вільний клієнт електронної пошти для Android з багатьма можливостями.
+Mudita Mail — це вільний клієнт електронної пошти для Android з багатьма можливостями.
 </p><p>
 Його найкращі можливості:
 </p>
@@ -49,7 +49,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <li>…і більше</li>
 </ul>
 <p>
-Зверніть увагу, що K-9 не підтримує більшість безкоштовних облікових записів Hotmail, а також, як і багато поштових програм, виявляє
+Зверніть увагу, що Mudita не підтримує більшість безкоштовних облікових записів Hotmail, а також, як і багато поштових програм, виявляє
 деякі дивацтва при роботі з Microsoft Exchange.
 </p><p>
 Будь ласка, звітуйте про недоліки, пропонуйте нові можливості та задавайте запитання на
@@ -57,9 +57,9 @@ K-9 Mail — це вільний клієнт електронної пошти 
 </p>
     ]]></string>
   <!--Default signature-->
-  <string name="default_signature">-- \nВідправлено з мого Android-пристрою за допомогою додатка K-9 Mail. Вибачте за стислість.</string>
+  <string name="default_signature">-- \nВідправлено з мого Android-пристрою за допомогою додатка Mudita Mail. Вибачте за стислість.</string>
   <!--General strings that include the app name-->
-  <string name="account_delete_dlg_instructions_fmt">Обліковий запис \"<xliff:g id="account">%s</xliff:g>\" буде вилучено з K-9 Mail.</string>
+  <string name="account_delete_dlg_instructions_fmt">Обліковий запис \"<xliff:g id="account">%s</xliff:g>\" буде вилучено з Mudita Mail.</string>
   <!--=== General strings ==================================================================-->
   <string name="authors">Розробники</string>
   <string name="app_revision">Інформація про випуск</string>
@@ -67,7 +67,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="read_messages_desc">Дозволити цій програмі читати ваші електронні листи.</string>
   <string name="delete_messages_label">Видаляти електронні листи</string>
   <string name="delete_messages_desc">Дозволити цій програмі видаляти ваші електронні листи.</string>
-  <string name="about_title">Про K-9 Mail</string>
+  <string name="about_title">Про Mudita Mail</string>
   <string name="accounts_title">Облікові записи</string>
   <string name="folders_title">Теки</string>
   <string name="advanced">Додатково</string>
@@ -276,7 +276,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="global_settings_confirm_menu_mark_all_read">Позначити всі повідомлення як прочитані</string>
   <string name="global_settings_confirm_action_delete_notif">Видалити (зі сповіщення)</string>
   <string name="global_settings_privacy_hide_useragent">Приховати поштовий клієнт</string>
-  <string name="global_settings_privacy_hide_useragent_detail">Прибрати K-9 User-Agent з поштових заголовків</string>
+  <string name="global_settings_privacy_hide_useragent_detail">Прибрати Mudita User-Agent з поштових заголовків</string>
   <string name="global_settings_privacy_hide_timezone">Приховати часову зону</string>
   <string name="global_settings_privacy_hide_timezone_detail">Використовувати UTC замість місцевого часу в заголовках листів та відповідей</string>
   <string name="global_settings_notification_quick_delete_title">Показувати кнопку \"Видалити\"</string>
@@ -994,7 +994,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="unsigned_text_divider_label">Непідписаний Текст</string>
   <string name="apg_deprecated_title">Попередження про застарілість APG</string>
   <string name="apg_deprecated_1">APG більше не підтримується!</string>
-  <string name="apg_deprecated_2">Через це підтримку APG було видалено з K-9 Mail.</string>
+  <string name="apg_deprecated_2">Через це підтримку APG було видалено з Mudita Mail.</string>
   <string name="apg_deprecated_bullet_1">Розробка зупинена на початку 2014</string>
   <string name="apg_deprecated_bullet_2">Містить невиправлені проблеми з безпекою</string>
   <string name="apg_learn_more">Ви можете <a href="https://k9mail.github.io/2017/01/13/Why-APG-is-no-longer-supported.html">перейти сюди</a>, щоб дізнатися більше.</string>
@@ -1003,7 +1003,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="crypto_no_provider_title">Цей електронний лист зашифровано</string>
   <string name="crypto_no_provider_message">Цей електронний лист було зашифровано за допомогою OpenPGP.\nЩоб його прочитати, необхідно встановити та налаштувати сумісний OpenPGP-додаток.</string>
   <string name="crypto_no_provider_button">Перейти до Налаштувань</string>
-  <string name="mail_list_widget_text">K-9 Список повідомлень</string>
+  <string name="mail_list_widget_text">Mudita Список повідомлень</string>
   <string name="mail_list_widget_loading">Завантаження листів…</string>
   <string name="fetching_folders_failed">Не вдалося отримати список тек</string>
   <string name="error_recipient_crypto_retrieve">Не вдалося отримати статус адресата від провайдера OpenPGP.</string>
@@ -1026,7 +1026,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="general_settings_title">Загальні налаштування</string>
   <string name="dialog_openkeychain_info_title">Не встановлено додатка OpenPGP</string>
   <string name="dialog_openkeychain_info_install">Встановити</string>
-  <string name="dialog_openkeychain_info_text">K-9 Mail потребує OpenKeychain для наскрізного шифрування.</string>
+  <string name="dialog_openkeychain_info_text">Mudita Mail потребує OpenKeychain для наскрізного шифрування.</string>
   <string name="encrypted_subject">Зашифроване повідомлення</string>
   <string name="account_settings_crypto_encrypt_subject">Шифрувати теми повідомлень</string>
   <string name="account_settings_crypto_encrypt_subject_subtitle">Може не підтримуватися деякими адресатами</string>
@@ -1064,7 +1064,7 @@ K-9 Mail — це вільний клієнт електронної пошти 
   <string name="push_notification_state_wait_network">Очікування наявності мережі</string>
   <string name="push_notification_info">Натисніть, щоб дізнатися більше.</string>
   <string name="push_info_title">Інформація про сповіщення</string>
-  <string name="push_info_notification_explanation_text">Під час використання пуш-сповіщень, K-9 Mail використовує з\'єднання з поштовим сервером. Android\'у необхідно відображати сповіщення безперервно доки програма працює на фоні. %s</string>
+  <string name="push_info_notification_explanation_text">Під час використання пуш-сповіщень, Mudita Mail використовує з\'єднання з поштовим сервером. Android\'у необхідно відображати сповіщення безперервно доки програма працює на фоні. %s</string>
   <string name="push_info_configure_notification_text">Тим не менш, Android також дозволяє приховати сповіщення.</string>
   <string name="push_info_learn_more_text">Дізнатися більше</string>
   <string name="push_info_configure_notification_action">Налаштувати сповіщення</string>
