@@ -59,7 +59,6 @@
             style="@style/ComposeEditTextLarge"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="@null"
             android:gravity="top"
             android:hint="@string/message_compose_content_hint"
@@ -84,7 +83,6 @@
 
         <ImageView
             android:id="@+id/quoted_text_show"
-            style="@style/BaseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_more"
