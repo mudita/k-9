@@ -27,4 +27,6 @@
     <color name="message_details_divider_color">@color/grey_light</color>
     <color name="drawer_item_selected">#D7D9DB</color>
     <color name="transparent">#00000000</color>
+    <color name="light_theme_app_icon_tint">@color/black_pure</color>
+    <color name="light_theme_app_icon_tint_secondary">@color/grey_dark</color>
 </resources>
