@@ -117,7 +117,9 @@
     </style>
 
     <style name="BaseButton" parent="TextAppearance.AppCompat.Button">
-        <item name="background">@drawable/base_button_background</item>
+        <item name="android:background">@drawable/base_button_ripple_background</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
         <item name="android:textAppearance">@style/TextAppearance.K9.Medium</item>
         <item name="android:textColor">?colorAccent</item>
         <item name="android:minHeight">48dp</item>
