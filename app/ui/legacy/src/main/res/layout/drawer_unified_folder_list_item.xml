@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:layout_marginEnd="8dp"
-    android:paddingStart="16dp"
-    android:paddingLeft="16dp"
-    android:paddingEnd="@dimen/material_drawer_vertical_padding"
-    android:paddingRight="@dimen/material_drawer_vertical_padding">
+    android:paddingStart="8dp"
+    android:paddingLeft="8dp"
+    android:paddingEnd="8dp"
+    android:paddingRight="8dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/material_drawer_icon"
@@ -52,6 +52,7 @@
         android:singleLine="true"
         android:textDirection="anyRtl"
         android:textSize="@dimen/material_drawer_item_primary_description"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/material_drawer_barrier"
         app:layout_constraintStart_toEndOf="@id/material_drawer_icon"
