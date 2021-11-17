@@ -27,14 +27,17 @@
 
             <Button
                 android:id="@+id/show_pictures"
-                style="@style/BaseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginLeft="6dip"
+                android:layout_margin="16dp"
                 android:layout_marginTop="4dip"
-                android:layout_marginRight="6dip"
                 android:layout_marginBottom="4dip"
+                android:background="@color/transparent"
+                android:drawableStart="@drawable/ic_show_picture"
+                android:drawablePadding="4dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:text="@string/message_view_show_pictures_action"
                 android:visibility="gone"
                 tools:visibility="visible" />
@@ -89,12 +92,21 @@
 
     </com.fsck.k9.view.NonLockingScrollView>
 
-    <Button
-        android:id="@+id/download_remainder"
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/message_view_download_remainder"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:background="@color/white_pure"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/download_remainder"
+            style="@style/BaseButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/message_view_download_remainder"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </FrameLayout>
 
 </com.fsck.k9.ui.messageview.MessageTopView>
