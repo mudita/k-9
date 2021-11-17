@@ -91,6 +91,7 @@
         <attr name="tintColorBulletPointPositive" format="reference|color"/>
         <attr name="tintColorBulletPointNeutral" format="reference|color"/>
         <attr name="tintColorBulletPointNegative" format="reference|color"/>
+        <attr name="tintColorSecondary" format="color"/>
 
         <attr name="iconAboutVersion" format="reference"/>
         <attr name="iconAboutAuthors" format="reference"/>
