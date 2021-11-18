@@ -14,6 +14,7 @@
 
     <color name="material_drawer_profile_icon">#F9F9F9</color>
 
+    <color name="header_background">#F5F5F5</color>
     <color name="grey_light">#EBEBEB</color>
     <color name="grey_medium">#D7D9DB</color>
     <color name="grey_dark">#545A5E</color>
@@ -24,4 +25,6 @@
     <color name="base_button_clicked">#BCC0C3</color>
     <color name="compose_text_label">@color/grey_dark</color>
     <color name="message_details_divider_color">@color/grey_light</color>
+    <color name="drawer_item_selected">#D7D9DB</color>
+    <color name="transparent">#00000000</color>
 </resources>
