@@ -13,14 +13,19 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingTop="8dp">
+        android:background="?attr/messageViewBackgroundColor"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:background="?attr/messageViewBackgroundColor"
             android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="?android:attr/windowBackground" />
 
             <!-- Header area -->
             <include layout="@layout/message_view_header" />
@@ -33,7 +38,7 @@
                 android:layout_margin="16dp"
                 android:layout_marginTop="4dip"
                 android:layout_marginBottom="4dip"
-                android:background="@color/transparent"
+                android:background="@drawable/base_transparent_ripple_background"
                 android:drawableStart="@drawable/ic_show_picture"
                 android:drawablePadding="4dp"
                 android:paddingStart="16dp"
