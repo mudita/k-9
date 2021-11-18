@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="start"
@@ -34,7 +35,8 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/check_mail_action"
             android:padding="12dp"
-            android:src="?attr/iconActionRefresh" />
+            android:src="?attr/iconActionRefresh"
+            app:tint="?tintColorSecondary" />
 
         <ImageView
             android:id="@+id/drawer_button_refresh_all"
@@ -43,7 +45,8 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/check_all_mail_action"
             android:padding="12dp"
-            android:src="@drawable/ic_refresh_all" />
+            android:src="@drawable/ic_refresh_all"
+            app:tint="?tintColorSecondary" />
 
         <View
             android:layout_width="0dp"
@@ -54,11 +57,11 @@
             android:id="@+id/drawer_button_manage_folders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/folders_action"
             android:padding="12dp"
-            android:src="@drawable/ic_folder_manage" />
+            android:src="@drawable/ic_folder_manage"
+            app:tint="?tintColorSecondary" />
 
         <ImageView
             android:id="@+id/drawer_button_settings"
@@ -67,7 +70,8 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/preferences_action"
             android:padding="12dp"
-            android:src="?attr/iconActionSettings" />
+            android:src="?attr/iconActionSettings"
+            app:tint="?tintColorSecondary" />
     </LinearLayout>
 
 </LinearLayout>
