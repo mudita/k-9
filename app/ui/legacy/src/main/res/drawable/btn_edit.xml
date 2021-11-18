@@ -1,28 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-  
-          http://www.apache.org/licenses/LICENSE-2.0
-  
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_window_focused="false" android:state_enabled="true"
-        android:drawable="@drawable/btn_edit_normal" />
-    <item android:state_window_focused="false" android:state_enabled="false"
-        android:drawable="@drawable/btn_edit_disable" />
-    <item android:state_pressed="true"
-        android:drawable="@drawable/btn_edit_pressed" />
-    <item android:state_enabled="true" android:state_focused="true"
-        android:drawable="@drawable/btn_edit_selected" />
-    <item android:drawable="@drawable/btn_edit_normal" />
-</selector>
-
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="34dp"
+    android:height="34dp"
+    android:viewportWidth="34"
+    android:viewportHeight="34">
+  <path
+      android:strokeWidth="1"
+      android:pathData="M5,1L29,1A4,4 0,0 1,33 5L33,29A4,4 0,0 1,29 33L5,33A4,4 0,0 1,1 29L1,5A4,4 0,0 1,5 1z"
+      android:fillColor="#ffffff"
+      android:strokeColor="#EBEBEB"/>
+  <path
+      android:pathData="M19.06,14.02L19.98,14.94L10.92,24H10V23.08L19.06,14.02ZM22.66,8C22.41,8 22.15,8.1 21.96,8.29L20.13,10.12L23.88,13.87L25.71,12.04C26.1,11.65 26.1,11.02 25.71,10.63L23.37,8.29C23.17,8.09 22.92,8 22.66,8ZM19.06,11.19L8,22.25V26H11.75L22.81,14.94L19.06,11.19Z"
+      android:fillColor="#000000"/>
+</vector>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -58,7 +59,6 @@
             style="@style/ComposeEditTextLarge"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="@null"
             android:gravity="top"
             android:hint="@string/message_compose_content_hint"
@@ -81,46 +81,53 @@
             android:minLines="0"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <Button
+        <ImageView
             android:id="@+id/quoted_text_show"
-            style="@style/BaseButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="14dp"
-            android:padding="17.5dp"
+            android:src="@drawable/ic_more"
+            android:padding="20dp"
             android:text="@string/message_compose_show_quoted_text_action" />
 
         <!-- Quoted text bar -->
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/quoted_text_bar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/quoted_text"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:imeOptions="flagNoExtractUi"
                 android:inputType="textMultiLine|textAutoCorrect|textCapSentences"
                 android:minLines="3"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/quoted_text_buttons" />
 
             <com.fsck.k9.view.MessageWebView
                 android:id="@+id/quoted_html"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/quoted_text_buttons"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/quoted_text_buttons" />
 
             <LinearLayout
                 android:id="@+id/quoted_text_buttons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true">
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
                     android:id="@+id/quoted_text_edit"
@@ -134,12 +141,13 @@
                     android:id="@+id/quoted_text_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:background="@drawable/btn_dialog"
                     android:contentDescription="@string/message_compose_description_delete_quoted_text" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
             android:id="@+id/lower_signature"
