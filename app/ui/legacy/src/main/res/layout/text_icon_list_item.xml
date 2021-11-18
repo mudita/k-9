@@ -24,6 +24,7 @@
             android:layout_height="40dp"
             android:contentDescription="@string/account_settings_action"
             android:padding="8dp"
+            app:tint="?tintColorSecondary"
             app:srcCompat="?attr/iconActionSettings" />
 
         <TextView

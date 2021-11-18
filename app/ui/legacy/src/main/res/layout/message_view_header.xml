@@ -101,6 +101,7 @@
                             android:layout_width="32sp"
                             android:layout_height="32sp"
                             android:background="?attr/messageListAnswered"
+                            android:backgroundTint="?tintColorSecondary"
                             android:paddingRight="2dp" />
 
                         <View
@@ -108,6 +109,7 @@
                             android:layout_width="22sp"
                             android:layout_height="22sp"
                             android:background="?attr/messageListForwarded"
+                            android:backgroundTint="?tintColorSecondary"
                             android:paddingRight="4dp" />
 
                     </LinearLayout>
@@ -263,8 +265,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginStart="2dp"
                             android:background="?selectableItemBackground"
-                            app:srcCompat="?iconActionSingleMessageOptions" />
+                            app:srcCompat="?iconActionSingleMessageOptions"
+                            app:tint="?tintColorSecondary" />
 
                     </LinearLayout>
 
