@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,8 +13,8 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/settings_export_account_list_item"
-        tools:itemCount="3"/>
+        tools:itemCount="3"
+        tools:listitem="@layout/settings_export_account_list_item" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomBar"
@@ -29,12 +28,10 @@
 
         <Button
             android:id="@+id/exportButton"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/BaseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
+            android:layout_margin="16dp"
             android:enabled="false"
             android:text="@string/settings_export_button"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -43,12 +40,10 @@
 
         <Button
             android:id="@+id/shareButton"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/BaseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="4dp"
+            android:layout_margin="16dp"
             android:text="@string/settings_export_share_button"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +79,7 @@
             android:layout_marginBottom="8dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/buttonBarrier"
+            app:layout_constraintEnd_toStartOf="@+id/buttonBarrier"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Exporting…"
