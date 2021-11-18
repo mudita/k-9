@@ -48,7 +48,7 @@
 
     <style name="Widget.MaterialDrawerStyle.K9" parent="Widget.MaterialDrawerStyle">
         <item name="materialDrawerBackground">?android:colorBackground</item>
-        <item name="materialDrawerPrimaryText">?android:textColorPrimary</item>
+        <item name="materialDrawerPrimaryText">@color/grey_dark</item>
         <item name="materialDrawerPrimaryIcon">?android:textColorSecondary</item>
         <item name="materialDrawerSecondaryText">?android:textColorSecondary</item>
         <item name="materialDrawerSecondaryIcon">?android:textColorSecondary</item>
