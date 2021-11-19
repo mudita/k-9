@@ -154,6 +154,10 @@
             android:label="@string/edit_identity_title"/>
 
         <activity
+            android:name=".ui.setup.ui.MuditaMailSetupActivity"
+            android:configChanges="locale" />
+
+        <activity
             android:name=".ui.notification.DeleteConfirmationActivity"
             android:excludeFromRecents="true"
             android:launchMode="singleTop"
