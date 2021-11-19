@@ -15,6 +15,14 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinCoroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinCoroutines}"
 
+    implementation "androidx.activity:activity-compose:${versions.compose}"
+    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.foundation:foundation:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+    implementation "androidx.navigation:navigation-compose:${versions.composeNavigation}"
+    implementation "io.insert-koin:koin-androidx-compose:${versions.koin}"
+
     testImplementation project(':mail:testing')
     testImplementation project(':app:testing')
     testImplementation "org.robolectric:robolectric:${versions.robolectric}"
@@ -37,6 +45,14 @@ android {
     lintOptions {
         abortOnError false
         lintConfig file("$rootProject.projectDir/config/lint/lint.xml")
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.compose
     }
 
     compileOptions {
