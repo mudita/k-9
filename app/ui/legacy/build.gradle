@@ -4,7 +4,6 @@ apply plugin: 'org.jetbrains.kotlin.plugin.parcelize'
 
 dependencies {
     api project(":app:ui:base")
-    debugImplementation project(":app:ui:setup")
     implementation project(":app:core")
     implementation project(":app:autodiscovery:api")
     implementation project(":app:autodiscovery:providersxml")
