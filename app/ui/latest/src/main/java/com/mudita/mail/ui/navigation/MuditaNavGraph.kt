@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mudita.mail.ui.usecase.signIn.view.SignInScreen
+import org.koin.androidx.compose.get
 import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -23,7 +24,8 @@ fun MuditaMailNavGraph(
             SignInScreen(
                 getViewModel {
                     parametersOf(context)
-                }
+                },
+                get()
             )
         }
     }
