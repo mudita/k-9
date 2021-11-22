@@ -8,9 +8,7 @@ import com.mudita.mail.ui.navigation.MuditaMailNavGraph
 import com.mudita.mail.ui.theme.MuditaTheme
 
 @Composable
-fun MuditaMailApp(
-
-) {
+fun MuditaMailApp() {
     MuditaTheme {
         val navController = rememberNavController()
         val scaffoldState = rememberScaffoldState()

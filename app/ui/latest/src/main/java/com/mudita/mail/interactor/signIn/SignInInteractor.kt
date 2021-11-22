@@ -4,5 +4,5 @@ import com.mudita.mail.repository.providers.model.ProviderTile
 
 interface SignInInteractor {
 
-    fun getProviders() : List<ProviderTile>
+    fun getProviders(): List<ProviderTile>
 }
