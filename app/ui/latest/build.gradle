@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
 
+if (rootProject.testCoverage) {
+    apply plugin: 'jacoco'
+}
+
 dependencies {
     api project(":app:ui:base")
     implementation project(":app:core")
