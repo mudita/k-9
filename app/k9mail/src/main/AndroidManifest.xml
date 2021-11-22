@@ -154,7 +154,7 @@
             android:label="@string/edit_identity_title"/>
 
         <activity
-            android:name=".ui.setup.ui.MuditaMailSetupActivity"
+            android:name="com.mudita.mail.ui.MuditaMailSetupActivity"
             android:configChanges="locale" />
 
         <activity

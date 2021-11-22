@@ -49,7 +49,7 @@
 
     <activity
         android:id="@+id/muditaAddAccountScreen"
-        android:name="com.fsck.k9.ui.setup.ui.MuditaMailSetupActivity" />
+        android:name="com.mudita.mail.ui.MuditaMailSetupActivity" />
 
     <activity
         android:id="@+id/messageListScreen"

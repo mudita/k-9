@@ -9,7 +9,7 @@ import com.fsck.k9.external.MessageProvider
 import com.fsck.k9.ui.base.AppLanguageManager
 import com.fsck.k9.ui.base.ThemeManager
 import com.fsck.k9.ui.base.extensions.currentLocale
-import com.fsck.k9.ui.setup.composeUiModules
+import com.mudita.mail.composeUiModules
 import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
