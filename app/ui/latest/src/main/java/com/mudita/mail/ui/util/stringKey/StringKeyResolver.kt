@@ -27,7 +27,7 @@ private class StringKeyResolverImpl(private val context: Context) : StringKeyRes
     }
 }
 
-private fun stringKeyResolver(context: Context): StringKeyResolver = StringKeyResolverImpl(context)
+fun stringKeyResolver(context: Context): StringKeyResolver = StringKeyResolverImpl(context)
 
 @Composable
 fun resolveStringKey(stringKey: StringKey) =

@@ -23,7 +23,7 @@ private class ProviderImageResolverImpl : ProviderImageResolver {
         }
 }
 
-private fun providerImageResolver(): ProviderImageResolver = ProviderImageResolverImpl()
+fun providerImageResolver(): ProviderImageResolver = ProviderImageResolverImpl()
 
 @Composable
 @DrawableRes

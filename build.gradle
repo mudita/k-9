@@ -51,7 +51,8 @@ buildscript {
                 'ktlint'                       : '0.40.0',
                 'jacoco'                       : '0.8.7',
                 'compose'                      : '1.0.5',
-                'composeNavigation'            : '2.4.0-beta01'
+                'composeNavigation'            : '2.4.0-beta01',
+                'mockk'                        : '1.12.1'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8
