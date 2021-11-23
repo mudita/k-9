@@ -1,41 +1,35 @@
 package com.mudita.mail.ui.util.stringKey
 
 import android.content.Context
-import android.content.res.Resources
-import java.util.Locale
-import org.koin.dsl.module
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 
 interface StringKeyResolver {
 
-    fun getStringOrEmpty(key: StringKey): String
+    @IdRes
+    fun getStringResId(key: StringKey): Int
 }
 
-private class StringResolverImpl(private val context: Context) : StringKeyResolver {
+private class StringKeyResolverImpl(private val context: Context) : StringKeyResolver {
 
-    override fun getStringOrEmpty(key: StringKey) =
-        try {
-            context.mapToString(key)
-        } catch (e: Resources.NotFoundException) {
-            EMPTY_STRING
-        }
-
-    private fun Context.mapToString(
-        key: StringKey,
-        locale: Locale = Locale.getDefault()
-    ): String =
-        resources.getIdentifier(key.name.lowercase(locale), STRING_TYPE, packageName)
-            .let(::getString)
+    @StringRes
+    override fun getStringResId(
+        key: StringKey
+    ) = context.run {
+        resources.getIdentifier(key.name.lowercase(), STRING_TYPE, packageName)
+    }
 
     companion object {
-
         private const val STRING_TYPE = "string"
-        private const val EMPTY_STRING = ""
     }
 }
 
-val stringResolverModule = module {
+private fun stringKeyResolver(context: Context): StringKeyResolver = StringKeyResolverImpl(context)
 
-    factory<StringKeyResolver> {
-        StringResolverImpl(get())
-    }
-}
+@Composable
+fun resolveStringKey(stringKey: StringKey) =
+    LocalContext.current.let(::stringKeyResolver).getStringResId(stringKey).let { stringResource(id = it) }

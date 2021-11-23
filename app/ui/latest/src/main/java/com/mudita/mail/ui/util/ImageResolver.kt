@@ -1,9 +1,10 @@
 package com.mudita.mail.ui.util
 
 import androidx.annotation.DrawableRes
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import com.mudita.mail.R
 import com.mudita.mail.repository.providers.model.ProviderType
-import org.koin.dsl.module
 
 interface ProviderImageResolver {
 
@@ -23,7 +24,9 @@ private class ProviderImageResolverImpl : ProviderImageResolver {
         }
 }
 
-val imageResolverModule = module {
+private fun providerImageResolver(): ProviderImageResolver = ProviderImageResolverImpl()
 
-    factory<ProviderImageResolver> { ProviderImageResolverImpl() }
-}
+@Composable
+@DrawableRes
+fun resolverProviderImageRes(providerType: ProviderType) =
+    providerImageResolver().resolveResource(providerType)
