@@ -14,7 +14,7 @@ import org.robolectric.RuntimeEnvironment
 class ImageResolverTest {
 
     private lateinit var resources: Resources
-    private lateinit var resolver : ProviderImageResolver
+    private lateinit var resolver: ProviderImageResolver
 
     @Before
     fun setup() {
