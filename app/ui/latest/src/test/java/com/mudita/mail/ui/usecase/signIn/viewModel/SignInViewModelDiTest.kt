@@ -3,7 +3,6 @@ package com.mudita.mail.ui.usecase.signIn.viewModel
 import com.fsck.k9.ui.base.navigation.ToSetupAccountNavigator
 import com.mudita.mail.MuditaRobolectricTest
 import com.mudita.mail.repository.providers.model.ProviderType
-import com.mudita.mail.ui.usecase.signIn.navigator.SignInNavigator
 import io.mockk.every
 import io.mockk.verify
 import kotlin.test.assertNotNull
