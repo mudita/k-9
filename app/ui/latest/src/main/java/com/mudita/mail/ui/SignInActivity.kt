@@ -5,7 +5,7 @@ import androidx.activity.compose.setContent
 import com.fsck.k9.ui.base.K9Activity
 import com.mudita.mail.ui.usecase.MuditaMailApp
 
-class MuditaMailSetupActivity : K9Activity() {
+class SignInActivity : K9Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
