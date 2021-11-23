@@ -26,21 +26,20 @@ import com.mudita.mail.repository.providers.model.ProviderTile
 import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.ui.theme.BlackPure
 import com.mudita.mail.ui.theme.MuditaTheme
+import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
-import com.mudita.mail.ui.util.ProviderImageResolver
-import org.koin.androidx.compose.get
+import com.mudita.mail.ui.util.resolverProviderImageRes
+import com.mudita.mail.ui.util.stringKey.resolveStringKey
 
 @Composable
 fun SignInScreen(
-    viewModel: SignInViewModel,
-    providerImageResolver: ProviderImageResolver
+    viewModel: SignInViewModel
 ) {
 
     val uiState = viewModel.uiState.collectAsState()
 
     SignInScreen(
-        uiState.value.providers,
-        providerImageResolver
+        uiState.value.providers
     ) {
         viewModel.selectProvider(it)
     }
@@ -49,7 +48,6 @@ fun SignInScreen(
 @Composable
 private fun SignInScreen(
     providers: List<ProviderTile>,
-    providerImageResolver: ProviderImageResolver,
     onProviderTapAction: (ProviderType) -> Unit
 ) {
     Column(
@@ -60,7 +58,7 @@ private fun SignInScreen(
     ) {
         SignInHeader()
         AvailableProviders(
-            providers, providerImageResolver, onProviderTapAction
+            providers, onProviderTapAction
         )
     }
 }
@@ -81,13 +79,13 @@ fun SignInHeader() {
         Text(
             text = stringResource(id = R.string.app_header__welcome),
             style = MaterialTheme.typography.h3,
-            color = BlackPure
+            color = PrimaryTextColor
         )
         Text(
             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp),
             text = stringResource(id = R.string.app_header__description),
             style = MaterialTheme.typography.subtitle1,
-            color = BlackPure,
+            color = PrimaryTextColor,
             textAlign = TextAlign.Center
         )
     }
@@ -96,7 +94,6 @@ fun SignInHeader() {
 @Composable
 fun AvailableProviders(
     providers: List<ProviderTile>,
-    providerImageResolver: ProviderImageResolver,
     onProviderTapAction: (ProviderType) -> Unit,
 ) {
     Column(
@@ -109,16 +106,16 @@ fun AvailableProviders(
                 .fillMaxWidth()
                 .padding(bottom = 12.dp),
             text = stringResource(id = R.string.providers__header),
-            color = BlackPure,
+            color = PrimaryTextColor,
             fontWeight = FontWeight.Bold
         )
         LazyColumn {
             items(providers) { providerTile ->
                 providerTile.run {
                     Provider(
-                        name = name,
-                        description = description,
-                        imageRes = providerImageResolver.resolveResource(type),
+                        name = resolveStringKey(stringKey = nameKey),
+                        description = resolveStringKey(stringKey = descriptionKey),
+                        imageRes = resolverProviderImageRes(providerType = type)
                     ) {
                         onProviderTapAction(type)
                     }
@@ -134,8 +131,7 @@ fun SingInScreenPreview() {
     MuditaTheme {
         Scaffold {
             SignInScreen(
-                emptyList(),
-                get()
+                emptyList()
             ) {}
         }
     }

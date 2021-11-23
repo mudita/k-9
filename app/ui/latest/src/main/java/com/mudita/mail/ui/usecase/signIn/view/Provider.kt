@@ -32,6 +32,8 @@ import com.mudita.mail.ui.theme.BlackPure
 import com.mudita.mail.ui.theme.GreyDark
 import com.mudita.mail.ui.theme.GreyLight
 import com.mudita.mail.ui.theme.MuditaTheme
+import com.mudita.mail.ui.theme.PrimaryTextColor
+import com.mudita.mail.ui.theme.SecondaryTextColor
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -79,7 +81,7 @@ fun Provider(
                     .weight(1f)
                     .padding(16.dp),
                 text = name,
-                color = BlackPure,
+                color = PrimaryTextColor,
                 fontSize = MaterialTheme.typography.subtitle1.fontSize
             )
             Image(
@@ -102,7 +104,7 @@ fun Provider(
             Text(
                 modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
                 text = description,
-                color = GreyDark,
+                color = SecondaryTextColor,
                 fontSize = MaterialTheme.typography.caption.fontSize
             )
         }
