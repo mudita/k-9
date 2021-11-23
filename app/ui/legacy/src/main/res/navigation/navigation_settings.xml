@@ -26,12 +26,8 @@
             app:destination="@id/generalSettingsScreen" />
 
         <action
-            android:id="@+id/action_settingsListScreen_to_addAccountScreen"
-            app:destination="@id/addAccountScreen" />
-
-        <action
-            android:id="@+id/action_settingsListScreen_to_newAddAccountScreen"
-            app:destination="@id/navigation_add_account" />
+            android:id="@+id/action_settingsListScreen_to_signInScreen"
+            app:destination="@id/signInScreen" />
 
         <action
             android:id="@+id/action_settingsListScreen_to_settingsExportScreen"
@@ -65,10 +61,9 @@
         android:label="@string/general_settings_title" />
 
     <activity
-        android:id="@+id/addAccountScreen"
-        android:name="com.fsck.k9.activity.setup.AccountSetupBasics"
-        android:label="@string/account_setup_basics_title"
-        tools:layout="@layout/account_setup_basics"/>
+        android:id="@+id/signInScreen"
+        android:name="com.mudita.mail.ui.SignInActivity"
+        android:label="@string/account_setup_basics_title"/>
 
     <fragment
         android:id="@+id/settingsExportScreen"

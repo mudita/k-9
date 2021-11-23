@@ -30,8 +30,8 @@
             app:destination="@id/messageListScreen" />
 
         <action
-            android:id="@+id/action_welcomeScreen_to_muditaAddAccountScreen"
-            app:destination="@id/muditaAddAccountScreen" />
+            android:id="@+id/action_welcomeScreen_to_signInScreen"
+            app:destination="@id/signInScreen" />
 
     </fragment>
 
@@ -48,8 +48,8 @@
         tools:layout="@layout/account_setup_basics" />
 
     <activity
-        android:id="@+id/muditaAddAccountScreen"
-        android:name="com.mudita.mail.ui.MuditaMailSetupActivity" />
+        android:id="@+id/signInScreen"
+        android:name="com.mudita.mail.ui.SignInActivity" />
 
     <activity
         android:id="@+id/messageListScreen"
