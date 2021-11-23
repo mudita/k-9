@@ -2,7 +2,6 @@ package com.mudita.mail.ui.util
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import com.mudita.mail.R
 import com.mudita.mail.repository.providers.model.ProviderType
 

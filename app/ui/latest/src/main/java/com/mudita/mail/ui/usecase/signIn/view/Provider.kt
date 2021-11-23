@@ -28,8 +28,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
-import com.mudita.mail.ui.theme.BlackPure
-import com.mudita.mail.ui.theme.GreyDark
 import com.mudita.mail.ui.theme.GreyLight
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor

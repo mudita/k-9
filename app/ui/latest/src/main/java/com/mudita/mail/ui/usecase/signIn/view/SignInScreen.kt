@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
 import com.mudita.mail.repository.providers.model.ProviderTile
 import com.mudita.mail.repository.providers.model.ProviderType
-import com.mudita.mail.ui.theme.BlackPure
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
