@@ -8,7 +8,7 @@ internal object NewSetupUiHack {
     fun addAction(builder: SettingsListBuilder) {
         builder.addAction(
             "Add account (NEW)",
-            R.id.action_settingsListScreen_to_newAddAccountScreen,
+            R.id.action_settingsListScreen_to_signInScreen,
             R.attr.iconSettingsAccountAdd
         )
     }

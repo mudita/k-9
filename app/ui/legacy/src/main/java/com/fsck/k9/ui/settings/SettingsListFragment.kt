@@ -102,11 +102,9 @@ class SettingsListFragment : Fragment(), ItemTouchCallback {
 
                 addAction(
                     text = getString(R.string.add_account_action),
-                    navigationAction = R.id.action_settingsListScreen_to_addAccountScreen,
+                    navigationAction = R.id.action_settingsListScreen_to_signInScreen,
                     icon = R.attr.iconSettingsAccountAdd
                 )
-
-                NewSetupUiHack.addAction(this)
             }
 
             addSection(title = getString(R.string.settings_list_backup_category)) {

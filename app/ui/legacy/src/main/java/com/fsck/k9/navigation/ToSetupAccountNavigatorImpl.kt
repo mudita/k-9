@@ -7,8 +7,6 @@ import com.fsck.k9.ui.base.navigation.ToSetupAccountNavigator
 
 class ToSetupAccountNavigatorImpl : ToSetupAccountNavigator {
 
-    // Here we define interface impl to navigate with "activity context" to
-    // activity from particular module
     override fun moveToSetupAccount(context: Context) {
         context.run { startActivity(Intent(this, AccountSetupBasics::class.java)) }
     }

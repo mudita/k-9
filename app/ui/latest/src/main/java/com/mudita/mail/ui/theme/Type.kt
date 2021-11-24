@@ -6,6 +6,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 val MuditaTypography = Typography(
+    h3 = TextStyle(
+        fontWeight = FontWeight.Medium,
+        fontSize = 34.sp
+    ),
     h4 = TextStyle(
         fontWeight = FontWeight.Medium,
         fontSize = 32.sp,

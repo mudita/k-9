@@ -8,3 +8,6 @@ val WhitePure = Color.White
 val GreyLight = Color(0xFFEBEBEB)
 val BlackPure = Color.Black
 val GreyDark = Color(0xFF545A5E)
+
+val PrimaryTextColor = BlackPure
+val SecondaryTextColor = GreyDark

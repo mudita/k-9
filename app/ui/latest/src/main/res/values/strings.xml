@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_header__welcome">Welcome</string>
+    <string name="app_header__description">"Fully encrypted email client perfectly synced with Mudita Space ecosystem.",</string>
+    <string name="providers__header">Select provider</string>
+    <string name="provider__gmail_name">Google mail</string>
+    <string name="provider__gmail_description">Strong security (OAUTH2). This app won’t store
+and transmit mail password.</string>
+    <string name="provider__icloud_name">iCloud</string>
+    <string name="provider__icloud_description">Strong security (OAUTH2). This app won’t store
+and transmit mail password.</string>
+    <string name="provider__outlook_name">Outlook</string>
+    <string name="provider__outlook_description">Strong security (OAUTH2). This app won’t store
+and transmit mail password.</string>
+    <string name="provider__setup_manually_name">Set up manually</string>
+    <string name="provider__setup_manually_description">Strong security (OAUTH2). This app won’t store
+and transmit mail password.</string>
+</resources>
