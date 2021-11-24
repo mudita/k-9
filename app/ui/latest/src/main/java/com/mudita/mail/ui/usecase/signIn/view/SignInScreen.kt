@@ -28,7 +28,7 @@ import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
 import com.mudita.mail.ui.util.resolverProviderImageRes
-import com.mudita.mail.ui.util.stringKey.resolveStringKey
+import resolveStringKey
 
 @Composable
 fun SignInScreen(
