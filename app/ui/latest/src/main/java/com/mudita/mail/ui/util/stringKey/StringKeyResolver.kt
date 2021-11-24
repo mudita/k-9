@@ -1,34 +1,16 @@
-package com.mudita.mail.ui.util.stringKey
-
 import android.content.Context
-import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-
-interface StringKeyResolver {
-
-    @IdRes
-    fun getStringResId(key: StringKey): Int
-}
-
-private class StringKeyResolverImpl(private val context: Context) : StringKeyResolver {
-
-    @StringRes
-    override fun getStringResId(
-        key: StringKey
-    ) = context.run {
-        resources.getIdentifier(key.name.lowercase(), STRING_TYPE, packageName)
-    }
-
-    companion object {
-        private const val STRING_TYPE = "string"
-    }
-}
-
-fun stringKeyResolver(context: Context): StringKeyResolver = StringKeyResolverImpl(context)
+import com.mudita.mail.ui.util.stringKey.StringKey
 
 @Composable
-fun resolveStringKey(stringKey: StringKey) =
-    LocalContext.current.let(::stringKeyResolver).getStringResId(stringKey).let { stringResource(id = it) }
+fun resolveStringKey(stringKey: StringKey): String =
+    LocalContext.current.resolveStringKey(stringKey).let {
+        stringResource(id = it)
+    }
+
+@StringRes
+fun Context.resolveStringKey(stringKey: StringKey): Int =
+    resources.getIdentifier(stringKey.name.lowercase(), "string", packageName)
