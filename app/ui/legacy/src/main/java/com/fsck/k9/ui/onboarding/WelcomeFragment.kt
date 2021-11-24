@@ -46,7 +46,7 @@ class WelcomeFragment : Fragment() {
         if (BuildConfig.USE_NEW_SETUP_UI_FOR_ONBOARDING) {
             findNavController().navigate(R.id.action_welcomeScreen_to_newAddAccountScreen)
         } else {
-            findNavController().navigate(R.id.action_welcomeScreen_to_addAccountScreen)
+            findNavController().navigate(R.id.action_welcomeScreen_to_muditaAddAccountScreen)
             requireActivity().finish()
         }
     }

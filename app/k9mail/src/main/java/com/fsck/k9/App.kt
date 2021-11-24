@@ -9,6 +9,7 @@ import com.fsck.k9.external.MessageProvider
 import com.fsck.k9.ui.base.AppLanguageManager
 import com.fsck.k9.ui.base.ThemeManager
 import com.fsck.k9.ui.base.extensions.currentLocale
+import com.mudita.mail.composeUiModules
 import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +34,7 @@ class App : Application() {
 
         super.onCreate()
 
-        DI.start(this, coreModules + uiModules + appModules)
+        DI.start(this, coreModules + uiModules + composeUiModules + appModules)
 
         K9.init(this)
         Core.init(this)

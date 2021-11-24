@@ -29,23 +29,31 @@
             android:id="@+id/action_welcomeScreen_to_messageListScreen"
             app:destination="@id/messageListScreen" />
 
+        <action
+            android:id="@+id/action_welcomeScreen_to_muditaAddAccountScreen"
+            app:destination="@id/muditaAddAccountScreen" />
+
     </fragment>
 
     <fragment
         android:id="@+id/settingsImportScreen"
         android:name="com.fsck.k9.ui.settings.import.SettingsImportFragment"
         android:label="@string/settings_import_title"
-        tools:layout="@layout/fragment_settings_import"/>
+        tools:layout="@layout/fragment_settings_import" />
 
     <activity
         android:id="@+id/addAccountScreen"
         android:name="com.fsck.k9.activity.setup.AccountSetupBasics"
         android:label="@string/account_setup_basics_title"
-        tools:layout="@layout/account_setup_basics"/>
+        tools:layout="@layout/account_setup_basics" />
+
+    <activity
+        android:id="@+id/muditaAddAccountScreen"
+        android:name="com.mudita.mail.ui.MuditaMailSetupActivity" />
 
     <activity
         android:id="@+id/messageListScreen"
         android:name="com.fsck.k9.activity.MessageList"
-        tools:layout="@layout/message_list"/>
+        tools:layout="@layout/message_list" />
 
 </navigation>
