@@ -75,6 +75,9 @@ buildscript {
 }
 
 project.ext {
+    googleClientId = ""
+    googleRedirectUrl = ""
+    googleRedirectScheme = ""
     testCoverage = project.hasProperty('testCoverage')
 }
 
