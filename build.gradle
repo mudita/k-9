@@ -52,7 +52,8 @@ buildscript {
                 'jacoco'                       : '0.8.7',
                 'compose'                      : '1.0.5',
                 'composeNavigation'            : '2.4.0-beta01',
-                'mockk'                        : '1.12.1'
+                'mockk'                        : '1.12.1',
+                'appAuth'                      : '0.10.0'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8

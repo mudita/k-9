@@ -23,6 +23,7 @@ dependencies {
     implementation "androidx.compose.material:material:${versions.compose}"
     implementation "androidx.navigation:navigation-compose:${versions.composeNavigation}"
     implementation "io.insert-koin:koin-androidx-compose:${versions.koin}"
+    implementation "net.openid:appauth:${versions.appAuth}"
 
     testImplementation project(':mail:testing')
     testImplementation project(':app:testing')
@@ -42,6 +43,10 @@ android {
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.robolectricSdk
+
+        resValue "string", "google_redirect_scheme", project.property("googleRedirectScheme")
+        resValue "string", "google_redirect_url", project.property("googleRedirectUrl")
+        resValue "string", "google_client_id", project.property("googleClientId")
     }
 
     lintOptions {
@@ -72,3 +77,4 @@ android {
         }
     }
 }
+
