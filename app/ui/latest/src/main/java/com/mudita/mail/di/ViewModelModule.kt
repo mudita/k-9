@@ -1,4 +1,4 @@
-package com.mudita.mail.ui.di
+package com.mudita.mail.di
 
 import com.mudita.mail.ui.extension.getWith
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
