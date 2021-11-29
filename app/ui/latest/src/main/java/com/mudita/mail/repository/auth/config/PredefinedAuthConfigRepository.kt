@@ -2,8 +2,6 @@ package com.mudita.mail.repository.auth.config
 
 import android.content.Context
 import com.mudita.mail.R
-import com.mudita.mail.service.auth.config.AuthConfig
-import com.mudita.mail.service.auth.config.ResponseType
 
 class PredefinedAuthConfigRepository(context: Context) : AuthConfigRepository {
 
