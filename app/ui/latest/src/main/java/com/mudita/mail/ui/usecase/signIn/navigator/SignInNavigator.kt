@@ -4,5 +4,5 @@ import com.mudita.mail.ui.navigation.navigator.Navigator
 
 interface SignInNavigator : Navigator {
 
-    fun moveToCredentials()
+    fun moveToEmailScreen(providerTypeName: String)
 }
