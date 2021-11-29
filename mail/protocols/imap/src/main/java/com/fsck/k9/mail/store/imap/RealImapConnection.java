@@ -430,6 +430,7 @@ class RealImapConnection implements ImapConnection {
 
         Timber.v(e, "Temporary failure - retrying with new token");
         try {
+            oauthTokenProvider.refreshToken(settings.getUsername());
             return attemptXOAuth2();
         } catch (NegativeImapResponseException e2) {
             //Okay, we failed on a new token.

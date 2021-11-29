@@ -746,6 +746,7 @@ public class SmtpTransport extends Transport {
 
         Timber.v(negativeResponseFromOldToken, "Authentication exception, re-trying with new token");
         try {
+            oauthTokenProvider.refreshToken(username);
             attemptXoauth2(username);
         } catch (NegativeSmtpReplyException negativeResponseFromNewToken) {
             if (negativeResponseFromNewToken.getReplyCode() != SMTP_AUTHENTICATION_FAILURE_ERROR_CODE) {
