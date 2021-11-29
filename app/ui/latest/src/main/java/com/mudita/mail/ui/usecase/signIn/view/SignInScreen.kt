@@ -39,7 +39,6 @@ fun SignInScreen(
 
     SignInScreen(
         uiState.value.providers,
-        uiState.value.result
     ) {
         viewModel.selectProvider(it)
     }
@@ -48,7 +47,6 @@ fun SignInScreen(
 @Composable
 private fun SignInScreen(
     providers: List<ProviderTile>,
-    code: String,
     onProviderTapAction: (ProviderType) -> Unit
 ) {
     Column(
@@ -57,7 +55,7 @@ private fun SignInScreen(
             .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 16.dp),
         verticalArrangement = Arrangement.Top
     ) {
-        SignInHeader(code)
+        SignInHeader()
         AvailableProviders(
             providers, onProviderTapAction
         )
@@ -65,7 +63,7 @@ private fun SignInScreen(
 }
 
 @Composable
-fun SignInHeader(code: String) {
+fun SignInHeader() {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -78,7 +76,7 @@ fun SignInHeader(code: String) {
             contentDescription = "Mudita Logo"
         )
         Text(
-            text = code.ifEmpty { stringResource(id = R.string.app_header__welcome) },
+            text = stringResource(id = R.string.app_header__welcome),
             style = MaterialTheme.typography.h3,
             color = PrimaryTextColor
         )
@@ -133,7 +131,6 @@ fun SingInScreenPreview() {
         Scaffold {
             SignInScreen(
                 emptyList(),
-                ""
             ) {}
         }
     }
