@@ -418,17 +418,16 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
      * Shows/hides password field and client certificate spinner
      */
     private void updateViewFromAuthType() {
-        AuthType authType = getSelectedAuthType();
-        boolean isAuthTypeExternal = (AuthType.EXTERNAL == authType);
-
-        if (isAuthTypeExternal) {
-
-            // hide password fields, show client certificate fields
-            mPasswordLayoutView.setVisibility(View.GONE);
-        } else {
-
-            // show password fields, hide client certificate fields
-            mPasswordLayoutView.setVisibility(View.VISIBLE);
+        switch (getSelectedAuthType()) {
+            case EXTERNAL:
+            case XOAUTH2:
+                // hide password fields, show client certificate fields
+                mPasswordLayoutView.setVisibility(View.GONE);
+                break;
+            default:
+                // show password fields, hide client certificate fields
+                mPasswordLayoutView.setVisibility(View.VISIBLE);
+                break;
         }
     }
 
@@ -440,7 +439,9 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
         ConnectionSecurity security = getSelectedSecurity();
         boolean isUsingTLS = ((ConnectionSecurity.SSL_TLS_REQUIRED  == security) || (ConnectionSecurity.STARTTLS_REQUIRED == security));
 
-        if (isUsingTLS) {
+        boolean isUsingXoauth2 = getSelectedAuthType() == AuthType.XOAUTH2;
+
+        if (isUsingTLS && !isUsingXoauth2) {
             mAllowClientCertificateView.setVisibility(View.VISIBLE);
         } else {
             mAllowClientCertificateView.setVisibility(View.GONE);
@@ -510,10 +511,12 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
                 && isAuthTypeExternal
                 && hasConnectionSecurity
                 && hasValidCertificateAlias;
+        boolean hasValidXOAuth2Settings = hasValidUserName
+                && AuthType.XOAUTH2 == authType;
 
         mNextButton.setEnabled(Utility.domainFieldValid(mServerView)
                 && Utility.requiredFieldValid(mPortView)
-                && (hasValidPasswordSettings || hasValidExternalAuthSettings));
+                && (hasValidPasswordSettings || hasValidExternalAuthSettings || hasValidXOAuth2Settings));
         Utility.setCompoundDrawablesAlpha(mNextButton, mNextButton.isEnabled() ? 255 : 128);
     }
 
