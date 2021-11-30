@@ -4,5 +4,5 @@ interface AuthSessionRepository {
 
     fun getAuthSessionData(username: String): AuthSessionData
 
-    fun saveAuthSessionData(authSessionData: AuthSessionData)
+    fun saveAuthSessionData(username: String, authSessionData: AuthSessionData)
 }

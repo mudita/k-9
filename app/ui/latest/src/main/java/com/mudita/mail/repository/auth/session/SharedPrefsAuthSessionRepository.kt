@@ -11,20 +11,15 @@ class SharedPrefsAuthSessionRepository(
 
     override fun getAuthSessionData(username: String): AuthSessionData {
         val authJson = sharedPreferences.getString(userAuthStateKey(username), null)
-        return AuthSessionData(
-            authJson?.let(AuthState::jsonDeserialize) ?: AuthState(),
-            username
-        )
+        return AuthSessionData(authJson?.let(AuthState::jsonDeserialize) ?: AuthState())
     }
 
     private fun userAuthStateKey(username: String) = "${AUTH_KEY}_$username"
 
-    override fun saveAuthSessionData(authSessionData: AuthSessionData) {
+    override fun saveAuthSessionData(username: String, authSessionData: AuthSessionData) {
         sharedPreferences.edit()
             .putString(
-                userAuthStateKey(
-                    authSessionData.username
-                ),
+                userAuthStateKey(username),
                 authSessionData.authState.jsonSerializeString()
             ).apply()
     }
