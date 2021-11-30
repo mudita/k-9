@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mudita.mail.interactor.email.EmailInteractor
 import com.mudita.mail.repository.providers.model.ProviderType
+import com.mudita.mail.service.auth.AuthRequestData.Companion.toAuthResponseData
 import com.mudita.mail.ui.usecase.email.navigator.EmailNavigator
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -23,24 +25,34 @@ class EmailViewModel(
     private val _uiState: MutableStateFlow<UiState> = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState
 
-    fun submitEmail(email: String) {
-        startAuthProcess(email)
+    private val intentChannel: Channel<Intent> = Channel(capacity = 1)
+
+    fun startAuthProcess() {
+        viewModelScope.launch { startAuthProcess(providerType = ProviderType.GMAIL) }
     }
 
-    private fun startAuthProcess(email: String, providerType: ProviderType = ProviderType.GMAIL) {
+    private suspend fun startAuthProcess(providerType: ProviderType) {
         val authConfig = interactor.getProviderAuthConfig(providerType) ?: return
-        val authIntent = interactor.getAuthRequestIntent(email, authConfig)
-        _uiState.update { it.copy(authIntent = authIntent) }
+        val authRequestData = interactor.getAuthRequestData(authConfig)
+        _uiState.update {
+            it.copy(
+                authIntent = authRequestData.intent
+            )
+        }
+        val intent = intentChannel.receive()
+        val email = interactor.processAuthResponseData(authRequestData.toAuthResponseData(intent))
+        // FIXME results instead of null
+        email?.let {
+            navigator.moveToAccountSetupChecks(it)
+        }
     }
 
     fun handleAuthResult(
-        username: String,
         intent: Intent
     ) {
         _uiState.update { it.copy(authIntent = null) }
         viewModelScope.launch {
-            interactor.processResponseAuthIntent(intent, username)
-            navigator.moveToAccountSetupChecks(username)
+            intentChannel.send(intent)
         }
     }
 }
