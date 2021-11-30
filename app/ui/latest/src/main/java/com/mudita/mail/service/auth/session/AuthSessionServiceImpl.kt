@@ -14,7 +14,7 @@ class AuthSessionServiceImpl(
         authState.performActionWithFreshTokens(
             authorizationService
         ) { _, _, authorizationException ->
-            if (authorizationException != null) {
+            if (authorizationException == null) {
                 authSessionRepository.saveAuthSessionData(AuthSessionData(authState, username))
             }
             return@performActionWithFreshTokens
