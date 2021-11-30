@@ -31,26 +31,37 @@ fun EmailScreen(
     viewModel: EmailViewModel
 ) {
     val state = viewModel.uiState.collectAsState()
-    val email = remember {
-        mutableStateOf("")
-    }
-    val wasLaunched = remember {
-        mutableStateOf(false)
-    }
+    val wasLaunched = remember { mutableStateOf(false) }
+    val email = remember { mutableStateOf("") }
+
     val authLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == AppCompatActivity.RESULT_OK) {
+    ) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
             wasLaunched.value = true
-            viewModel.handleAuthResult(email.value, it.data!!)
+            result.data?.let { viewModel.handleAuthResult(email.value, it) }
         }
     }
-    state.value.authIntent?.let {
-        authLauncher.launch(it)
-    }
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+    state.value.authIntent?.let { authLauncher.launch(it) }
 
+    EmailScreen(
+        email = email.value,
+        onEmailBtnTapAction = { viewModel.submitEmail(email.value) },
+        onEmailChanged = { email.value = it }
+    )
+}
+
+@Composable
+fun EmailScreen(
+    email: String,
+    onEmailBtnTapAction: () -> Unit,
+    onEmailChanged: (String) -> Unit
+) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             TextField(
                 placeholder = { Text(text = "Email") },
                 colors = TextFieldDefaults.textFieldColors(
@@ -61,15 +72,11 @@ fun EmailScreen(
                     backgroundColor = Transparent,
                 ),
                 textStyle = MaterialTheme.typography.subtitle2,
-                value = email.value,
-                onValueChange = {
-                    email.value = it
-                }
+                value = email,
+                onValueChange = onEmailChanged
             )
             Button(
-                onClick = {
-                    viewModel.submitEmail(email.value)
-                }
+                onClick = onEmailBtnTapAction
             ) {
                 Text("Submit email", color = Color.Black)
             }
@@ -82,6 +89,7 @@ fun EmailScreen(
 fun EmailScreenPreview() {
     MuditaTheme {
         Scaffold {
+            EmailScreen("", {}, {})
         }
     }
 }
