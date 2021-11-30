@@ -14,10 +14,6 @@
         tools:layout="@layout/fragment_settings_list">
 
         <action
-            android:id="@+id/action_settingsListScreen_to_onboardingScreen"
-            app:destination="@id/onboardingScreen" />
-
-        <action
             android:id="@+id/action_settingsListScreen_to_aboutScreen"
             app:destination="@id/aboutScreen" />
 
@@ -38,12 +34,6 @@
             app:destination="@id/settingsImportScreen" />
     </fragment>
 
-    <activity
-        android:id="@+id/onboardingScreen"
-        android:name="com.fsck.k9.ui.onboarding.OnboardingActivity"
-        android:label="@string/welcome_message_title"
-        tools:layout="@layout/activity_onboarding"/>
-
     <fragment
         android:id="@+id/aboutScreen"
         android:name="com.fsck.k9.ui.settings.AboutFragment"
@@ -62,8 +52,7 @@
 
     <activity
         android:id="@+id/signInScreen"
-        android:name="com.mudita.mail.ui.SignInActivity"
-        android:label="@string/account_setup_basics_title"/>
+        android:name="com.mudita.mail.ui.SignInActivity" />
 
     <fragment
         android:id="@+id/settingsExportScreen"
