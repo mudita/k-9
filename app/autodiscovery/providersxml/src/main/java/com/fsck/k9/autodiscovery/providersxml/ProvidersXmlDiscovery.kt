@@ -9,7 +9,6 @@ import com.fsck.k9.autodiscovery.api.DiscoveryTarget
 import com.fsck.k9.helper.EmailHelper
 import com.fsck.k9.mail.AuthType
 import com.fsck.k9.mail.ConnectionSecurity
-import com.fsck.k9.mail.oauth.OAuth2Provider
 import com.fsck.k9.preferences.Protocols
 import java.net.URI
 import org.xmlpull.v1.XmlPullParser
@@ -19,13 +18,19 @@ class ProvidersXmlDiscovery(
     private val xmlProvider: ProvidersXmlProvider
 ) : ConnectionSettingsDiscovery {
 
-    override fun discover(email: String, target: DiscoveryTarget): DiscoveryResults? {
+    override fun discover(
+        email: String,
+        target: DiscoveryTarget,
+        predefinedAuthType: AuthType?
+    ): DiscoveryResults? {
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
         val provider = findProviderForDomain(domain) ?: return null
 
-        val incomingSettings = provider.toIncomingServerSettings(email) ?: return null
-        val outgoingSettings = provider.toOutgoingServerSettings(email) ?: return null
+        val authType = predefinedAuthType ?: AuthType.PLAIN
+
+        val incomingSettings = provider.toIncomingServerSettings(email, authType) ?: return null
+        val outgoingSettings = provider.toOutgoingServerSettings(email, authType) ?: return null
         return DiscoveryResults(listOf(incomingSettings), listOf(outgoingSettings))
     }
 
@@ -86,15 +91,14 @@ class ProvidersXmlDiscovery(
         }
     }
 
-    private fun Provider.toIncomingServerSettings(email: String): DiscoveredServerSettings? {
+    private fun Provider.toIncomingServerSettings(email: String, authType: AuthType): DiscoveredServerSettings? {
         val user = EmailHelper.getLocalPartFromEmailAddress(email) ?: return null
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
         val username = incomingUsernameTemplate.fillInUsernameTemplate(email, user, domain)
 
-        val xoauth2 = OAuth2Provider.isXOAuth2(domain)
-        val xoauth2Label = if (xoauth2) AuthType.XOAUTH2.name else ""
-        val xoauth2Colon = if (xoauth2) ":" else ""
+        val xOAuth2Label = if (authType == AuthType.XOAUTH2) AuthType.XOAUTH2.name else ""
+        val xOAuth2Colon = if (authType == AuthType.XOAUTH2) ":" else ""
 
         val security = when {
             incomingUriTemplate.startsWith("imap+ssl") -> ConnectionSecurity.SSL_TLS_REQUIRED
@@ -103,7 +107,7 @@ class ProvidersXmlDiscovery(
         }
 
         val incomingUri = with(URI(incomingUriTemplate)) {
-            URI(scheme, "$xoauth2Label$xoauth2Colon$username", host, port, null, null, null).toString()
+            URI(scheme, "$xOAuth2Label$xOAuth2Colon$username", host, port, null, null, null).toString()
         }
         val uri = Uri.parse(incomingUri)
         val host = uri.host ?: error("Host name required")
@@ -113,18 +117,15 @@ class ProvidersXmlDiscovery(
             uri.port
         }
 
-        val authType = if (xoauth2) AuthType.XOAUTH2 else AuthType.PLAIN
         return DiscoveredServerSettings(Protocols.IMAP, host, port, security, authType, username)
     }
 
-    private fun Provider.toOutgoingServerSettings(email: String): DiscoveredServerSettings? {
+    private fun Provider.toOutgoingServerSettings(email: String, authType: AuthType): DiscoveredServerSettings? {
         val user = EmailHelper.getLocalPartFromEmailAddress(email) ?: return null
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
-        // FIXME: do it oher way
-        val xoauth2 = OAuth2Provider.isXOAuth2(domain)
-        val xoauth2Label = if (xoauth2) AuthType.XOAUTH2.name else ""
-        val xoauth2Colon = if (xoauth2) ":" else ""
+        val xOAuth2Label = if (authType == AuthType.XOAUTH2) AuthType.XOAUTH2.name else ""
+        val xOAuth2Colon = if (authType == AuthType.XOAUTH2) ":" else ""
 
         val username = outgoingUsernameTemplate.fillInUsernameTemplate(email, user, domain)
 
@@ -135,7 +136,7 @@ class ProvidersXmlDiscovery(
         }
 
         val outgoingUri = with(URI(outgoingUriTemplate)) {
-            URI(scheme, "$username$xoauth2Colon$xoauth2Label", host, port, null, null, null).toString()
+            URI(scheme, "$username$xOAuth2Colon$xOAuth2Label", host, port, null, null, null).toString()
         }
 
         val uri = Uri.parse(outgoingUri)
@@ -146,7 +147,6 @@ class ProvidersXmlDiscovery(
             uri.port
         }
 
-        val authType = if (xoauth2) AuthType.XOAUTH2 else AuthType.PLAIN
         return DiscoveredServerSettings(Protocols.SMTP, host, port, security, authType, username)
     }
 
