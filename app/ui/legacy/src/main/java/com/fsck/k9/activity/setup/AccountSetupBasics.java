@@ -269,8 +269,12 @@ public class AccountSetupBasics extends K9Activity
         AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.INCOMING);
     }
 
-    private ConnectionSettings providersXmlDiscoveryDiscover(String email, DiscoveryTarget discoveryTarget) {
-        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(email, DiscoveryTarget.INCOMING_AND_OUTGOING);
+    private ConnectionSettings providersXmlDiscoveryDiscover(
+            String email,
+            DiscoveryTarget discoveryTarget,
+            AuthType authType
+    ) {
+        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(email, DiscoveryTarget.INCOMING_AND_OUTGOING, authType);
         if (discoveryResults == null || (discoveryResults.getIncoming().size() < 1 || discoveryResults.getOutgoing().size() < 1)) {
             return null;
         }
@@ -313,7 +317,13 @@ public class AccountSetupBasics extends K9Activity
             return;
         }
 
-        ConnectionSettings connectionSettings = providersXmlDiscoveryDiscover(email, DiscoveryTarget.INCOMING_AND_OUTGOING);
+        AuthType predefinedAuthType = predefinedEmail != null ? AuthType.XOAUTH2 : null;
+
+        ConnectionSettings connectionSettings = providersXmlDiscoveryDiscover(
+                email,
+                DiscoveryTarget.INCOMING_AND_OUTGOING,
+                predefinedAuthType
+        );
         if (connectionSettings != null) {
             finishAutoSetup(connectionSettings);
         } else {
