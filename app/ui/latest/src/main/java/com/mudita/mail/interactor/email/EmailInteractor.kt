@@ -1,20 +1,19 @@
 package com.mudita.mail.interactor.email
 
-import android.content.Intent
 import com.mudita.mail.repository.auth.config.AuthConfig
 import com.mudita.mail.repository.providers.model.ProviderType
+import com.mudita.mail.service.auth.AuthRequestData
+import com.mudita.mail.service.auth.AuthResponseData
 
 interface EmailInteractor {
 
     fun getProviderAuthConfig(providerType: ProviderType): AuthConfig?
 
-    suspend fun processResponseAuthIntent(
-        intent: Intent,
-        username: String
-    )
+    suspend fun processAuthResponseData(
+        authResponseData: AuthResponseData
+    ): String?
 
-    fun getAuthRequestIntent(
-        username: String,
+    fun getAuthRequestData(
         authConfig: AuthConfig
-    ): Intent
+    ): AuthRequestData
 }
