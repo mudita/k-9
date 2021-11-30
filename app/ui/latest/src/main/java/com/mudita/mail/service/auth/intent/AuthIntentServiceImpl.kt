@@ -3,12 +3,12 @@ package com.mudita.mail.service.auth.intent
 import android.content.Intent
 import android.net.Uri
 import com.fsck.k9.mail.AuthenticationFailedException
+import com.mudita.mail.repository.auth.config.AuthConfig
 import com.mudita.mail.repository.auth.session.AuthSessionData
 import com.mudita.mail.repository.auth.session.AuthSessionRepository
-import com.mudita.mail.repository.auth.config.AuthConfig
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
-import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.suspendCoroutine
 import net.openid.appauth.AuthState
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationRequest
@@ -46,7 +46,7 @@ class AuthIntentServiceImpl(
     }
 
     override suspend fun processResponseAuthIntent(username: String, intent: Intent) =
-        suspendCancellableCoroutine<Unit> { continuation ->
+        suspendCoroutine<Unit> { continuation ->
             val authorizationResponse = AuthorizationResponse.fromIntent(intent)
             val authorizationException = AuthorizationException.fromIntent(intent)
 
