@@ -1,8 +1,8 @@
 package com.mudita.mail.interactor.email
 
 import android.content.Intent
-import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.repository.auth.config.AuthConfig
+import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.auth.config.AuthConfigService
 import com.mudita.mail.service.auth.intent.AuthIntentService
 
