@@ -40,7 +40,9 @@ class AuthIntentServiceImpl(
             authConfig.clientId,
             authConfig.responseType.value,
             Uri.parse(authConfig.redirectUrl)
-        ).setScope(authConfig.scope)
+        )
+            .setScope(authConfig.scope)
+            .setLoginHint(username)
 
         return authorizationService.getAuthorizationRequestIntent(authRequestBuilder.build())
     }
