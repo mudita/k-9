@@ -48,9 +48,14 @@ android {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.robolectricSdk
 
-        resValue "string", "google_redirect_scheme", project.property("googleRedirectScheme")
-        resValue "string", "google_redirect_url", project.property("googleRedirectUrl")
-        resValue "string", "google_client_id", project.property("googleClientId")
+        resValue "string", "google_redirect_scheme", googleRedirectScheme
+        resValue "string", "google_redirect_url", googleRedirectUrl
+        resValue "string", "google_client_id", googleClientId
+
+        resValue "string", "outlook_redirect_scheme", outlookRedirectScheme
+        resValue "string", "outlook_redirect_url", outlookRedirectUrl
+        resValue "string", "outlook_client_id", outlookClientId
+        resValue "string", "outlook_host", outlookHost
     }
 
     lintOptions {

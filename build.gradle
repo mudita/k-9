@@ -78,14 +78,20 @@ buildscript {
 }
 
 project.ext {
-    googleClientId = propertyOrEmpty('googleClientId')
-    googleRedirectUrl = propertyOrEmpty('googleRedirectUrl')
-    googleRedirectScheme = propertyOrEmpty('googleRedirectScheme')
+    googleClientId = propertyOrEmpty('gClientId')
+    googleRedirectUrl = propertyOrEmpty('gRedirectUrl')
+    googleRedirectScheme = propertyOrEmpty('gRedirectScheme')
+
+    outlookClientId = propertyOrEmpty('oClientId')
+    outlookRedirectUrl = propertyOrEmpty('oRedirectUrl')
+    outlookRedirectScheme = propertyOrEmpty('oRedirectScheme')
+    outlookHost = propertyOrEmpty('oHost')
+
     testCoverage = project.hasProperty('testCoverage')
 }
 
 def propertyOrEmpty(String propertyName) {
-    if (project.hasProperty(propertyName)) return project.property(propertyName) else return ''
+    if (project.hasProperty(propertyName)) return project.getProperty(propertyName) else return ''
 }
 
 subprojects {
