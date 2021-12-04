@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mudita.mail.interactor.email.EmailInteractor
+import com.mudita.mail.repository.auth.config.AuthConfig
 import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.auth.AuthRequestData.Companion.toAuthResponseData
 import com.mudita.mail.ui.usecase.email.navigator.EmailNavigator
@@ -28,23 +29,36 @@ class EmailViewModel(
     private val intentChannel: Channel<Intent> = Channel(capacity = 1)
 
     fun startAuthProcess() {
-        viewModelScope.launch { startAuthProcess(providerType = ProviderType.GMAIL) }
+        startAuthProcess(providerType = ProviderType.GMAIL)
     }
 
-    private suspend fun startAuthProcess(providerType: ProviderType) {
-        val authConfig = interactor.getProviderAuthConfig(providerType) ?: return
-        val authRequestData = interactor.getAuthRequestData(authConfig)
-        _uiState.update {
-            it.copy(
-                authIntent = authRequestData.intent
+    private fun startAuthProcess(providerType: ProviderType) {
+        interactor.getProviderAuthConfig(providerType)
+            .fold(
+                onSuccess = ::startAuthProcess,
+                onFailure = ::showError
             )
+    }
+
+    private fun startAuthProcess(authConfig: AuthConfig) {
+        viewModelScope.launch {
+            val authRequestData = interactor.getAuthRequestData(authConfig)
+            _uiState.update {
+                it.copy(
+                    authIntent = authRequestData.intent
+                )
+            }
+            val intent = intentChannel.receive()
+            val email = interactor.processAuthResponseData(authRequestData.toAuthResponseData(intent))
+            // FIXME results instead of null
+            email?.let {
+                navigator.moveToAccountSetupChecks(it)
+            }
         }
-        val intent = intentChannel.receive()
-        val email = interactor.processAuthResponseData(authRequestData.toAuthResponseData(intent))
-        // FIXME results instead of null
-        email?.let {
-            navigator.moveToAccountSetupChecks(it)
-        }
+    }
+
+    private fun showError(throwable: Throwable) {
+
     }
 
     fun handleAuthResult(

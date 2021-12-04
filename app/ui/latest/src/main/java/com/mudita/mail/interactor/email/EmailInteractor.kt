@@ -7,7 +7,7 @@ import com.mudita.mail.service.auth.AuthResponseData
 
 interface EmailInteractor {
 
-    fun getProviderAuthConfig(providerType: ProviderType): AuthConfig?
+    fun getProviderAuthConfig(providerType: ProviderType): Result<AuthConfig>
 
     suspend fun processAuthResponseData(
         authResponseData: AuthResponseData

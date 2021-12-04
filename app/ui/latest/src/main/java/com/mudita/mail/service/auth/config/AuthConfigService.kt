@@ -5,5 +5,5 @@ import com.mudita.mail.repository.providers.model.ProviderType
 
 interface AuthConfigService {
 
-    fun getAuthConfigForProviderType(providerType: ProviderType): AuthConfig?
+    fun getAuthConfigForProviderType(providerType: ProviderType): Result<AuthConfig>
 }
