@@ -12,5 +12,12 @@ class ApiClientService(
     suspend inline fun <reified T> get(
         path: String,
         parameters: Map<String, Any>
-    ): T = client.get(path) { parameters.forEach { parameter(it.key, it.value) } }
+    ): Result<T> {
+        return try {
+            val response: T = client.get(path) { parameters.forEach { parameter(it.key, it.value) } }
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

@@ -70,7 +70,7 @@ class AuthServiceImpl(
         val token = authState.accessToken ?: return null
 
         val email = try {
-            emailApiClientService.getEmail(token)
+            emailApiClientService.getEmail(token).getOrThrow()
         } catch (e: Exception) {
             return null
         }

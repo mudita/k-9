@@ -8,9 +8,9 @@ class EmailApiClientServiceImpl(
 
     override suspend fun getEmail(token: String) =
         apiClientService.get<UserInfo>(
-            "https://www.googleapis.com/oauth2/v2/userinfo",
-            parameters = mapOf(ACCESS_TOKEN to token)
-        ).email
+        "https://www.googleapis.com/oauth2/v2/userinfo",
+        parameters = mapOf(ACCESS_TOKEN to token)
+    ).map { it.email }
 
     companion object {
 
