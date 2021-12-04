@@ -38,6 +38,10 @@ dependencies {
 
     testImplementation "io.mockk:mockk:${versions.mockk}"
     testImplementation "io.mockk:mockk-agent-jvm:${versions.mockk}"
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${versions.compose}")
+    androidTestImplementation "io.mockk:mockk-android:${versions.mockk}"
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${versions.compose}")
 }
 
 android {
@@ -56,6 +60,8 @@ android {
         resValue "string", "outlook_redirect_url", outlookRedirectUrl
         resValue "string", "outlook_client_id", outlookClientId
         resValue "string", "outlook_host", outlookHost
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     lintOptions {
