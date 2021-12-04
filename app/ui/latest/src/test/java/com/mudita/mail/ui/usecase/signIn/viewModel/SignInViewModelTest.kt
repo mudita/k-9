@@ -9,6 +9,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlin.test.assertEquals
+import kotlin.test.fail
 import org.junit.Before
 import org.junit.Test
 
@@ -61,5 +62,15 @@ class SignInViewModelTest {
 
         verify(exactly = 1) { interactor.getProviders() }
         assertEquals(expectedList, viewModel.uiState.value.providers)
+    }
+
+    @Test
+    fun `viewModel's selection of outlook should result in navigator call with string name outlook param`() {
+        fail()
+    }
+
+    @Test
+    fun `viewModel's selection of gmail should result in navigator call with string name gmail param`() {
+        fail()
     }
 }
