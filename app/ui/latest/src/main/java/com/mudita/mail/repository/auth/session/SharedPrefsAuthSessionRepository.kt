@@ -9,9 +9,9 @@ class SharedPrefsAuthSessionRepository(
 
     private val sharedPreferences by lazy { context.getSharedPreferences(AUTH_PREFS, Context.MODE_PRIVATE) }
 
-    override fun getAuthSessionData(username: String): AuthSessionData {
+    override fun getAuthSessionData(username: String): AuthSessionData? {
         val authJson = sharedPreferences.getString(userAuthStateKey(username), null)
-        return AuthSessionData(authJson?.let(AuthState::jsonDeserialize) ?: AuthState())
+        return authJson?.let(AuthState::jsonDeserialize)?.let { AuthSessionData(it) }
     }
 
     private fun userAuthStateKey(username: String) = "${AUTH_KEY}_$username"
