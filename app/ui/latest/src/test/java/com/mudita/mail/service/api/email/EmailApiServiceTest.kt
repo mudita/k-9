@@ -63,22 +63,24 @@ class EmailApiServiceTest : MuditaRobolectricTest() {
 
     @Before
     fun setup() {
-        apiClientService = ApiClientService(HttpClient(mockEngine) {
-            install(JsonFeature) {
-                serializer = KotlinxSerializer(
-                    Json {
-                        isLenient = false
-                        ignoreUnknownKeys = true
-                        allowSpecialFloatingPointValues = true
-                        useArrayPolymorphism = false
-                    }
-                )
-                acceptContentTypes
+        apiClientService = ApiClientService(
+            HttpClient(mockEngine) {
+                install(JsonFeature) {
+                    serializer = KotlinxSerializer(
+                        Json {
+                            isLenient = false
+                            ignoreUnknownKeys = true
+                            allowSpecialFloatingPointValues = true
+                            useArrayPolymorphism = false
+                        }
+                    )
+                    acceptContentTypes
+                }
+                install(HttpTimeout) {
+                    requestTimeoutMillis = 1000
+                }
             }
-            install(HttpTimeout) {
-                requestTimeoutMillis = 1000
-            }
-        })
+        )
         emailApiClientService = EmailApiClientServiceImpl(apiClientService)
     }
 

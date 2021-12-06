@@ -58,7 +58,6 @@ class EmailViewModel(
     }
 
     private fun showError(throwable: Throwable) {
-
     }
 
     fun handleAuthResult(
