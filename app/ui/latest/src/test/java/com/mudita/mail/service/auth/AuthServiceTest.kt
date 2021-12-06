@@ -1,13 +1,33 @@
 package com.mudita.mail.service.auth
 
+import android.net.Uri
 import com.mudita.mail.MuditaRobolectricTest
+import com.mudita.mail.repository.providers.model.ProviderType
+import com.mudita.mail.service.auth.config.AuthConfigService
 import kotlin.test.fail
+import org.junit.Before
 import org.junit.Test
 
 class AuthServiceTest : MuditaRobolectricTest() {
 
+    private lateinit var authService: AuthService
+    private lateinit var authConfigService: AuthConfigService
+
+    val googleAuthEndpoint = "https://accounts.google.com/o/oauth2/auth"
+    val googleTokenEndpoint = "https://oauth2.googleapis.com/token"
+
+    @Before
+    fun setup() {
+        authService = getKoin().get()
+        authConfigService = getKoin().get()
+    }
+
     @Test
     fun `getting auth intent with gmail config should result in google oauth intent`() {
+        val config = authConfigService.getAuthConfigForProviderType(ProviderType.GMAIL).getOrThrow()
+        val googleRequestAuthUri = Uri.parse(googleAuthEndpoint)
+        val requestData = authService.getAuthRequestData(config)
+
         fail()
     }
 
