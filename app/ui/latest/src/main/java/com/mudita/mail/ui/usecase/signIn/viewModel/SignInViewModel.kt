@@ -27,12 +27,6 @@ class SignInViewModel(
         }
     }
 
-    fun selectProvider(providerType: ProviderType) {
-        when (providerType) {
-            ProviderType.GMAIL,
-            ProviderType.ICLOUD,
-            ProviderType.OUTLOOK,
-            ProviderType.MANUAL -> navigator.moveToEmailScreen(providerType.name)
-        }
-    }
+    fun selectProvider(providerType: ProviderType) =
+        navigator.moveToEmailScreen(providerType)
 }
