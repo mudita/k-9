@@ -10,10 +10,11 @@ interface EmailInteractor {
     fun getProviderAuthConfig(providerType: ProviderType): Result<AuthConfig>
 
     suspend fun processAuthResponseData(
+        providerType: ProviderType,
         authResponseData: AuthResponseData
-    ): String?
+    ): Result<String>
 
     fun getAuthRequestData(
         authConfig: AuthConfig
-    ): AuthRequestData
+    ): Result<AuthRequestData>
 }

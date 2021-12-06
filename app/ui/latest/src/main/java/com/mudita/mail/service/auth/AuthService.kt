@@ -1,14 +1,16 @@
 package com.mudita.mail.service.auth
 
 import com.mudita.mail.repository.auth.config.AuthConfig
+import com.mudita.mail.repository.providers.model.ProviderType
 
 interface AuthService {
 
-    fun getAuthIntentData(
+    fun getAuthRequestData(
         authConfig: AuthConfig
-    ): AuthRequestData
+    ): Result<AuthRequestData>
 
     suspend fun processAuthResponseData(
+        providerType: ProviderType,
         authResponseData: AuthResponseData
-    ): String?
+    ): Result<String>
 }
