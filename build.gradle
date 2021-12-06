@@ -54,7 +54,8 @@ buildscript {
                 'composeNavigation'            : '2.4.0-beta01',
                 'mockk'                        : '1.12.1',
                 'appAuth'                      : '0.10.0',
-                'ktor'                         : '1.6.6'
+                'ktor'                         : '1.6.6',
+                'logback'                      : '1.2.6'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8
