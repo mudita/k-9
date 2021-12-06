@@ -14,7 +14,6 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 
 data class UiState(
     val authIntent: Intent? = null,
@@ -36,10 +35,12 @@ class EmailViewModel(
     private val intentChannel: Channel<Intent> = Channel(capacity = 1)
 
     fun startAuthProcess() {
-        if (providerType != null) {
-            startAuthProcess(providerType = providerType)
-        } else {
-            updateErrorState(UiError("Error retrieving provider type"))
+        when (providerType) {
+            ProviderType.GMAIL,
+            ProviderType.OUTLOOK -> startAuthProcess(providerType)
+            else -> updateErrorState(
+                UiError("Authorization process currently not supported for selected authorization way")
+            )
         }
     }
 
@@ -81,7 +82,7 @@ class EmailViewModel(
         intent: Intent
     ) {
         _uiState.update { it.copy(authIntent = null) }
-        viewModelScope.launch {
+        viewModelScope.launchWithLoading {
             intentChannel.send(intent)
         }
     }
