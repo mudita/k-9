@@ -2,7 +2,7 @@ package com.mudita.mail.ui.navigation
 
 object SignInDestination : Destination("signIn")
 
-object EmailDestination : Destination("email")
+object EmailDestination : Parametrized<String>("email", "providerType")
 
 sealed class Destination(
     protected open val route: String,

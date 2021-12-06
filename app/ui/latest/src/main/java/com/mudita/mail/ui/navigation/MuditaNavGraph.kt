@@ -26,13 +26,19 @@ fun MuditaMailNavGraph(
                 }
             )
         }
-
-        composable(EmailDestination.toRoute()) {
+        composable(
+            route = EmailDestination.toRoute()
+        ) { backStackEntry ->
             val context = LocalContext.current
             EmailScreen(
-                getViewModel {
-                    parametersOf(context)
-                }
+                getViewModel(
+                    parameters = {
+                        parametersOf(
+                            context,
+                            backStackEntry.arguments?.get(EmailDestination.key)
+                        )
+                    }
+                )
             )
         }
     }
