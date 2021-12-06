@@ -22,7 +22,7 @@ val serviceModule = module {
 
     factory { ApiClientService(get()) }
 
-    factory<EmailApiClientService> { EmailApiClientServiceImpl(get()) }
+    factory<EmailApiClientService> { EmailApiClientServiceImpl(get(), get()) }
 
     factory<AuthService> { AuthServiceImpl(get(), get(), get()) }
 }
