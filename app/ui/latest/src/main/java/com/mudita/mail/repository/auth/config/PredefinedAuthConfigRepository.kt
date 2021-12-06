@@ -23,6 +23,7 @@ class PredefinedAuthConfigRepository(context: Context) : AuthConfigRepository {
                 "https://outlook.office.com/IMAP.AccessAsUser.All",
                 "https://outlook.office.com/POP.AccessAsUser.All",
                 "https://outlook.office.com/SMTP.Send",
+                "https://outlook.office.com/User.Read",
                 "offline_access"
             ),
             responseType = ResponseType.CODE,
