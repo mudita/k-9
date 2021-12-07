@@ -61,9 +61,13 @@ class AuthServiceImpl(
         val authorizationResponse = AuthorizationResponse.fromIntent(intent)
         val authorizationException = AuthorizationException.fromIntent(intent)
 
-        authState.update(authorizationResponse, authorizationException)
+        if (authorizationException != null) {
+            return Result.failure(authorizationException)
+        }
 
         authorizationResponse ?: return Result.failure(Exception())
+
+        authState.update(authorizationResponse, authorizationException)
 
         val (tokenResponse, tokenAuthorizationException) = try {
             performTokenRequest(authorizationResponse)
