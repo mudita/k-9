@@ -9,6 +9,8 @@ import com.fsck.k9.ui.endtoend.AutocryptKeyTransferActivity
 import com.fsck.k9.ui.endtoend.AutocryptKeyTransferPresenter
 import com.fsck.k9.ui.folders.FolderNameFormatter
 import com.fsck.k9.ui.helper.SizeFormatter
+import com.mudita.mail.repository.providers.model.ProviderType
+import com.mudita.mail.ui.usecase.email.viewModel.EmailViewModel
 import com.mudita.mail.ui.usecase.signIn.navigator.SignInNavigator
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
 import org.junit.Test
@@ -47,6 +49,7 @@ class DependencyInjectionTest : AutoCloseKoinTest() {
             withParameter<ChangelogViewModel> { ChangeLogMode.CHANGE_LOG }
             withParameter<SignInNavigator> { NavHostController(RuntimeEnvironment.getApplication().applicationContext) }
             withParameter<SignInViewModel> { NavHostController(RuntimeEnvironment.getApplication().applicationContext) }
+            withParameter<EmailViewModel> { ProviderType.GMAIL.name }
         }
     }
 }
