@@ -1,5 +1,8 @@
 package com.mudita.mail.ui.usecase.signIn.view
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +15,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,6 +40,20 @@ fun SignInScreen(
 ) {
 
     val uiState = viewModel.uiState.collectAsState()
+
+    val authLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            result.data?.let { viewModel.handleAuthResult(it) }
+        }
+    }
+
+    LaunchedEffect(key1 = uiState.value.authIntent) {
+        if (uiState.value.authIntent != null) {
+            authLauncher.launch(uiState.value.authIntent)
+        }
+    }
 
     SignInScreen(
         uiState.value.providers,
