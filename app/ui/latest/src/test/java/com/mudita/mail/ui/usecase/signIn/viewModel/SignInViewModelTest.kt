@@ -65,12 +65,22 @@ class SignInViewModelTest {
     }
 
     @Test
-    fun `viewModel's selection of outlook should result in navigator call with string name outlook param`() {
-        fail()
+    fun `viewModel's selection of outlook should result in navigator call with outlook provider type`() {
+        val expectedProvider = ProviderType.OUTLOOK
+        every { navigator.moveToEmailScreen(expectedProvider) } returns Unit
+
+        SignInViewModel(interactor, navigator).selectProvider(expectedProvider)
+
+        verify(exactly = 1) { navigator.moveToEmailScreen(expectedProvider) }
     }
 
     @Test
-    fun `viewModel's selection of gmail should result in navigator call with string name gmail param`() {
-        fail()
+    fun `viewModel's selection of gmail should result in navigator call with gmail provider type`() {
+        val expectedProvider = ProviderType.GMAIL
+        every { navigator.moveToEmailScreen(expectedProvider) } returns Unit
+
+        SignInViewModel(interactor, navigator).selectProvider(expectedProvider)
+
+        verify(exactly = 1) { navigator.moveToEmailScreen(expectedProvider) }
     }
 }

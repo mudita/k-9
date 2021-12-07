@@ -1,7 +1,9 @@
 package com.mudita.mail.service.api.email
 
 import com.mudita.mail.MuditaRobolectricTest
+import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.api.client.ApiClientService
+import com.mudita.mail.service.api.email.strategy.EmailApiContext
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -27,6 +29,7 @@ class EmailApiServiceTest : MuditaRobolectricTest() {
 
     private lateinit var apiClientService: ApiClientService
     private lateinit var emailApiClientService: EmailApiClientService
+    private lateinit var emailApiContext: EmailApiContext
 
     private val validToken = "validToken"
     private val invalidToken = "invalidToken"
@@ -81,15 +84,20 @@ class EmailApiServiceTest : MuditaRobolectricTest() {
                 }
             }
         )
-        emailApiClientService = EmailApiClientServiceImpl(apiClientService)
+        emailApiContext = EmailApiContext()
+        emailApiClientService = EmailApiClientServiceImpl(
+            emailApiContext,
+            apiClientService
+        )
     }
 
     @Test
-    fun `call with token should result in response wrapped in result`() {
+    fun `call with token should result in response wrapped in result for google provider`() {
         val token = validToken
+        val providerType = ProviderType.GMAIL
 
         runBlocking {
-            val response = emailApiClientService.getEmail(token)
+            val response = emailApiClientService.getEmail(providerType, token)
             assertTrue { response.isSuccess }
             val email = response.getOrNull()
             assertEquals(testEmail, email)
@@ -97,11 +105,12 @@ class EmailApiServiceTest : MuditaRobolectricTest() {
     }
 
     @Test
-    fun `call with empty token should result in NotFound status code response wrapped in failure`() {
+    fun `call with empty token should result in NotFound status code response wrapped in failure for google provider`() {
         val token = invalidToken
+        val providerType = ProviderType.GMAIL
 
         runBlocking {
-            val response = emailApiClientService.getEmail(token)
+            val response = emailApiClientService.getEmail(providerType, token)
             assertTrue { response.isFailure }
             assertEquals(
                 HttpStatusCode.NotFound,
@@ -111,11 +120,15 @@ class EmailApiServiceTest : MuditaRobolectricTest() {
     }
 
     @Test
-    fun `call with timeout should result in response wrapped in failure`() {
+    fun `call with timeout should result in response wrapped in failure for google provider`() {
         val token = timeoutToken
+        val providerType = ProviderType.GMAIL
 
         runBlocking {
-            val response = emailApiClientService.getEmail(token)
+            val response = emailApiClientService.getEmail(
+                providerType,
+                token
+            )
             assertTrue { response.isFailure }
             assertTrue { response.exceptionOrNull() is HttpRequestTimeoutException }
         }
