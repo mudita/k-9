@@ -33,12 +33,16 @@ class AuthServiceImpl(
             Uri.parse(authConfig.tokenEndpoint)
         )
 
-        val authRequestBuilder = AuthorizationRequest.Builder(
-            serviceConfig,
-            authConfig.clientId,
-            authConfig.responseType.value,
-            Uri.parse(authConfig.redirectUrl)
-        ).setScopes(authConfig.scopes)
+        val authRequestBuilder = try {
+            AuthorizationRequest.Builder(
+                serviceConfig,
+                authConfig.clientId,
+                authConfig.responseType.value,
+                Uri.parse(authConfig.redirectUrl)
+            ).setScopes(authConfig.scopes)
+        } catch (e: IllegalArgumentException) {
+            return Result.failure(e)
+        }
 
         val intent = authorizationService.getAuthorizationRequestIntent(authRequestBuilder.build())
         val authState = AuthState(serviceConfig)

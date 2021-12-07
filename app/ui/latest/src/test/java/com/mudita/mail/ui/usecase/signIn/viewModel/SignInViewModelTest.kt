@@ -9,7 +9,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlin.test.assertEquals
-import kotlin.test.fail
 import org.junit.Before
 import org.junit.Test
 

@@ -8,7 +8,6 @@ import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.api.email.EmailApiClientService
 import com.mudita.mail.service.auth.AuthRequestData.Companion.toAuthResponseData
 import com.mudita.mail.service.auth.config.AuthConfigService
-import io.ktor.client.features.ClientRequestException
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -82,17 +81,20 @@ class AuthServiceTest : MuditaRobolectricTest() {
         tokenRequest = mockk(relaxed = true) {
             every { jsonSerialize() } returns JSONObject()
         }
+
         declare<AuthorizationService> {
             mockk(relaxed = true) {
                 every { getAuthorizationRequestIntent(any()) } returns Intent()
                 every { performTokenRequest(any(), any()) } answers {
                     secondArg<AuthorizationService.TokenResponseCallback>().onTokenRequestCompleted(
                         TokenResponse.Builder(tokenRequest)
-                            .setAccessToken(validMockToken).build(), null
+                            .setAccessToken(validMockToken).build(),
+                        null
                     )
                 }
             }
         }
+
         declare<EmailApiClientService> {
             mockk(relaxed = true) {
                 coEvery { getEmail(ProviderType.GMAIL, validMockToken) } returns Result.success(testGmailEmail)
@@ -105,6 +107,7 @@ class AuthServiceTest : MuditaRobolectricTest() {
                 } returns Result.failure(Exception())
             }
         }
+
         mockAuthSessionRepo = mockk {
             mockk(relaxed = true) {
                 every { saveAuthSessionData(any(), any()) } returns Unit
@@ -113,6 +116,7 @@ class AuthServiceTest : MuditaRobolectricTest() {
         declare {
             mockAuthSessionRepo
         }
+
         authService = getKoin().get()
         authConfigService = getKoin().get()
     }
@@ -229,7 +233,8 @@ class AuthServiceTest : MuditaRobolectricTest() {
                 every { performTokenRequest(any(), any()) } answers {
                     secondArg<AuthorizationService.TokenResponseCallback>().onTokenRequestCompleted(
                         TokenResponse.Builder(tokenRequest)
-                            .setAccessToken(invalidMockToken).build(), null
+                            .setAccessToken(invalidMockToken).build(),
+                        null
                     )
                 }
             }
