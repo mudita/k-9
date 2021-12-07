@@ -57,10 +57,7 @@ class SignInViewModel(
             )
     }
 
-    private fun startAuthProcess(
-        providerType: ProviderType,
-        authConfig: AuthConfig
-    ) {
+    private fun startAuthProcess(providerType: ProviderType, authConfig: AuthConfig) {
         viewModelScope.launchWithLoading {
             interactor.getAuthRequestData(authConfig)
                 .suspendingRunBlockOrShowError { authRequestData ->
@@ -74,18 +71,14 @@ class SignInViewModel(
                         providerType,
                         authRequestData.toAuthResponseData(intent)
                     ).fold(
-                        onSuccess = {
-                            navigator.moveToAccountSetupChecks(it)
-                        }, onFailure = {
-                            updateErrorState(it)
-                        })
+                        onSuccess = navigator::moveToAccountSetupChecks,
+                        onFailure = ::updateErrorState
+                    )
                 }
         }
     }
 
-    fun handleAuthResult(
-        intent: Intent
-    ) {
+    fun handleAuthResult(intent: Intent) {
         _uiState.update { it.copy(authIntent = null) }
         viewModelScope.launchWithLoading {
             intentChannel.send(intent)
