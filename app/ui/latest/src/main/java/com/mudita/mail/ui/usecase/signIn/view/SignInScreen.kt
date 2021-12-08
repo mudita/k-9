@@ -265,7 +265,7 @@ fun ErrorBottomSheet(
 ) {
     TopHideIndicatorBottomSheet {
         Text(
-            text = "Error occurred",
+            text = stringResource(id = R.string.error_bottom_sheet_header),
             style = MaterialTheme.typography.h5,
             color = PrimaryTextColor
         )
