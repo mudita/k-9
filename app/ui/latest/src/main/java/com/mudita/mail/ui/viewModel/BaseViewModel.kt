@@ -5,6 +5,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<UiState : BaseUiState> : ViewModel() {
@@ -13,9 +14,9 @@ abstract class BaseViewModel<UiState : BaseUiState> : ViewModel() {
         context: CoroutineContext = EmptyCoroutineContext,
         start: CoroutineStart = CoroutineStart.DEFAULT,
         block: suspend CoroutineScope.() -> Unit
-    ) {
+    ) = launch(context, start) {
         updateLoadingState(true)
-        launch(context, start, block)
+        block()
         updateLoadingState(false)
     }
 
@@ -30,6 +31,10 @@ abstract class BaseViewModel<UiState : BaseUiState> : ViewModel() {
     }
 
     abstract fun updateLoadingState(isLoading: Boolean)
+
+    fun startLoading() = updateLoadingState(true)
+
+    fun stopLoading() = updateLoadingState(false)
 
     abstract fun updateErrorState(uiError: UiError)
 }
