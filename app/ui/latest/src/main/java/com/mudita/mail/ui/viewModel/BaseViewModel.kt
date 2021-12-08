@@ -5,7 +5,6 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<UiState : BaseUiState> : ViewModel() {

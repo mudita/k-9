@@ -146,7 +146,8 @@ fun ModalLayout(
     ModalBottomSheetLayout(
         sheetState = bottomSheetState,
         sheetBackgroundColor = Transparent,
-        sheetContent = { sheetContent() }) {
+        sheetContent = { sheetContent() }
+    ) {
         content()
     }
 }
@@ -295,7 +296,7 @@ fun SingInScreenPreview() {
             SignInScreen(
                 emptyList(),
                 rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden),
-                {},{}
+                {}, {}
             ) {}
         }
     }
