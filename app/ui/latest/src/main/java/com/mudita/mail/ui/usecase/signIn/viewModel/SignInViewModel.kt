@@ -15,6 +15,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 data class UiState(
     val providers: List<ProviderTile> = emptyList(),
@@ -38,7 +39,7 @@ class SignInViewModel(
         }
     }
 
-    private val intentChannel: Channel<Intent> = Channel(capacity = 1)
+    private var intentChannel: Channel<Intent> = Channel(capacity = 1)
 
     fun selectProvider(providerType: ProviderType) =
         when (providerType) {
@@ -80,9 +81,16 @@ class SignInViewModel(
 
     fun handleAuthResult(intent: Intent) {
         _uiState.update { it.copy(authIntent = null) }
-        viewModelScope.launchWithLoading {
+        viewModelScope.launch {
             intentChannel.send(intent)
         }
+        startLoading()
+    }
+
+    fun handleAuthProcessCancellation() {
+        intentChannel.cancel()
+        intentChannel = Channel(1)
+        stopLoading()
     }
 
     override fun updateLoadingState(isLoading: Boolean) {
