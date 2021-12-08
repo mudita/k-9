@@ -87,6 +87,11 @@ class SignInViewModel(
         startLoading()
     }
 
+    fun onInfoHidden() {
+        _uiState.update { it.copy(error = null) }
+        stopLoading()
+    }
+
     fun handleAuthProcessCancellation() {
         intentChannel.cancel()
         intentChannel = Channel(1)

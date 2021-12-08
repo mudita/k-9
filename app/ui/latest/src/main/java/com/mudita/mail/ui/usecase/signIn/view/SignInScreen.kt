@@ -29,6 +29,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -89,7 +90,9 @@ fun SignInScreen(
     SignInScreen(
         providers = uiState.value.providers,
         bottomSheetState = bottomSheetState,
-        onProviderTapAction = { viewModel.selectProvider(it) }) {
+        onProviderTapAction = { viewModel.selectProvider(it) },
+        bottomSheetHideAction = { viewModel.onInfoHidden() }
+    ) {
         if (uiState.value.error.isError()) {
             ErrorBottomSheet(text = uiState.value.error?.message.orEmpty())
         } else {
@@ -103,24 +106,48 @@ fun SignInScreen(
 private fun SignInScreen(
     providers: List<ProviderTile>,
     bottomSheetState: ModalBottomSheetState,
+    bottomSheetHideAction: () -> Unit,
     onProviderTapAction: (ProviderType) -> Unit,
     sheetContent: @Composable () -> Unit
 ) {
+    ModalLayout(
+        content = {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 16.dp),
+                verticalArrangement = Arrangement.Top
+            ) {
+                SignInHeader()
+                AvailableProviders(
+                    providers, onProviderTapAction
+                )
+            }
+        },
+        sheetContent = { sheetContent() },
+        bottomSheetState = bottomSheetState,
+        onDisposeAction = { bottomSheetHideAction() }
+    )
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun ModalLayout(
+    content: @Composable () -> Unit,
+    sheetContent: @Composable () -> Unit,
+    bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden),
+    onDisposeAction: () -> Unit = {}
+) {
+    if (bottomSheetState.currentValue != ModalBottomSheetValue.Hidden) {
+        DisposableEffect(key1 = Unit) {
+            onDispose { onDisposeAction() }
+        }
+    }
     ModalBottomSheetLayout(
         sheetState = bottomSheetState,
         sheetBackgroundColor = Transparent,
         sheetContent = { sheetContent() }) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 16.dp),
-            verticalArrangement = Arrangement.Top
-        ) {
-            SignInHeader()
-            AvailableProviders(
-                providers, onProviderTapAction
-            )
-        }
+        content()
     }
 }
 
@@ -188,22 +215,7 @@ fun AvailableProviders(
 
 @Composable
 fun LoadingBottomSheet() {
-    Column(
-        modifier = Modifier
-            .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
-            .fillMaxWidth()
-            .background(MaterialTheme.colors.background),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Divider(
-            modifier = Modifier
-                .padding(top = 8.dp, bottom = 16.dp)
-                .width(60.dp)
-                .height(4.dp)
-                .clip(RoundedCornerShape(4.dp))
-        )
-        Spacer(modifier = Modifier.height(32.dp))
+    TopHideIndicatorBottomSheet {
         CircularProgressIndicator(
             color = MaterialTheme.colors.secondary,
             strokeWidth = 4.dp,
@@ -211,7 +223,6 @@ fun LoadingBottomSheet() {
                 .height(80.dp)
                 .width(80.dp)
         )
-        Spacer(modifier = Modifier.height(32.dp))
     }
 }
 
@@ -224,9 +235,7 @@ fun LoadingBottomSheetPreview() {
 }
 
 @Composable
-fun ErrorBottomSheet(
-    text: String
-) {
+fun TopHideIndicatorBottomSheet(content: @Composable () -> Unit) {
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
@@ -244,6 +253,16 @@ fun ErrorBottomSheet(
                 .clip(RoundedCornerShape(4.dp))
         )
         Spacer(modifier = Modifier.height(16.dp))
+        content()
+        Spacer(modifier = Modifier.height(32.dp))
+    }
+}
+
+@Composable
+fun ErrorBottomSheet(
+    text: String
+) {
+    TopHideIndicatorBottomSheet {
         Text(
             text = "Error occurred",
             style = MaterialTheme.typography.h5,
@@ -256,7 +275,6 @@ fun ErrorBottomSheet(
             color = PrimaryTextColor,
             textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.height(32.dp))
     }
 }
 
@@ -277,7 +295,7 @@ fun SingInScreenPreview() {
             SignInScreen(
                 emptyList(),
                 rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden),
-                {}
+                {},{}
             ) {}
         }
     }
