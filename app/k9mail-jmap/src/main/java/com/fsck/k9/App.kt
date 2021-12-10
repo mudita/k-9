@@ -4,6 +4,7 @@ import android.app.Application
 import com.fsck.k9.activity.MessageCompose
 import com.fsck.k9.controller.MessagingController
 import com.fsck.k9.ui.base.ThemeManager
+import com.mudita.mail.composeUiModules
 import org.koin.android.ext.android.inject
 
 class App : Application() {
@@ -16,7 +17,7 @@ class App : Application() {
 
         super.onCreate()
 
-        DI.start(this, coreModules + uiModules + appModules)
+        DI.start(this, coreModules + uiModules + composeUiModules + appModules)
 
         K9.init(this)
         Core.init(this)
