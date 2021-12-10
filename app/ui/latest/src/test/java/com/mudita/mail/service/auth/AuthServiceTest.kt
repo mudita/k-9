@@ -3,11 +3,13 @@ package com.mudita.mail.service.auth
 import android.content.Intent
 import android.net.Uri
 import com.mudita.mail.MuditaRobolectricTest
+import com.mudita.mail.repository.auth.session.AuthSessionData
 import com.mudita.mail.repository.auth.session.AuthSessionRepository
 import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.api.email.EmailApiClientService
 import com.mudita.mail.service.auth.AuthRequestData.Companion.toAuthResponseData
 import com.mudita.mail.service.auth.config.AuthConfigService
+import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -108,9 +110,10 @@ class AuthServiceTest : MuditaRobolectricTest() {
             }
         }
 
-        mockAuthSessionRepo = mockk {
+        mockAuthSessionRepo = mockk(relaxed = true) {
             mockk(relaxed = true) {
                 every { saveAuthSessionData(any(), any()) } returns Unit
+                every { getAuthSessionData(any()) } returns AuthSessionData(AuthState())
             }
         }
         declare {
@@ -274,7 +277,6 @@ class AuthServiceTest : MuditaRobolectricTest() {
 
     @After
     fun tearDown() {
-        getKoin().get<AuthSessionRepository>().removeAuthSession(testGmailEmail)
-        getKoin().get<AuthSessionRepository>().removeAuthSession(testOutlookEmail)
+        clearAllMocks()
     }
 }
