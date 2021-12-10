@@ -23,10 +23,10 @@ import net.openid.appauth.AuthorizationService
 import net.openid.appauth.TokenRequest
 import net.openid.appauth.TokenResponse
 import org.json.JSONObject
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.koin.test.mock.declare
-import org.mockito.kotlin.any
 
 class AuthServiceTest : MuditaRobolectricTest() {
 
@@ -270,5 +270,11 @@ class AuthServiceTest : MuditaRobolectricTest() {
             assertTrue { emailResult.isFailure }
             verify(exactly = 0) { mockAuthSessionRepo.saveAuthSessionData(expectedEmail, any()) }
         }
+    }
+
+    @After
+    fun tearDown() {
+        getKoin().get<AuthSessionRepository>().removeAuthSession(testGmailEmail)
+        getKoin().get<AuthSessionRepository>().removeAuthSession(testOutlookEmail)
     }
 }
