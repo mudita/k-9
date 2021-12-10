@@ -7,4 +7,6 @@ interface AuthSessionService {
     fun invalidateToken(username: String)
 
     fun getToken(username: String): String?
+
+    fun removeToken(username: String)
 }
