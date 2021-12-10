@@ -12,6 +12,7 @@ class PredefinedAuthConfigRepository(context: Context) : AuthConfigRepository {
             redirectUrl = context.getString(R.string.google_redirect_url),
             scopes = listOf("https://mail.google.com/", "https://www.googleapis.com/auth/userinfo.email"),
             responseType = ResponseType.CODE,
+            prompt = "select_account",
             authEndpoint = "https://accounts.google.com/o/oauth2/auth",
             tokenEndpoint = "https://oauth2.googleapis.com/token"
         ),
@@ -27,6 +28,7 @@ class PredefinedAuthConfigRepository(context: Context) : AuthConfigRepository {
                 "offline_access"
             ),
             responseType = ResponseType.CODE,
+            prompt = "select_account",
             authEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
             tokenEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/token"
         )
