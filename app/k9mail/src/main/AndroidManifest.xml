@@ -184,7 +184,7 @@
             android:targetActivity=".activity.MessageList"
             android:exported="true" />
 
-        <activity android:name=".activity.MessageList">
+        <activity android:name=".activity.MessageList" android:theme="@style/Theme.K9.Light.Startup.Splashing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
