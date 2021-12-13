@@ -52,7 +52,9 @@ buildscript {
                 'jacoco'                       : '0.8.7',
                 'compose'                      : '1.0.5',
                 'composeNavigation'            : '2.4.0-beta01',
-                'mockk'                        : '1.12.1'
+                'mockk'                        : '1.12.1',
+                'appAuth'                      : '0.10.0',
+                'ktor'                         : '1.6.6'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8
@@ -71,10 +73,14 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
         classpath "org.jlleitschuh.gradle:ktlint-gradle:10.0.0"
         classpath "org.jacoco:org.jacoco.core:${versions.jacoco}"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:${versions.kotlin}"
     }
 }
 
 project.ext {
+    googleClientId = ""
+    googleRedirectUrl = ""
+    googleRedirectScheme = ""
     testCoverage = project.hasProperty('testCoverage')
 }
 

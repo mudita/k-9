@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 
 data class UiState(
-    val providers: List<ProviderTile> = emptyList()
+    val providers: List<ProviderTile> = emptyList(),
 )
 
 class SignInViewModel(
@@ -32,7 +32,7 @@ class SignInViewModel(
             ProviderType.GMAIL,
             ProviderType.ICLOUD,
             ProviderType.OUTLOOK,
-            ProviderType.MANUAL -> navigator.moveToCredentials()
+            ProviderType.MANUAL -> navigator.moveToEmailScreen(providerType.name)
         }
     }
 }

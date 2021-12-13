@@ -39,4 +39,27 @@ class ProvidersXmlDiscoveryTest : RobolectricTest() {
 
         assertThat(connectionSettings).isNull()
     }
+
+    @Test
+    fun discover_withGmailDomain_and_ExternalAuth_shouldReturnCorrectSettings() {
+        val connectionSettings = providersXmlDiscovery.discover(
+            "user@gmail.com",
+            DiscoveryTarget.INCOMING_AND_OUTGOING,
+            AuthType.XOAUTH2
+        )
+
+        assertThat(connectionSettings).isNotNull()
+        with(connectionSettings!!.incoming.first()) {
+            assertThat(host).isEqualTo("imap.gmail.com")
+            assertThat(security).isEqualTo(ConnectionSecurity.SSL_TLS_REQUIRED)
+            assertThat(authType).isEqualTo(AuthType.XOAUTH2)
+            assertThat(username).isEqualTo("user@gmail.com")
+        }
+        with(connectionSettings.outgoing.first()) {
+            assertThat(host).isEqualTo("smtp.gmail.com")
+            assertThat(security).isEqualTo(ConnectionSecurity.SSL_TLS_REQUIRED)
+            assertThat(authType).isEqualTo(AuthType.XOAUTH2)
+            assertThat(username).isEqualTo("user@gmail.com")
+        }
+    }
 }

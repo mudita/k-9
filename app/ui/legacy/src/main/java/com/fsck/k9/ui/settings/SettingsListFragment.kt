@@ -161,7 +161,7 @@ class SettingsListFragment : Fragment(), ItemTouchCallback {
     }
 
     private fun launchOnboarding() {
-        findNavController().navigate(R.id.action_settingsListScreen_to_onboardingScreen)
+        findNavController().navigate(R.id.action_settingsListScreen_to_signInScreen)
         requireActivity().finishAffinity()
     }
 

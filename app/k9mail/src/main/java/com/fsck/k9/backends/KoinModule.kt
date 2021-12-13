@@ -25,7 +25,8 @@ val backendsModule = module {
             powerManager = get(),
             idleRefreshManager = get(),
             backendStorageFactory = get(),
-            trustedSocketFactory = get()
+            trustedSocketFactory = get(),
+            oAuth2TokenProvider = get()
         )
     }
     single<SystemAlarmManager> { AndroidAlarmManager(context = get(), alarmManager = get()) }

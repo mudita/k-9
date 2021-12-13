@@ -4,5 +4,5 @@ import android.content.Context
 
 interface ToSetupAccountNavigator {
 
-    fun moveToSetupAccount(context: Context)
+    fun moveToSetupAccount(context: Context, username: String)
 }

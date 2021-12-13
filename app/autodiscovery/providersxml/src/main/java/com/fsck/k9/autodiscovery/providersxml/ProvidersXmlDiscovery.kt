@@ -10,6 +10,7 @@ import com.fsck.k9.helper.EmailHelper
 import com.fsck.k9.mail.AuthType
 import com.fsck.k9.mail.ConnectionSecurity
 import com.fsck.k9.preferences.Protocols
+import java.net.URI
 import org.xmlpull.v1.XmlPullParser
 import timber.log.Timber
 
@@ -17,13 +18,19 @@ class ProvidersXmlDiscovery(
     private val xmlProvider: ProvidersXmlProvider
 ) : ConnectionSettingsDiscovery {
 
-    override fun discover(email: String, target: DiscoveryTarget): DiscoveryResults? {
+    override fun discover(
+        email: String,
+        target: DiscoveryTarget,
+        predefinedAuthType: AuthType?
+    ): DiscoveryResults? {
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
         val provider = findProviderForDomain(domain) ?: return null
 
-        val incomingSettings = provider.toIncomingServerSettings(email) ?: return null
-        val outgoingSettings = provider.toOutgoingServerSettings(email) ?: return null
+        val authType = predefinedAuthType ?: AuthType.PLAIN
+
+        val incomingSettings = provider.toIncomingServerSettings(email, authType) ?: return null
+        val outgoingSettings = provider.toOutgoingServerSettings(email, authType) ?: return null
         return DiscoveryResults(listOf(incomingSettings), listOf(outgoingSettings))
     }
 
@@ -84,11 +91,14 @@ class ProvidersXmlDiscovery(
         }
     }
 
-    private fun Provider.toIncomingServerSettings(email: String): DiscoveredServerSettings? {
+    private fun Provider.toIncomingServerSettings(email: String, authType: AuthType): DiscoveredServerSettings? {
         val user = EmailHelper.getLocalPartFromEmailAddress(email) ?: return null
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
         val username = incomingUsernameTemplate.fillInUsernameTemplate(email, user, domain)
+
+        val xOAuth2Label = if (authType == AuthType.XOAUTH2) AuthType.XOAUTH2.name else ""
+        val xOAuth2Colon = if (authType == AuthType.XOAUTH2) ":" else ""
 
         val security = when {
             incomingUriTemplate.startsWith("imap+ssl") -> ConnectionSecurity.SSL_TLS_REQUIRED
@@ -96,7 +106,10 @@ class ProvidersXmlDiscovery(
             else -> error("Connection security required")
         }
 
-        val uri = Uri.parse(incomingUriTemplate)
+        val incomingUri = with(URI(incomingUriTemplate)) {
+            URI(scheme, "$xOAuth2Label$xOAuth2Colon$username", host, port, null, null, null).toString()
+        }
+        val uri = Uri.parse(incomingUri)
         val host = uri.host ?: error("Host name required")
         val port = if (uri.port == -1) {
             if (security == ConnectionSecurity.STARTTLS_REQUIRED) 143 else 993
@@ -104,12 +117,15 @@ class ProvidersXmlDiscovery(
             uri.port
         }
 
-        return DiscoveredServerSettings(Protocols.IMAP, host, port, security, AuthType.PLAIN, username)
+        return DiscoveredServerSettings(Protocols.IMAP, host, port, security, authType, username)
     }
 
-    private fun Provider.toOutgoingServerSettings(email: String): DiscoveredServerSettings? {
+    private fun Provider.toOutgoingServerSettings(email: String, authType: AuthType): DiscoveredServerSettings? {
         val user = EmailHelper.getLocalPartFromEmailAddress(email) ?: return null
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
+
+        val xOAuth2Label = if (authType == AuthType.XOAUTH2) AuthType.XOAUTH2.name else ""
+        val xOAuth2Colon = if (authType == AuthType.XOAUTH2) ":" else ""
 
         val username = outgoingUsernameTemplate.fillInUsernameTemplate(email, user, domain)
 
@@ -119,7 +135,11 @@ class ProvidersXmlDiscovery(
             else -> error("Connection security required")
         }
 
-        val uri = Uri.parse(outgoingUriTemplate)
+        val outgoingUri = with(URI(outgoingUriTemplate)) {
+            URI(scheme, "$username$xOAuth2Colon$xOAuth2Label", host, port, null, null, null).toString()
+        }
+
+        val uri = Uri.parse(outgoingUri)
         val host = uri.host ?: error("Host name required")
         val port = if (uri.port == -1) {
             if (security == ConnectionSecurity.STARTTLS_REQUIRED) 587 else 465
@@ -127,7 +147,7 @@ class ProvidersXmlDiscovery(
             uri.port
         }
 
-        return DiscoveredServerSettings(Protocols.SMTP, host, port, security, AuthType.PLAIN, username)
+        return DiscoveredServerSettings(Protocols.SMTP, host, port, security, authType, username)
     }
 
     private fun String.fillInUsernameTemplate(email: String, user: String, domain: String): String {

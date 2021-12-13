@@ -38,7 +38,7 @@ fun SignInScreen(
     val uiState = viewModel.uiState.collectAsState()
 
     SignInScreen(
-        uiState.value.providers
+        uiState.value.providers,
     ) {
         viewModel.selectProvider(it)
     }
@@ -130,7 +130,7 @@ fun SingInScreenPreview() {
     MuditaTheme {
         Scaffold {
             SignInScreen(
-                emptyList()
+                emptyList(),
             ) {}
         }
     }

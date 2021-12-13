@@ -58,7 +58,6 @@ import com.fsck.k9.ui.messagesource.MessageSourceActivity
 import com.fsck.k9.ui.messageview.MessageViewFragment
 import com.fsck.k9.ui.messageview.MessageViewFragment.MessageViewFragmentListener
 import com.fsck.k9.ui.messageview.PlaceholderFragment
-import com.fsck.k9.ui.onboarding.OnboardingActivity
 import com.fsck.k9.ui.permissions.K9PermissionUiHelper
 import com.fsck.k9.ui.permissions.Permission
 import com.fsck.k9.ui.permissions.PermissionUiHelper
@@ -69,6 +68,7 @@ import com.fsck.k9.view.fadeOut
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.mikepenz.materialdrawer.util.getOptimalDrawerWidth
+import com.mudita.mail.ui.SignInActivity
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
@@ -155,7 +155,7 @@ open class MessageList :
         deleteIncompleteAccounts(accounts)
         val hasAccountSetup = accounts.any { it.isFinishedSetup }
         if (!hasAccountSetup) {
-            OnboardingActivity.launch(this)
+            SignInActivity.launch(this)
             finish()
             return
         }

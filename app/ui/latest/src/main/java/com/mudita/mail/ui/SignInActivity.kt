@@ -1,5 +1,7 @@
 package com.mudita.mail.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import com.fsck.k9.ui.base.K9Activity
@@ -11,6 +13,16 @@ class SignInActivity : K9Activity() {
         super.onCreate(savedInstanceState)
         setContent {
             MuditaMailApp()
+        }
+    }
+
+    companion object {
+
+        @JvmStatic fun launch(activity: Activity) {
+            val intent = Intent(activity, SignInActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+            activity.startActivity(intent)
         }
     }
 }

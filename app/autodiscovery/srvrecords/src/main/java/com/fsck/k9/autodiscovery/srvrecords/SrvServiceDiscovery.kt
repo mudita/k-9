@@ -12,7 +12,7 @@ class SrvServiceDiscovery(
     private val srvResolver: MiniDnsSrvResolver
 ) : ConnectionSettingsDiscovery {
 
-    override fun discover(email: String, target: DiscoveryTarget): DiscoveryResults? {
+    override fun discover(email: String, target: DiscoveryTarget, predefinedAuthType: AuthType?): DiscoveryResults? {
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
         val mailServicePriority = compareBy<MailService> { it.priority }.thenByDescending { it.security }
 

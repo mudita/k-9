@@ -1074,13 +1074,8 @@ public class RealImapConnectionTest {
             }
 
             @Override
-            public List<String> getAccounts() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void authorizeApi(String username, Activity activity, OAuth2TokenProviderAuthCallback callback) {
-                throw new UnsupportedOperationException();
+            public void refreshToken(String username) {
+                assertEquals(USERNAME, username);
             }
         };
     }

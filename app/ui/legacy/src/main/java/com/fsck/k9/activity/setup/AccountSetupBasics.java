@@ -50,6 +50,9 @@ public class AccountSetupBasics extends K9Activity
     private final static String EXTRA_ACCOUNT = "com.fsck.k9.AccountSetupBasics.account";
     private final static String STATE_KEY_CHECKED_INCOMING = "com.fsck.k9.AccountSetupBasics.checkedIncoming";
 
+    private final static String EMAIL_KEY = "email";
+    private String predefinedEmail = null;
+    private boolean xOAuth2 = false;
 
     private final ProvidersXmlDiscovery providersXmlDiscovery = DI.get(ProvidersXmlDiscovery.class);
     private final AccountCreator accountCreator = DI.get(AccountCreator.class);
@@ -87,6 +90,29 @@ public class AccountSetupBasics extends K9Activity
         mManualSetupButton = findViewById(R.id.manual_setup);
         mNextButton.setOnClickListener(this);
         mManualSetupButton.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            checkWhetherAccountWithPredefinedEmailSetupProcess(intent);
+        }
+    }
+
+    private void checkWhetherAccountWithPredefinedEmailSetupProcess(Intent intent) {
+        if (intent != null) {
+            String email = intent.getStringExtra(EMAIL_KEY);
+            if (email != null) {
+                startAccountSetupWithPredefinedEmail(email);
+            }
+        }
+    }
+
+    private void startAccountSetupWithPredefinedEmail(String email) {
+        predefinedEmail = email;
+        xOAuth2 = true;
+        mEmailView.setText(predefinedEmail);
+        mEmailView.setVisibility(View.GONE);
+        mPasswordView.setVisibility(View.GONE);
+        onNext();
     }
 
     private void initializeViewListeners() {
@@ -179,8 +205,8 @@ public class AccountSetupBasics extends K9Activity
         String email = mEmailView.getText().toString();
 
         boolean valid = Utility.requiredFieldValid(mEmailView)
-                && ((!clientCertificateChecked && Utility.requiredFieldValid(mPasswordView))
-                        || (clientCertificateChecked && clientCertificateAlias != null))
+                && ((!clientCertificateChecked && Utility.requiredFieldValid(mPasswordView) || xOAuth2)
+                || (clientCertificateChecked && clientCertificateAlias != null))
                 && mEmailValidator.isValidAddressOnly(email);
 
         mNextButton.setEnabled(valid);
@@ -243,8 +269,12 @@ public class AccountSetupBasics extends K9Activity
         AccountSetupCheckSettings.actionCheckSettings(this, mAccount, CheckDirection.INCOMING);
     }
 
-    private ConnectionSettings providersXmlDiscoveryDiscover(String email, DiscoveryTarget discoveryTarget) {
-        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(email, DiscoveryTarget.INCOMING_AND_OUTGOING);
+    private ConnectionSettings providersXmlDiscoveryDiscover(
+            String email,
+            DiscoveryTarget discoveryTarget,
+            AuthType authType
+    ) {
+        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(email, DiscoveryTarget.INCOMING_AND_OUTGOING, authType);
         if (discoveryResults == null || (discoveryResults.getIncoming().size() < 1 || discoveryResults.getOutgoing().size() < 1)) {
             return null;
         }
@@ -287,7 +317,13 @@ public class AccountSetupBasics extends K9Activity
             return;
         }
 
-        ConnectionSettings connectionSettings = providersXmlDiscoveryDiscover(email, DiscoveryTarget.INCOMING_AND_OUTGOING);
+        AuthType predefinedAuthType = predefinedEmail != null ? AuthType.XOAUTH2 : null;
+
+        ConnectionSettings connectionSettings = providersXmlDiscoveryDiscover(
+                email,
+                DiscoveryTarget.INCOMING_AND_OUTGOING,
+                predefinedAuthType
+        );
         if (connectionSettings != null) {
             finishAutoSetup(connectionSettings);
         } else {
@@ -355,5 +391,9 @@ public class AccountSetupBasics extends K9Activity
         } else if (id == R.id.manual_setup) {
             onManualSetup();
         }
+    }
+
+    public static void startActivityWithEmailSet(Context context, String email) {
+        context.startActivity(new Intent(context, AccountSetupBasics.class).putExtra(EMAIL_KEY, email));
     }
 }

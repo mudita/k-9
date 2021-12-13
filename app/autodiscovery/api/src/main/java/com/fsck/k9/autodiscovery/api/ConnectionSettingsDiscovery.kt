@@ -4,7 +4,7 @@ import com.fsck.k9.mail.AuthType
 import com.fsck.k9.mail.ConnectionSecurity
 
 interface ConnectionSettingsDiscovery {
-    fun discover(email: String, target: DiscoveryTarget): DiscoveryResults?
+    fun discover(email: String, target: DiscoveryTarget, predefinedAuthType: AuthType? = null): DiscoveryResults?
 }
 
 enum class DiscoveryTarget(val outgoing: Boolean, val incoming: Boolean) {

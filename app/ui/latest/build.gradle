@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlinx-serialization'
 
 if (rootProject.testCoverage) {
     apply plugin: 'jacoco'
@@ -23,6 +24,10 @@ dependencies {
     implementation "androidx.compose.material:material:${versions.compose}"
     implementation "androidx.navigation:navigation-compose:${versions.composeNavigation}"
     implementation "io.insert-koin:koin-androidx-compose:${versions.koin}"
+    implementation "net.openid:appauth:${versions.appAuth}"
+    implementation "io.ktor:ktor-client-core:${versions.ktor}"
+    implementation "io.ktor:ktor-client-okhttp:${versions.ktor}"
+    implementation "io.ktor:ktor-client-serialization:${versions.ktor}"
 
     testImplementation project(':mail:testing')
     testImplementation project(':app:testing')
@@ -42,6 +47,10 @@ android {
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.robolectricSdk
+
+        resValue "string", "google_redirect_scheme", project.property("googleRedirectScheme")
+        resValue "string", "google_redirect_url", project.property("googleRedirectUrl")
+        resValue "string", "google_client_id", project.property("googleClientId")
     }
 
     lintOptions {
@@ -72,3 +81,4 @@ android {
         }
     }
 }
+

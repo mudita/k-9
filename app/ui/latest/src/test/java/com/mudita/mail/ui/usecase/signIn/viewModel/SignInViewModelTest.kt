@@ -32,7 +32,7 @@ class SignInViewModelTest {
 
     @Test
     fun `calling viewModels provider selection should result on call to navigator`() {
-        every { navigator.moveToCredentials() } returns Unit
+        every { navigator.moveToEmailScreen(any()) } returns Unit
         val providerTypes = ProviderType.values()
         val viewModel = SignInViewModel(interactor, navigator)
 
@@ -40,7 +40,7 @@ class SignInViewModelTest {
             viewModel.selectProvider(it)
         }
 
-        verify(exactly = providerTypes.size) { navigator.moveToCredentials() }
+        verify(exactly = providerTypes.size) { navigator.moveToEmailScreen(any()) }
     }
 
     @Test
