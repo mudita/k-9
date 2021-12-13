@@ -20,6 +20,7 @@ import com.fsck.k9.DI;
 import com.fsck.k9.EmailAddressValidator;
 import com.fsck.k9.Preferences;
 import com.fsck.k9.account.AccountCreator;
+import com.fsck.k9.autodiscovery.api.DiscoveryParams;
 import com.fsck.k9.ui.base.K9Activity;
 import com.fsck.k9.activity.setup.AccountSetupCheckSettings.CheckDirection;
 import com.fsck.k9.autodiscovery.api.DiscoveredServerSettings;
@@ -53,6 +54,9 @@ public class AccountSetupBasics extends K9Activity
     private final static String EMAIL_KEY = "email";
     private String predefinedEmail = null;
     private boolean xOAuth2 = false;
+
+    private final static String ROOT_DOMAIN_KEY = "domain";
+    private String predefinedRootDomain = null;
 
     private final ProvidersXmlDiscovery providersXmlDiscovery = DI.get(ProvidersXmlDiscovery.class);
     private final AccountCreator accountCreator = DI.get(AccountCreator.class);
@@ -100,6 +104,7 @@ public class AccountSetupBasics extends K9Activity
     private void checkWhetherAccountWithPredefinedEmailSetupProcess(Intent intent) {
         if (intent != null) {
             String email = intent.getStringExtra(EMAIL_KEY);
+            predefinedRootDomain = intent.getStringExtra(ROOT_DOMAIN_KEY);
             if (email != null) {
                 startAccountSetupWithPredefinedEmail(email);
             }
@@ -274,7 +279,9 @@ public class AccountSetupBasics extends K9Activity
             DiscoveryTarget discoveryTarget,
             AuthType authType
     ) {
-        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(email, DiscoveryTarget.INCOMING_AND_OUTGOING, authType);
+        DiscoveryResults discoveryResults = providersXmlDiscovery.discover(
+                new DiscoveryParams(email, DiscoveryTarget.INCOMING_AND_OUTGOING, authType, predefinedRootDomain)
+        );
         if (discoveryResults == null || (discoveryResults.getIncoming().size() < 1 || discoveryResults.getOutgoing().size() < 1)) {
             return null;
         }
@@ -393,7 +400,10 @@ public class AccountSetupBasics extends K9Activity
         }
     }
 
-    public static void startActivityWithEmailSet(Context context, String email) {
-        context.startActivity(new Intent(context, AccountSetupBasics.class).putExtra(EMAIL_KEY, email));
+    public static void startActivityWithEmailSet(Context context, String email, String rootDomain) {
+        context.startActivity(new Intent(context, AccountSetupBasics.class)
+                .putExtra(EMAIL_KEY, email)
+                .putExtra(ROOT_DOMAIN_KEY, rootDomain)
+        );
     }
 }
