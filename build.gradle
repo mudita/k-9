@@ -78,10 +78,14 @@ buildscript {
 }
 
 project.ext {
-    googleClientId = ""
-    googleRedirectUrl = ""
-    googleRedirectScheme = ""
+    googleClientId = propertyOrEmpty('googleClientId')
+    googleRedirectUrl = propertyOrEmpty('googleRedirectUrl')
+    googleRedirectScheme = propertyOrEmpty('googleRedirectScheme')
     testCoverage = project.hasProperty('testCoverage')
+}
+
+def propertyOrEmpty(String propertyName) {
+    if (project.hasProperty(propertyName)) return project.property(propertyName) else return ''
 }
 
 subprojects {
