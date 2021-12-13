@@ -4,16 +4,12 @@
     <string name="app_header__description">"Fully encrypted email client perfectly synced with Mudita Space ecosystem.",</string>
     <string name="providers__header">Select provider</string>
     <string name="provider__gmail_name">Google mail</string>
-    <string name="provider__gmail_description">Strong security (OAUTH2). This app won’t store
-and transmit mail password.</string>
+    <string name="provider__gmail_description">Strong security (OAuth2).This app won\'t store and transmit mail password.</string>
     <string name="provider__icloud_name">iCloud</string>
-    <string name="provider__icloud_description">Strong security (OAUTH2). This app won’t store
-and transmit mail password.</string>
+    <string name="provider__icloud_description">Strong security (app-specific password). The app will store only the one-time password generated for it specifically.</string>
     <string name="provider__outlook_name">Outlook</string>
-    <string name="provider__outlook_description">Strong security (OAUTH2). This app won’t store
-and transmit mail password.</string>
+    <string name="provider__outlook_description">Strong security (OAuth2).This app won\'t store and transmit mail password.</string>
     <string name="provider__setup_manually_name">Set up manually</string>
-    <string name="provider__setup_manually_description">Strong security (OAUTH2). This app won’t store
-and transmit mail password.</string>
+    <string name="provider__setup_manually_description">Security level depending on e-mail provider. You will need to provide your general password or an app-specific password, depending on particular e-mail provider\'s settings.</string>
     <string name="error_bottom_sheet_header">Error occurred</string>
 </resources>
