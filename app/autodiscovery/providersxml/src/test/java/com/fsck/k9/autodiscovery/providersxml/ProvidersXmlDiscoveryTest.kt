@@ -2,6 +2,7 @@ package com.fsck.k9.autodiscovery.providersxml
 
 import androidx.test.core.app.ApplicationProvider
 import com.fsck.k9.RobolectricTest
+import com.fsck.k9.autodiscovery.api.DiscoveryParams
 import com.fsck.k9.autodiscovery.api.DiscoveryTarget
 import com.fsck.k9.mail.AuthType
 import com.fsck.k9.mail.ConnectionSecurity
@@ -14,7 +15,9 @@ class ProvidersXmlDiscoveryTest : RobolectricTest() {
 
     @Test
     fun discover_withGmailDomain_shouldReturnCorrectSettings() {
-        val connectionSettings = providersXmlDiscovery.discover("user@gmail.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        val connectionSettings = providersXmlDiscovery.discover(
+            DiscoveryParams("user@gmail.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        )
 
         assertThat(connectionSettings).isNotNull()
         with(connectionSettings!!.incoming.first()) {
@@ -34,7 +37,7 @@ class ProvidersXmlDiscoveryTest : RobolectricTest() {
     @Test
     fun discover_withUnknownDomain_shouldReturnNull() {
         val connectionSettings = providersXmlDiscovery.discover(
-            "user@not.present.in.providers.xml.example", DiscoveryTarget.INCOMING_AND_OUTGOING
+            DiscoveryParams("user@not.present.in.providers.xml.example", DiscoveryTarget.INCOMING_AND_OUTGOING)
         )
 
         assertThat(connectionSettings).isNull()
@@ -43,9 +46,11 @@ class ProvidersXmlDiscoveryTest : RobolectricTest() {
     @Test
     fun discover_withGmailDomain_and_ExternalAuth_shouldReturnCorrectSettings() {
         val connectionSettings = providersXmlDiscovery.discover(
-            "user@gmail.com",
-            DiscoveryTarget.INCOMING_AND_OUTGOING,
-            AuthType.XOAUTH2
+            DiscoveryParams(
+                "user@gmail.com",
+                DiscoveryTarget.INCOMING_AND_OUTGOING,
+                AuthType.XOAUTH2
+            )
         )
 
         assertThat(connectionSettings).isNotNull()

@@ -2,6 +2,7 @@ package com.fsck.k9.autodiscovery.srvrecords
 
 import com.fsck.k9.RobolectricTest
 import com.fsck.k9.autodiscovery.api.DiscoveredServerSettings
+import com.fsck.k9.autodiscovery.api.DiscoveryParams
 import com.fsck.k9.autodiscovery.api.DiscoveryResults
 import com.fsck.k9.autodiscovery.api.DiscoveryTarget
 import com.fsck.k9.mail.ConnectionSecurity
@@ -19,7 +20,9 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         val srvResolver = newMockSrvResolver()
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        )
 
         assertEquals(DiscoveryResults(listOf(), listOf()), result)
     }
@@ -34,7 +37,9 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         )
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        )
 
         assertEquals(2, result!!.incoming.size)
         assertEquals(0, result.outgoing.size)
@@ -58,7 +63,11 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         )
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams(
+                "test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING
+            )
+        )
 
         assertEquals(0, result!!.incoming.size)
         assertEquals(2, result.outgoing.size)
@@ -134,7 +143,9 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         )
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams("test@example.com", DiscoveryTarget.INCOMING_AND_OUTGOING)
+        )
 
         assertEquals(
             listOf(
@@ -171,7 +182,9 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         )
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.OUTGOING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams("test@example.com", DiscoveryTarget.OUTGOING)
+        )
 
         verify(srvResolver).lookup("example.com", SrvType.SUBMISSIONS)
         verify(srvResolver).lookup("example.com", SrvType.SUBMISSION)
@@ -195,7 +208,9 @@ class SrvServiceDiscoveryTest : RobolectricTest() {
         )
 
         val srvServiceDiscovery = SrvServiceDiscovery(srvResolver)
-        val result = srvServiceDiscovery.discover("test@example.com", DiscoveryTarget.INCOMING)
+        val result = srvServiceDiscovery.discover(
+            DiscoveryParams("test@example.com", DiscoveryTarget.INCOMING)
+        )
 
         verify(srvResolver).lookup("example.com", SrvType.IMAPS)
         verify(srvResolver).lookup("example.com", SrvType.IMAP)
