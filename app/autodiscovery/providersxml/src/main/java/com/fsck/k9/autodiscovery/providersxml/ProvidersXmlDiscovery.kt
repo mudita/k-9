@@ -20,7 +20,7 @@ class ProvidersXmlDiscovery(
 
     override fun discover(discoveryParams: DiscoveryParams): DiscoveryResults? {
         val email = discoveryParams.email
-        val authType = discoveryParams.authType
+        val authType = discoveryParams.authType ?: AuthType.PLAIN
 
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 

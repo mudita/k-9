@@ -27,6 +27,6 @@ data class DiscoveredServerSettings(
 data class DiscoveryParams(
     val email: String,
     val target: DiscoveryTarget,
-    val authType: AuthType = AuthType.PLAIN,
+    val authType: AuthType? = AuthType.PLAIN,
     val provider: String? = null
 )
