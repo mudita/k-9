@@ -4,21 +4,38 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ModalBottomSheetLayout
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -32,8 +49,10 @@ import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
 import com.mudita.mail.ui.util.resolverProviderImageRes
+import com.mudita.mail.ui.viewModel.isError
 import resolveStringKey
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SignInScreen(
     viewModel: SignInViewModel
@@ -46,6 +65,8 @@ fun SignInScreen(
     ) { result ->
         if (result.resultCode == AppCompatActivity.RESULT_OK) {
             result.data?.let { viewModel.handleAuthResult(it) }
+        } else {
+            viewModel.handleAuthProcessCancellation()
         }
     }
 
@@ -55,28 +76,79 @@ fun SignInScreen(
         }
     }
 
+    val bottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    LaunchedEffect(key1 = uiState.value.isLoading, key2 = uiState.value.error) {
+        bottomSheetState.animateTo(
+            if (uiState.value.isLoading || uiState.value.error.isError()) {
+                ModalBottomSheetValue.Expanded
+            } else {
+                ModalBottomSheetValue.Hidden
+            }
+        )
+    }
+
     SignInScreen(
-        uiState.value.providers,
+        providers = uiState.value.providers,
+        bottomSheetState = bottomSheetState,
+        onProviderTapAction = { viewModel.selectProvider(it) },
+        bottomSheetHideAction = { viewModel.onInfoHidden() }
     ) {
-        viewModel.selectProvider(it)
+        if (uiState.value.error.isError()) {
+            ErrorBottomSheet(text = uiState.value.error?.message.orEmpty())
+        } else {
+            LoadingBottomSheet()
+        }
     }
 }
 
 @Composable
+@OptIn(ExperimentalMaterialApi::class)
 private fun SignInScreen(
     providers: List<ProviderTile>,
-    onProviderTapAction: (ProviderType) -> Unit
+    bottomSheetState: ModalBottomSheetState,
+    bottomSheetHideAction: () -> Unit,
+    onProviderTapAction: (ProviderType) -> Unit,
+    sheetContent: @Composable () -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 16.dp),
-        verticalArrangement = Arrangement.Top
+    ModalLayout(
+        content = {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 16.dp, end = 16.dp, top = 48.dp, bottom = 16.dp),
+                verticalArrangement = Arrangement.Top
+            ) {
+                SignInHeader()
+                AvailableProviders(
+                    providers, onProviderTapAction
+                )
+            }
+        },
+        sheetContent = { sheetContent() },
+        bottomSheetState = bottomSheetState,
+        onDisposeAction = { bottomSheetHideAction() }
+    )
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun ModalLayout(
+    content: @Composable () -> Unit,
+    sheetContent: @Composable () -> Unit,
+    bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden),
+    onDisposeAction: () -> Unit = {}
+) {
+    if (bottomSheetState.currentValue != ModalBottomSheetValue.Hidden) {
+        DisposableEffect(key1 = Unit) {
+            onDispose { onDisposeAction() }
+        }
+    }
+    ModalBottomSheetLayout(
+        sheetState = bottomSheetState,
+        sheetBackgroundColor = Transparent,
+        sheetContent = { sheetContent() }
     ) {
-        SignInHeader()
-        AvailableProviders(
-            providers, onProviderTapAction
-        )
+        content()
     }
 }
 
@@ -142,6 +214,80 @@ fun AvailableProviders(
     }
 }
 
+@Composable
+fun LoadingBottomSheet() {
+    TopHideIndicatorBottomSheet {
+        CircularProgressIndicator(
+            color = MaterialTheme.colors.secondary,
+            strokeWidth = 4.dp,
+            modifier = Modifier
+                .height(80.dp)
+                .width(80.dp)
+        )
+    }
+}
+
+@Composable
+@Preview
+fun LoadingBottomSheetPreview() {
+    MuditaTheme {
+        LoadingBottomSheet()
+    }
+}
+
+@Composable
+fun TopHideIndicatorBottomSheet(content: @Composable () -> Unit) {
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(topStart = 25.dp, topEnd = 25.dp))
+            .fillMaxWidth()
+            .verticalScroll(ScrollState(0))
+            .background(MaterialTheme.colors.background),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Divider(
+            modifier = Modifier
+                .padding(top = 8.dp, bottom = 16.dp)
+                .width(60.dp)
+                .height(4.dp)
+                .clip(RoundedCornerShape(4.dp))
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        content()
+        Spacer(modifier = Modifier.height(32.dp))
+    }
+}
+
+@Composable
+fun ErrorBottomSheet(
+    text: String
+) {
+    TopHideIndicatorBottomSheet {
+        Text(
+            text = stringResource(id = R.string.error_bottom_sheet_header),
+            style = MaterialTheme.typography.h5,
+            color = PrimaryTextColor
+        )
+        Text(
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp),
+            text = text,
+            style = MaterialTheme.typography.subtitle1,
+            color = PrimaryTextColor,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Composable
+@Preview
+fun ErrorBottomSheetPreview() {
+    MuditaTheme {
+        ErrorBottomSheet("Wystąpił problem z pobraniem adresu email, spróbuj ponownie")
+    }
+}
+
+@OptIn(ExperimentalMaterialApi::class)
 @Preview
 @Composable
 fun SingInScreenPreview() {
@@ -149,6 +295,8 @@ fun SingInScreenPreview() {
         Scaffold {
             SignInScreen(
                 emptyList(),
+                rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden),
+                {}, {}
             ) {}
         }
     }
