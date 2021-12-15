@@ -31,19 +31,6 @@ class SignInViewModelTest {
     }
 
     @Test
-    fun `calling viewModels provider selection should result on call to navigator`() {
-        every { navigator.moveToEmailScreen(any()) } returns Unit
-        val providerTypes = ProviderType.values()
-        val viewModel = SignInViewModel(interactor, navigator)
-
-        providerTypes.forEach {
-            viewModel.selectProvider(it)
-        }
-
-        verify(exactly = providerTypes.size) { navigator.moveToEmailScreen(any()) }
-    }
-
-    @Test
     fun `viewModel creation should result in call to interactor`() {
         every { interactor.getProviders() } returns emptyList()
 
@@ -61,25 +48,5 @@ class SignInViewModelTest {
 
         verify(exactly = 1) { interactor.getProviders() }
         assertEquals(expectedList, viewModel.uiState.value.providers)
-    }
-
-    @Test
-    fun `viewModel's selection of outlook should result in navigator call with outlook provider type`() {
-        val expectedProvider = ProviderType.OUTLOOK
-        every { navigator.moveToEmailScreen(expectedProvider) } returns Unit
-
-        SignInViewModel(interactor, navigator).selectProvider(expectedProvider)
-
-        verify(exactly = 1) { navigator.moveToEmailScreen(expectedProvider) }
-    }
-
-    @Test
-    fun `viewModel's selection of gmail should result in navigator call with gmail provider type`() {
-        val expectedProvider = ProviderType.GMAIL
-        every { navigator.moveToEmailScreen(expectedProvider) } returns Unit
-
-        SignInViewModel(interactor, navigator).selectProvider(expectedProvider)
-
-        verify(exactly = 1) { navigator.moveToEmailScreen(expectedProvider) }
     }
 }
