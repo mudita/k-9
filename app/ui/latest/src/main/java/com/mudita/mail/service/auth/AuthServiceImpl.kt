@@ -89,10 +89,9 @@ class AuthServiceImpl(
 
         val email = emailApiClientService.getEmail(providerType, token).getOrElse { return Result.failure(it) }
 
-        if (
-            authSessionRepository.getAuthSessionData(email)?.authState?.refreshToken != null &&
-            preferences.accounts.find { it.email == email }?.isFinishedSetup == true
-        ) {
+        val account = preferences.accounts.find { it.email == email }
+
+        if (account != null && account.isFinishedSetup) {
             authSessionRepository.removeAuthSession(email)
             return Result.failure(IllegalArgumentException("Selected user already exists"))
         }
