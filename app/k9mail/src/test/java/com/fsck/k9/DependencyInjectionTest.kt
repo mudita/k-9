@@ -2,15 +2,12 @@ package com.fsck.k9
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.NavHostController
 import com.fsck.k9.ui.changelog.ChangeLogMode
 import com.fsck.k9.ui.changelog.ChangelogViewModel
 import com.fsck.k9.ui.endtoend.AutocryptKeyTransferActivity
 import com.fsck.k9.ui.endtoend.AutocryptKeyTransferPresenter
 import com.fsck.k9.ui.folders.FolderNameFormatter
 import com.fsck.k9.ui.helper.SizeFormatter
-import com.mudita.mail.ui.usecase.signIn.navigator.SignInNavigator
-import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.annotation.KoinInternalApi
@@ -45,8 +42,6 @@ class DependencyInjectionTest : AutoCloseKoinTest() {
             withParameter<FolderNameFormatter> { RuntimeEnvironment.application }
             withParameter<SizeFormatter> { RuntimeEnvironment.application }
             withParameter<ChangelogViewModel> { ChangeLogMode.CHANGE_LOG }
-            withParameter<SignInNavigator> { NavHostController(RuntimeEnvironment.getApplication().applicationContext) }
-            withParameter<SignInViewModel> { NavHostController(RuntimeEnvironment.getApplication().applicationContext) }
         }
     }
 }

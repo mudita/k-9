@@ -13,4 +13,5 @@ jobs:
       with:
         java-version: 11
     - name: Build with Gradle
-      run: ./gradlew assembleDebug testDebugUnitTest ktlintCheck
+      run: ./gradlew assembleDebug testDebugUnitTest ktlintCheck -PgClientId=testClientId -PgRedirectUrl=testRedirectUrl -PgRedirectScheme=testRedirectScheme -PoClientId=testClientId -PoRedirectUrl=testRedirectUrl -PoRedirectScheme=testRedirectScheme -PoHost=testHost
+

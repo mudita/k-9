@@ -32,7 +32,7 @@ class SignInInteractorTest {
         val expectedList = listOf(testProvider)
         every { repository.getProviders() } returns expectedList
 
-        val interactor: SignInInteractor = SignInInteractorImpl(repository)
+        val interactor: SignInInteractor = SignInInteractorImpl(repository, mockk(), mockk())
         val providers = interactor.getProviders()
 
         verify(exactly = 1) { repository.getProviders() }

@@ -1,13 +1,14 @@
 package com.mudita.mail.ui.usecase.signIn.navigator
 
-import androidx.navigation.NavHostController
-import com.mudita.mail.ui.navigation.EmailDestination
+import android.content.Context
+import com.fsck.k9.ui.base.navigation.ToSetupAccountNavigator
 
 class SignInScreenNavigatorImpl(
-    private val navHostController: NavHostController
+    private val context: Context,
+    private val toSetupAccountNavigator: ToSetupAccountNavigator
 ) : SignInNavigator {
 
-    override fun moveToEmailScreen(providerTypeName: String) {
-        navHostController.navigate(EmailDestination.toRoute())
+    override fun moveToAccountSetupChecks(email: String) {
+        toSetupAccountNavigator.moveToSetupAccount(context, email)
     }
 }

@@ -15,4 +15,5 @@ and transmit mail password.</string>
     <string name="provider__setup_manually_name">Set up manually</string>
     <string name="provider__setup_manually_description">Strong security (OAUTH2). This app won’t store
 and transmit mail password.</string>
+    <string name="error_bottom_sheet_header">Error occurred</string>
 </resources>

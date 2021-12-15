@@ -54,7 +54,8 @@ buildscript {
                 'composeNavigation'            : '2.4.0-beta01',
                 'mockk'                        : '1.12.1',
                 'appAuth'                      : '0.10.0',
-                'ktor'                         : '1.6.6'
+                'ktor'                         : '1.6.6',
+                'logback'                      : '1.2.6'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8
@@ -78,14 +79,20 @@ buildscript {
 }
 
 project.ext {
-    googleClientId = propertyOrEmpty('googleClientId')
-    googleRedirectUrl = propertyOrEmpty('googleRedirectUrl')
-    googleRedirectScheme = propertyOrEmpty('googleRedirectScheme')
+    googleClientId = propertyOrEmpty('gClientId')
+    googleRedirectUrl = propertyOrEmpty('gRedirectUrl')
+    googleRedirectScheme = propertyOrEmpty('gRedirectScheme')
+
+    outlookClientId = propertyOrEmpty('oClientId')
+    outlookRedirectUrl = propertyOrEmpty('oRedirectUrl')
+    outlookRedirectScheme = propertyOrEmpty('oRedirectScheme')
+    outlookHost = propertyOrEmpty('oHost')
+
     testCoverage = project.hasProperty('testCoverage')
 }
 
 def propertyOrEmpty(String propertyName) {
-    if (project.hasProperty(propertyName)) return project.property(propertyName) else return ''
+    if (project.hasProperty(propertyName)) return project.getProperty(propertyName) else return ''
 }
 
 subprojects {
