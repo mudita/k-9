@@ -5,6 +5,7 @@ import com.fsck.k9.mail.AuthenticationFailedException
 import com.mudita.mail.repository.auth.config.AuthConfig
 import com.mudita.mail.repository.auth.session.AuthSessionData
 import com.mudita.mail.repository.auth.session.AuthSessionRepository
+import com.mudita.mail.repository.providers.model.ProviderType
 import com.mudita.mail.service.api.email.EmailApiClientService
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -23,60 +24,69 @@ class AuthServiceImpl(
     private val authSessionRepository: AuthSessionRepository
 ) : AuthService {
 
-    override fun getAuthIntentData(
+    override fun getAuthRequestData(
         authConfig: AuthConfig
-    ): AuthRequestData {
+    ): Result<AuthRequestData> {
 
         val serviceConfig = AuthorizationServiceConfiguration(
             Uri.parse(authConfig.authEndpoint),
             Uri.parse(authConfig.tokenEndpoint)
         )
 
-        val authRequestBuilder = AuthorizationRequest.Builder(
-            serviceConfig,
-            authConfig.clientId,
-            authConfig.responseType.value,
-            Uri.parse(authConfig.redirectUrl)
-        ).setScopes(authConfig.scopes)
+        val authRequestBuilder = try {
+            AuthorizationRequest.Builder(
+                serviceConfig,
+                authConfig.clientId,
+                authConfig.responseType.value,
+                Uri.parse(authConfig.redirectUrl)
+            ).setScopes(authConfig.scopes)
+        } catch (e: IllegalArgumentException) {
+            return Result.failure(e)
+        }
 
         val intent = authorizationService.getAuthorizationRequestIntent(authRequestBuilder.build())
         val authState = AuthState(serviceConfig)
 
-        return AuthRequestData(
-            intent,
-            authState
+        return Result.success(
+            AuthRequestData(
+                intent,
+                authState
+            )
         )
     }
 
-    override suspend fun processAuthResponseData(authResponseData: AuthResponseData): String? {
+    override suspend fun processAuthResponseData(
+        providerType: ProviderType,
+        authResponseData: AuthResponseData
+    ): Result<String> {
         val intent = authResponseData.intent
         val authState = authResponseData.authState
 
         val authorizationResponse = AuthorizationResponse.fromIntent(intent)
         val authorizationException = AuthorizationException.fromIntent(intent)
 
-        authState.update(authorizationResponse, authorizationException)
+        if (authorizationException != null) {
+            return Result.failure(authorizationException)
+        }
 
-        authorizationResponse ?: return null
+        authorizationResponse ?: return Result.failure(Exception())
+
+        authState.update(authorizationResponse, authorizationException)
 
         val (tokenResponse, tokenAuthorizationException) = try {
             performTokenRequest(authorizationResponse)
         } catch (e: AuthorizationException) {
-            return null
+            return Result.failure(e)
         }
 
         authState.update(tokenResponse, tokenAuthorizationException)
 
-        val token = authState.accessToken ?: return null
+        val token = authState.accessToken ?: return Result.failure(Exception())
 
-        val email = try {
-            emailApiClientService.getEmail(token)
-        } catch (e: Exception) {
-            return null
-        }
+        val email = emailApiClientService.getEmail(providerType, token).getOrElse { return Result.failure(it) }
 
         authSessionRepository.saveAuthSessionData(email, AuthSessionData(authState))
-        return email
+        return Result.success(email)
     }
 
     private suspend fun performTokenRequest(

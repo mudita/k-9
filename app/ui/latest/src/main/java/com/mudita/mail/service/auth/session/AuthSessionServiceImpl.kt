@@ -10,8 +10,8 @@ class AuthSessionServiceImpl(
 ) : AuthSessionService {
 
     override fun refreshToken(username: String) {
-        val authState = authSessionRepository.getAuthSessionData(username).authState
-        authState.performActionWithFreshTokens(
+        val authState = authSessionRepository.getAuthSessionData(username)?.authState
+        authState?.performActionWithFreshTokens(
             authorizationService
         ) { _, _, authorizationException ->
             if (authorizationException == null) {
@@ -27,5 +27,5 @@ class AuthSessionServiceImpl(
     }
 
     override fun getToken(username: String): String? =
-        authSessionRepository.getAuthSessionData(username).authState.accessToken
+        authSessionRepository.getAuthSessionData(username)?.authState?.accessToken
 }

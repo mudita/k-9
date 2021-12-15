@@ -18,6 +18,14 @@
                     android:path="/oauth2redirect"
                     android:scheme="@string/google_redirect_scheme" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/outlook_redirect_scheme"
+                    android:host="@string/outlook_host"
+                    android:path="/oauth2redirect" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>

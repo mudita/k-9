@@ -4,6 +4,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.logging.Logging
 import kotlinx.serialization.json.Json
 
 class KtorHttpClientHolderFactory : HttpClientHolderFactory {
@@ -16,6 +17,7 @@ class KtorHttpClientHolderFactory : HttpClientHolderFactory {
 
     private fun createHttpClient(): HttpClient =
         HttpClient(OkHttp) {
+            install(Logging)
             install(JsonFeature) {
                 serializer = KotlinxSerializer(
                     Json {

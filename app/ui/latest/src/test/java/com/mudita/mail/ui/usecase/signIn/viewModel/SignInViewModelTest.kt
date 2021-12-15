@@ -31,19 +31,6 @@ class SignInViewModelTest {
     }
 
     @Test
-    fun `calling viewModels provider selection should result on call to navigator`() {
-        every { navigator.moveToEmailScreen(any()) } returns Unit
-        val providerTypes = ProviderType.values()
-        val viewModel = SignInViewModel(interactor, navigator)
-
-        providerTypes.forEach {
-            viewModel.selectProvider(it)
-        }
-
-        verify(exactly = providerTypes.size) { navigator.moveToEmailScreen(any()) }
-    }
-
-    @Test
     fun `viewModel creation should result in call to interactor`() {
         every { interactor.getProviders() } returns emptyList()
 

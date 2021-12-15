@@ -28,16 +28,23 @@ dependencies {
     implementation "io.ktor:ktor-client-core:${versions.ktor}"
     implementation "io.ktor:ktor-client-okhttp:${versions.ktor}"
     implementation "io.ktor:ktor-client-serialization:${versions.ktor}"
+    implementation "ch.qos.logback:logback-classic:${versions.logback}"
+    implementation "io.ktor:ktor-client-logging:${versions.ktor}"
 
     testImplementation project(':mail:testing')
     testImplementation project(':app:testing')
     testImplementation "org.robolectric:robolectric:${versions.robolectric}"
     testImplementation "junit:junit:${versions.junit}"
+    testImplementation "io.ktor:ktor-client-mock:${versions.ktor}"
     testImplementation "com.google.truth:truth:${versions.truth}"
     testImplementation "io.insert-koin:koin-test-junit4:${versions.koin}"
 
     testImplementation "io.mockk:mockk:${versions.mockk}"
     testImplementation "io.mockk:mockk-agent-jvm:${versions.mockk}"
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${versions.compose}")
+    androidTestImplementation "io.mockk:mockk-android:${versions.mockk}"
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${versions.compose}")
 }
 
 android {
@@ -48,9 +55,16 @@ android {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.robolectricSdk
 
-        resValue "string", "google_redirect_scheme", project.property("googleRedirectScheme")
-        resValue "string", "google_redirect_url", project.property("googleRedirectUrl")
-        resValue "string", "google_client_id", project.property("googleClientId")
+        resValue "string", "google_redirect_scheme", googleRedirectScheme
+        resValue "string", "google_redirect_url", googleRedirectUrl
+        resValue "string", "google_client_id", googleClientId
+
+        resValue "string", "outlook_redirect_scheme", outlookRedirectScheme
+        resValue "string", "outlook_redirect_url", outlookRedirectUrl
+        resValue "string", "outlook_client_id", outlookClientId
+        resValue "string", "outlook_host", outlookHost
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     lintOptions {
