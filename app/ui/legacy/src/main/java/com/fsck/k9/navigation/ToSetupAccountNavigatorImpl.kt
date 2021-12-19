@@ -14,4 +14,8 @@ class ToSetupAccountNavigatorImpl : ToSetupAccountNavigator {
     override fun moveToManualAccountSetup(context: Context) {
         context.run { startActivity(Intent(this, AccountSetupBasics::class.java)) }
     }
+
+    override fun moveToSetupAccountWithPassword(context: Context, username: String, password: String) {
+        context.run { AccountSetupBasics.startActivityWithEmailAndPasswordSet(this, username, password) }
+    }
 }
