@@ -46,9 +46,7 @@ class SignInViewModel(
             ProviderType.GMAIL,
             ProviderType.OUTLOOK -> startAuthProcess(providerType)
             ProviderType.MANUAL -> navigator.moveToManualAccountSetup()
-            else -> updateErrorState(
-                UiError("Authorization process currently not supported for selected authorization way")
-            )
+            ProviderType.ICLOUD -> navigator.moveToAppSpecificPasswordSetup()
         }
 
     private fun startAuthProcess(providerType: ProviderType) {

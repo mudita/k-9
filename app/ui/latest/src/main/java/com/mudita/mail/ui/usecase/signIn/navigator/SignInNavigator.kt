@@ -7,4 +7,7 @@ interface SignInNavigator : Navigator {
     fun moveToAccountSetupChecks(email: String, domain: String?)
 
     fun moveToManualAccountSetup()
+
+    fun moveToAppSpecificPasswordSetup()
+
 }
