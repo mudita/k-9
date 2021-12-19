@@ -20,10 +20,9 @@ import com.fsck.k9.DI;
 import com.fsck.k9.EmailAddressValidator;
 import com.fsck.k9.Preferences;
 import com.fsck.k9.account.AccountCreator;
-import com.fsck.k9.autodiscovery.api.DiscoveryParams;
-import com.fsck.k9.ui.base.K9Activity;
 import com.fsck.k9.activity.setup.AccountSetupCheckSettings.CheckDirection;
 import com.fsck.k9.autodiscovery.api.DiscoveredServerSettings;
+import com.fsck.k9.autodiscovery.api.DiscoveryParams;
 import com.fsck.k9.autodiscovery.api.DiscoveryResults;
 import com.fsck.k9.autodiscovery.api.DiscoveryTarget;
 import com.fsck.k9.autodiscovery.providersxml.ProvidersXmlDiscovery;
@@ -31,8 +30,9 @@ import com.fsck.k9.helper.Utility;
 import com.fsck.k9.mail.AuthType;
 import com.fsck.k9.mail.ServerSettings;
 import com.fsck.k9.mailstore.SpecialLocalFoldersCreator;
-import com.fsck.k9.ui.R;
 import com.fsck.k9.ui.ConnectionSettings;
+import com.fsck.k9.ui.R;
+import com.fsck.k9.ui.base.K9Activity;
 import com.fsck.k9.ui.settings.ExtraAccountDiscovery;
 import com.fsck.k9.view.ClientCertificateSpinner;
 import com.fsck.k9.view.ClientCertificateSpinner.OnClientCertificateChangedListener;
@@ -57,6 +57,9 @@ public class AccountSetupBasics extends K9Activity
 
     private final static String ROOT_DOMAIN_KEY = "domain";
     private String predefinedRootDomain = null;
+
+    private final static String PASSWORD_KEY = "password";
+    private String predefinedPassword = null;
 
     private final ProvidersXmlDiscovery providersXmlDiscovery = DI.get(ProvidersXmlDiscovery.class);
     private final AccountCreator accountCreator = DI.get(AccountCreator.class);
@@ -105,10 +108,25 @@ public class AccountSetupBasics extends K9Activity
         if (intent != null) {
             String email = intent.getStringExtra(EMAIL_KEY);
             predefinedRootDomain = intent.getStringExtra(ROOT_DOMAIN_KEY);
-            if (email != null) {
+            String password = intent.getStringExtra(PASSWORD_KEY);
+            if (email != null && password != null) {
+                startAccountSetupWithPredefinedEmailAndPassword(email, password);
+            }
+            if (email != null && password == null) {
                 startAccountSetupWithPredefinedEmail(email);
             }
         }
+    }
+
+    private void startAccountSetupWithPredefinedEmailAndPassword(String email, String password) {
+        predefinedEmail = email;
+        predefinedPassword = password;
+        xOAuth2 = false;
+        mEmailView.setText(predefinedEmail);
+        mEmailView.setVisibility(View.GONE);
+        mPasswordView.setText(predefinedPassword);
+        mPasswordView.setVisibility(View.GONE);
+        onNext();
     }
 
     private void startAccountSetupWithPredefinedEmail(String email) {
@@ -324,7 +342,7 @@ public class AccountSetupBasics extends K9Activity
             return;
         }
 
-        AuthType predefinedAuthType = predefinedEmail != null ? AuthType.XOAUTH2 : null;
+        AuthType predefinedAuthType = xOAuth2 ? AuthType.XOAUTH2 : null;
 
         ConnectionSettings connectionSettings = providersXmlDiscoveryDiscover(
                 email,
@@ -411,6 +429,13 @@ public class AccountSetupBasics extends K9Activity
         context.startActivity(new Intent(context, AccountSetupBasics.class)
                 .putExtra(EMAIL_KEY, email)
                 .putExtra(ROOT_DOMAIN_KEY, rootDomain)
+        );
+    }
+
+    public static void startActivityWithEmailAndPasswordSet(Context context, String email, String password) {
+        context.startActivity(new Intent(context, AccountSetupBasics.class)
+                .putExtra(EMAIL_KEY, email)
+                .putExtra(PASSWORD_KEY, password)
         );
     }
 }
