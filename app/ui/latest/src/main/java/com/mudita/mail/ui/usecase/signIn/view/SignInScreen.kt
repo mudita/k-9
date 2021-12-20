@@ -18,24 +18,20 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -45,6 +41,9 @@ import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
 import com.mudita.mail.repository.providers.model.ProviderTile
 import com.mudita.mail.repository.providers.model.ProviderType
+import com.mudita.mail.ui.common.ErrorBottomSheet
+import com.mudita.mail.ui.common.LoadingBottomSheet
+import com.mudita.mail.ui.common.ModalLayout
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
@@ -130,28 +129,6 @@ private fun SignInScreen(
     )
 }
 
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun ModalLayout(
-    content: @Composable () -> Unit,
-    sheetContent: @Composable () -> Unit,
-    bottomSheetState: ModalBottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden),
-    onDisposeAction: () -> Unit = {}
-) {
-    if (bottomSheetState.currentValue != ModalBottomSheetValue.Hidden) {
-        DisposableEffect(key1 = Unit) {
-            onDispose { onDisposeAction() }
-        }
-    }
-    ModalBottomSheetLayout(
-        sheetState = bottomSheetState,
-        sheetBackgroundColor = Transparent,
-        sheetContent = { sheetContent() }
-    ) {
-        content()
-    }
-}
-
 @Composable
 fun SignInHeader() {
     Column(
@@ -215,27 +192,6 @@ fun AvailableProviders(
 }
 
 @Composable
-fun LoadingBottomSheet() {
-    TopHideIndicatorBottomSheet {
-        CircularProgressIndicator(
-            color = MaterialTheme.colors.secondary,
-            strokeWidth = 4.dp,
-            modifier = Modifier
-                .height(80.dp)
-                .width(80.dp)
-        )
-    }
-}
-
-@Composable
-@Preview
-fun LoadingBottomSheetPreview() {
-    MuditaTheme {
-        LoadingBottomSheet()
-    }
-}
-
-@Composable
 fun TopHideIndicatorBottomSheet(content: @Composable () -> Unit) {
     Column(
         modifier = Modifier
@@ -256,34 +212,6 @@ fun TopHideIndicatorBottomSheet(content: @Composable () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
         content()
         Spacer(modifier = Modifier.height(32.dp))
-    }
-}
-
-@Composable
-fun ErrorBottomSheet(
-    text: String
-) {
-    TopHideIndicatorBottomSheet {
-        Text(
-            text = stringResource(id = R.string.error_bottom_sheet_header),
-            style = MaterialTheme.typography.h5,
-            color = PrimaryTextColor
-        )
-        Text(
-            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp),
-            text = text,
-            style = MaterialTheme.typography.subtitle1,
-            color = PrimaryTextColor,
-            textAlign = TextAlign.Center
-        )
-    }
-}
-
-@Composable
-@Preview
-fun ErrorBottomSheetPreview() {
-    MuditaTheme {
-        ErrorBottomSheet("Wystąpił problem z pobraniem adresu email, spróbuj ponownie")
     }
 }
 
