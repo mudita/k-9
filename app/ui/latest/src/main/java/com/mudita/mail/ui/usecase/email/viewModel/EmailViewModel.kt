@@ -1,20 +1,20 @@
 package com.mudita.mail.ui.usecase.email.viewModel
 
-import com.mudita.mail.interactor.email.EmailInteractor
 import com.mudita.mail.ui.usecase.email.navigator.EmailNavigator
 import com.mudita.mail.ui.viewModel.BaseUiState
 import com.mudita.mail.ui.viewModel.BaseViewModel
 import com.mudita.mail.ui.viewModel.UiError
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 
 data class UiState(
     override val isLoading: Boolean = false,
-    override val error: UiError? = null
+    override val error: UiError? = null,
+    val startGeneratePasswordFlow: Boolean = false
 ) : BaseUiState
 
 class EmailViewModel(
-    interactor: EmailInteractor,
     private val navigator: EmailNavigator
 ) : BaseViewModel<UiState>() {
 
@@ -25,14 +25,10 @@ class EmailViewModel(
     fun onNext(
         email: String,
         password: String
-    ) {
-        navigator.moveToAccountSetupChecks(
-            "starczewskij@icloud.com",
-            "ewmu-tryn-gldp-wfvj"
-        )
-    }
+    ) = navigator.moveToAccountSetupChecks(email, password)
 
     fun onGenerateAppSpecificPassword() {
+        _uiState.update { it.copy(startGeneratePasswordFlow = true) }
     }
 
     fun onBack() {
@@ -40,8 +36,10 @@ class EmailViewModel(
     }
 
     override fun updateLoadingState(isLoading: Boolean) {
+        _uiState.update { it.copy(isLoading = isLoading) }
     }
 
     override fun updateErrorState(uiError: UiError) {
+        _uiState.update { it.copy(error = uiError) }
     }
 }
