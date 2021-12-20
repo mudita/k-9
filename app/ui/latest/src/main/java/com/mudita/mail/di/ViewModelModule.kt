@@ -17,7 +17,6 @@ val composeViewModelModule = module {
 
     viewModel { params ->
         EmailViewModel(
-            interactor = get(),
             navigator = getWith(params),
         )
     }
