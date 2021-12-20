@@ -1,5 +1,7 @@
 package com.mudita.mail.ui.usecase.email.view
 
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
@@ -17,12 +19,17 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Checkbox
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color.Companion.Transparent
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -40,33 +48,75 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
+import com.mudita.mail.ui.common.ModalLayout
 import com.mudita.mail.ui.theme.BlackPure
-import com.mudita.mail.ui.theme.GreyLight
 import com.mudita.mail.ui.theme.GreyDark
+import com.mudita.mail.ui.theme.GreyLight
 import com.mudita.mail.ui.theme.GreyMedium
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
 import com.mudita.mail.ui.theme.WhitePure
 import com.mudita.mail.ui.usecase.email.viewModel.EmailViewModel
+import com.mudita.mail.ui.viewModel.isError
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmailScreen(viewModel: EmailViewModel) {
-    val state = viewModel.uiState.collectAsState()
+    val uiState = viewModel.uiState.collectAsState()
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
-    EmailScreen(
-        email = email.value,
-        onEmailChanged = { email.value = it },
-        password = password.value,
-        onPasswordChanged = { password.value = it },
-        onBackTapAction = { viewModel.onBack() },
-        onNextTapAction = { viewModel.onNext(email.value, password.value) },
-        onGeneratePasswordTapAction = { viewModel.onGenerateAppSpecificPassword() }
+    val context = LocalContext.current
+    if (uiState.value.startGeneratePasswordFlow) {
+        LaunchedEffect(key1 = uiState.value.startGeneratePasswordFlow) {
+            CustomTabsIntent.Builder().build()
+                .launchUrl(
+                    context,
+                    Uri.parse("https://appleid.apple.com/account/manage/section/security")
+                )
+        }
+    }
+
+    val bottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    LaunchedEffect(key1 = uiState.value.isLoading, key2 = uiState.value.error) {
+        bottomSheetState.animateTo(
+            if (uiState.value.isLoading || uiState.value.error.isError()) {
+                ModalBottomSheetValue.Expanded
+            } else {
+                ModalBottomSheetValue.Hidden
+            }
+        )
+    }
+
+    EmailScreen(bottomSheetState = bottomSheetState) {
+        EmailScreenContent(
+            email = email.value,
+            onEmailChanged = { email.value = it },
+            password = password.value,
+            onPasswordChanged = { password.value = it },
+            onBackTapAction = { viewModel.onBack() },
+            onNextTapAction = { viewModel.onNext(email.value, password.value) },
+            onGeneratePasswordTapAction = { viewModel.onGenerateAppSpecificPassword() }
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun EmailScreen(
+    bottomSheetState: ModalBottomSheetState,
+    bottomSheetHideAction: () -> Unit = {},
+    sheetContent: @Composable () -> Unit,
+) {
+    ModalLayout(
+        content = { sheetContent() },
+        sheetContent = { sheetContent() },
+        bottomSheetState = bottomSheetState,
+        onDisposeAction = { bottomSheetHideAction() }
     )
 }
 
 @Composable
-fun EmailScreen(
+fun EmailScreenContent(
     email: String,
     onEmailChanged: (String) -> Unit,
     password: String,
@@ -297,7 +347,7 @@ fun GeneratePasswordInfo(
 fun EmailScreenPreview() {
     MuditaTheme {
         Scaffold {
-            EmailScreen("", {}, "", {}, {}, {},{})
+            EmailScreenContent("", {}, "", {}, {}, {}, {})
         }
     }
 }
