@@ -9,5 +9,4 @@ interface SignInNavigator : Navigator {
     fun moveToManualAccountSetup()
 
     fun moveToAppSpecificPasswordSetup()
-
 }
