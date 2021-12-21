@@ -8,7 +8,7 @@ import com.fsck.k9.ui.base.navigation.ToSetupAccountNavigator
 class ToSetupAccountNavigatorImpl : ToSetupAccountNavigator {
 
     override fun moveToSetupAccount(context: Context, username: String, rootDomain: String?) {
-        context.run { AccountSetupBasics.startActivityWithEmailSet(this, username, rootDomain) }
+        AccountSetupBasics.startActivityWithEmailSet(context, username, rootDomain)
     }
 
     override fun moveToManualAccountSetup(context: Context) {
@@ -16,6 +16,6 @@ class ToSetupAccountNavigatorImpl : ToSetupAccountNavigator {
     }
 
     override fun moveToSetupAccountWithPassword(context: Context, username: String, password: String) {
-        context.run { AccountSetupBasics.startActivityWithEmailAndPasswordSet(this, username, password) }
+        AccountSetupBasics.startActivityWithEmailAndPasswordSet(context, username, password)
     }
 }
