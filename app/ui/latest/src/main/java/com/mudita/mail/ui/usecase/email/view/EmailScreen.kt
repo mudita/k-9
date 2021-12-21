@@ -39,6 +39,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -180,7 +181,7 @@ fun EmailHeader() {
             contentDescription = "Mudita Logo"
         )
         Text(
-            text = "Sign In",
+            text = stringResource(R.string.icloud_login_screen_title),
             style = MaterialTheme.typography.h3,
             color = PrimaryTextColor,
             fontWeight = FontWeight.Normal
@@ -211,8 +212,7 @@ fun ProviderHeader() {
         )
         Text(
             modifier = Modifier.padding(16.dp),
-            text = "Enter your iCloud account \n" +
-                "credentials"
+            text = stringResource(R.string.icloud_login_description)
         )
     }
 }
@@ -246,7 +246,7 @@ fun CredentialsInput(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
             ),
-            placeholder = { Text("Enter your email") }
+            placeholder = { Text(stringResource(R.string.icloud_login_email_hint)) }
         )
 
         val isPasswordVisible = remember {
@@ -276,7 +276,7 @@ fun CredentialsInput(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Done
             ),
-            placeholder = { Text("App-specific password") }
+            placeholder = { Text(stringResource(R.string.icloud_login_password_hint)) }
         )
         Row(
             modifier = Modifier
@@ -294,7 +294,7 @@ fun CredentialsInput(
             )
             Text(
                 modifier = Modifier.padding(start = 16.dp),
-                text = "Show password",
+                text = stringResource(R.string.icloud_login_email_hint),
                 color = BlackPure
             )
         }
@@ -318,7 +318,7 @@ fun NextButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            text = "NEXT",
+            text = stringResource(R.string.icloud_login_next),
             color = WhitePure,
             textAlign = TextAlign.Center
         )
@@ -335,7 +335,7 @@ fun GeneratePasswordInfo(
                 .padding(16.dp)
                 .clickable { onTapAction() }
                 .fillMaxWidth(),
-            text = "HOW TO GENERATE AN APP-SPECIFIC PASSWORD",
+            text = stringResource(R.string.icloud_login_how_to_generate_password),
             textAlign = TextAlign.Center,
             color = BlackPure
         )
