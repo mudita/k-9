@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mail.ui.theme.MuditaTheme
-import com.mudita.mail.ui.usecase.signIn.view.TopHideIndicatorBottomSheet
 
 @Composable
 fun LoadingBottomSheet() {

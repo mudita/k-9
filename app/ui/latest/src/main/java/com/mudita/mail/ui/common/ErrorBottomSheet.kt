@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.PrimaryTextColor
-import com.mudita.mail.ui.usecase.signIn.view.TopHideIndicatorBottomSheet
 
 @Composable
 fun ErrorBottomSheet(

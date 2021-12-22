@@ -14,10 +14,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.mudita.mail.ui.common.TopHideIndicatorBottomSheet
 import com.mudita.mail.ui.theme.BlackPure
 import com.mudita.mail.ui.theme.MuditaTheme
 import com.mudita.mail.ui.theme.WhitePure
-import com.mudita.mail.ui.usecase.signIn.view.TopHideIndicatorBottomSheet
 
 @Composable
 fun PasswordInfoBootmSheet(
