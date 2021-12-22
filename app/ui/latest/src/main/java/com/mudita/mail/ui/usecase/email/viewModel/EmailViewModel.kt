@@ -29,20 +29,34 @@ class EmailViewModel(
     ) = navigator.moveToAccountSetupChecks(email, password)
 
     fun onGenerateAppSpecificPassword() {
-        _uiState.update { it.copy(showHowToGeneratePassword = false) }
-        _uiState.update { it.copy(startGeneratePasswordFlow = true) }
-    }
-
-    fun onGenerateAppSpecificPasswordLaunched() {
-        _uiState.update { it.copy(startGeneratePasswordFlow = false) }
+        _uiState.update {
+            it.copy(
+                startGeneratePasswordFlow = true,
+                showHowToGeneratePassword = false
+            )
+        }
     }
 
     fun onBack() {
         navigator.moveBack()
     }
 
+    fun onHideGenerateAppSpecificPasswordInfo() {
+        _uiState.update {
+            it.copy(
+                startGeneratePasswordFlow = false,
+                showHowToGeneratePassword = false
+            )
+        }
+    }
+
     fun onHowToGenerateAppSpecificPassword() {
-        _uiState.update { it.copy(showHowToGeneratePassword = true) }
+        _uiState.update {
+            it.copy(
+                startGeneratePasswordFlow = false,
+                showHowToGeneratePassword = true
+            )
+        }
     }
 
     override fun updateLoadingState(isLoading: Boolean) {
