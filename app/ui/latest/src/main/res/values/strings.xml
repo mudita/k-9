@@ -19,4 +19,6 @@
     <string name="icloud_login_show_password">Show password</string>
     <string name="icloud_login_next">NEXT</string>
     <string name="icloud_login_how_to_generate_password">HOW TO GENERATE AN APP-SPECIFIC PASSWORD</string>
+    <string name="password_info">Generate app-specific password in safe browser</string>
+    <string name="password_info_generate">Open browser</string>
 </resources>
