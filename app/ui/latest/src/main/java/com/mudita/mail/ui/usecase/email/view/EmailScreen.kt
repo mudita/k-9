@@ -72,14 +72,13 @@ fun EmailScreen(viewModel: EmailViewModel) {
     val password = remember { mutableStateOf("") }
     val context = LocalContext.current
 
-    if (uiState.value.startGeneratePasswordFlow) {
-        LaunchedEffect(key1 = uiState.value.startGeneratePasswordFlow) {
+    LaunchedEffect(uiState.value.startGeneratePasswordFlow) {
+        if (uiState.value.startGeneratePasswordFlow) {
             CustomTabsIntent.Builder().build()
                 .launchUrl(
                     context,
                     Uri.parse(ICLOUD_URL)
                 )
-            viewModel.onGenerateAppSpecificPasswordLaunched()
         }
     }
 
@@ -100,7 +99,7 @@ fun EmailScreen(viewModel: EmailViewModel) {
 
     EmailScreen(
         bottomSheetState = bottomSheetState,
-        bottomSheetHideAction = {},
+        bottomSheetHideAction = viewModel::onHideGenerateAppSpecificPasswordInfo,
         sheetContent = {
             when {
                 uiState.value.isLoading -> LoadingBottomSheet()
@@ -315,7 +314,7 @@ fun CredentialsInput(
             )
             Text(
                 modifier = Modifier.padding(start = 16.dp),
-                text = stringResource(R.string.icloud_login_email_hint),
+                text = stringResource(R.string.icloud_login_show_password),
                 color = BlackPure
             )
         }
