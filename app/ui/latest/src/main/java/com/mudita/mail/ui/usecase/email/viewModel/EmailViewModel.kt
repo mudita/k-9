@@ -11,7 +11,8 @@ import kotlinx.coroutines.flow.update
 data class UiState(
     override val isLoading: Boolean = false,
     override val error: UiError? = null,
-    val startGeneratePasswordFlow: Boolean = false
+    val startGeneratePasswordFlow: Boolean = false,
+    val showHowToGeneratePassword: Boolean = false,
 ) : BaseUiState
 
 class EmailViewModel(
@@ -28,11 +29,20 @@ class EmailViewModel(
     ) = navigator.moveToAccountSetupChecks(email, password)
 
     fun onGenerateAppSpecificPassword() {
+        _uiState.update { it.copy(showHowToGeneratePassword = false) }
         _uiState.update { it.copy(startGeneratePasswordFlow = true) }
+    }
+
+    fun onGenerateAppSpecificPasswordLaunched() {
+        _uiState.update { it.copy(startGeneratePasswordFlow = false) }
     }
 
     fun onBack() {
         navigator.moveBack()
+    }
+
+    fun onHowToGenerateAppSpecificPassword() {
+        _uiState.update { it.copy(showHowToGeneratePassword = true) }
     }
 
     override fun updateLoadingState(isLoading: Boolean) {
