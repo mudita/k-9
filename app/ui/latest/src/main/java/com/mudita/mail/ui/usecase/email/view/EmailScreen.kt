@@ -49,6 +49,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
+import com.mudita.mail.ui.common.ErrorBottomSheet
+import com.mudita.mail.ui.common.LoadingBottomSheet
 import com.mudita.mail.ui.common.ModalLayout
 import com.mudita.mail.ui.theme.BlackPure
 import com.mudita.mail.ui.theme.GreyDark
@@ -60,6 +62,8 @@ import com.mudita.mail.ui.theme.WhitePure
 import com.mudita.mail.ui.usecase.email.viewModel.EmailViewModel
 import com.mudita.mail.ui.viewModel.isError
 
+private const val ICLOUD_URL = "https://appleid.apple.com/account/manage/section/security"
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun EmailScreen(viewModel: EmailViewModel) {
@@ -67,36 +71,52 @@ fun EmailScreen(viewModel: EmailViewModel) {
     val email = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
     val context = LocalContext.current
+
     if (uiState.value.startGeneratePasswordFlow) {
         LaunchedEffect(key1 = uiState.value.startGeneratePasswordFlow) {
             CustomTabsIntent.Builder().build()
                 .launchUrl(
                     context,
-                    Uri.parse("https://appleid.apple.com/account/manage/section/security")
+                    Uri.parse(ICLOUD_URL)
                 )
+            viewModel.onGenerateAppSpecificPasswordLaunched()
         }
     }
 
     val bottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
-    LaunchedEffect(key1 = uiState.value.isLoading, key2 = uiState.value.error) {
+    LaunchedEffect(
+        key1 = uiState.value.isLoading,
+        key2 = uiState.value.error,
+        key3 = uiState.value.showHowToGeneratePassword
+    ) {
         bottomSheetState.animateTo(
-            if (uiState.value.isLoading || uiState.value.error.isError()) {
-                ModalBottomSheetValue.Expanded
-            } else {
-                ModalBottomSheetValue.Hidden
+            when {
+                uiState.value.isLoading || uiState.value.error.isError() ||
+                    uiState.value.showHowToGeneratePassword -> ModalBottomSheetValue.Expanded
+                else -> ModalBottomSheetValue.Hidden
             }
         )
     }
 
-    EmailScreen(bottomSheetState = bottomSheetState) {
+    EmailScreen(
+        bottomSheetState = bottomSheetState,
+        bottomSheetHideAction = {},
+        sheetContent = {
+            when {
+                uiState.value.isLoading -> LoadingBottomSheet()
+                uiState.value.error.isError() -> ErrorBottomSheet(text = uiState.value.error?.message.orEmpty())
+                else -> PasswordInfoBootmSheet { viewModel.onGenerateAppSpecificPassword() }
+            }
+        }
+    ) {
         EmailScreenContent(
             email = email.value,
             onEmailChanged = { email.value = it },
             password = password.value,
             onPasswordChanged = { password.value = it },
-            onBackTapAction = { viewModel.onBack() },
+            onBackTapAction = viewModel::onBack,
             onNextTapAction = { viewModel.onNext(email.value, password.value) },
-            onGeneratePasswordTapAction = { viewModel.onGenerateAppSpecificPassword() }
+            onGeneratePasswordTapAction = viewModel::onHowToGenerateAppSpecificPassword
         )
     }
 }
@@ -107,9 +127,10 @@ fun EmailScreen(
     bottomSheetState: ModalBottomSheetState,
     bottomSheetHideAction: () -> Unit = {},
     sheetContent: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     ModalLayout(
-        content = { sheetContent() },
+        content = { content() },
         sheetContent = { sheetContent() },
         bottomSheetState = bottomSheetState,
         onDisposeAction = { bottomSheetHideAction() }
