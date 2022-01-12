@@ -6,6 +6,7 @@ data class AuthConfig(
     val redirectUrl: String,
     val scopes: List<String>,
     val responseType: ResponseType,
+    val prompt: String,
     val authEndpoint: String,
     val tokenEndpoint: String
 )

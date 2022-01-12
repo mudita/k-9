@@ -39,7 +39,9 @@ class AuthServiceImpl(
                 authConfig.clientId,
                 authConfig.responseType.value,
                 Uri.parse(authConfig.redirectUrl)
-            ).setScopes(authConfig.scopes)
+            )
+                .setScopes(authConfig.scopes)
+                .setPrompt(authConfig.prompt)
         } catch (e: IllegalArgumentException) {
             return Result.failure(e)
         }
