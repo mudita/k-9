@@ -1075,4 +1075,12 @@ Tą wiadomość można zachować i użyć w formie kopii zapasowej twojego klucz
   <string name="push_info_configure_notification_action">Skonfiguruj powiadomienie</string>
   <string name="push_info_disable_push_text">Jeśli nie potrzebujesz natychmiastowych powiadomień o nowych wiadomościach, wyłącz notyfikacje push i użyj regularnego odpytywania. Odpytywanie w regularnych odstępach czasu sprawdza nową pocztę i nie wymaga powiadomienia.</string>
   <string name="push_info_disable_push_action">Wyłącz powiadomienia push</string>
+
+  <string name="authentication_error_header">Uwierzytelnienie nie powiodło się</string>
+  <string name="authentication_error_description_oauth">Uwierzytelnienie użytkownika \n %s \n nie powiodło się. \n W celu dalszego korzystania z tej skrzynki odbiorczej nadaj ponowny dostęp do wybranych zasobów.</string>
+  <string name="authentication_error_description_other">Uwierzytelnienie użytkownika \n %s \n nie powiodło się. \n W celu dalszego korzystania z tej skrzynki odbiorczej popraw ustawienia serwera.</string>
+  <string name="authentication_error_action_oauth">Nadaj dostęp ponownie</string>
+  <string name="authentication_error_action_server">Popraw ustawienia serwera</string>
+  <string name="authentication_error_action_close">Przejdź do listy wiadomości</string>
+  <string name="authentication_error_account_error_text">Wystąpił nieoczekiwany bład zwiazany z autoryzacją</string>
 </resources>
