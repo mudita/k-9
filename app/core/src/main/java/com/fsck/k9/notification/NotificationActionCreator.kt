@@ -40,6 +40,8 @@ interface NotificationActionCreator {
 
     fun getEditOutgoingServerSettingsIntent(account: Account): PendingIntent
 
+    fun getAuthenticationErrorIntent(account: Account, incoming: Boolean) : PendingIntent
+
     fun createDeleteMessagePendingIntent(messageReference: MessageReference, notificationId: Int): PendingIntent
 
     fun createDeleteAllPendingIntent(
