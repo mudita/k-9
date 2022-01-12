@@ -28,4 +28,6 @@ class AuthSessionServiceImpl(
 
     override fun getToken(username: String): String? =
         authSessionRepository.getAuthSessionData(username)?.authState?.accessToken
+
+    override fun removeToken(username: String) = authSessionRepository.removeAuthSession(username)
 }

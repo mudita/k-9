@@ -39,7 +39,9 @@ class AuthServiceImpl(
                 authConfig.clientId,
                 authConfig.responseType.value,
                 Uri.parse(authConfig.redirectUrl)
-            ).setScopes(authConfig.scopes)
+            )
+                .setScopes(authConfig.scopes)
+                .setPrompt(authConfig.prompt)
         } catch (e: IllegalArgumentException) {
             return Result.failure(e)
         }
@@ -84,6 +86,10 @@ class AuthServiceImpl(
         val token = authState.accessToken ?: return Result.failure(Exception())
 
         val email = emailApiClientService.getEmail(providerType, token).getOrElse { return Result.failure(it) }
+
+        if (authSessionRepository.getAuthSessionData(email)?.authState?.refreshToken != null) {
+            return Result.failure(IllegalArgumentException("Selected user already exists"))
+        }
 
         authSessionRepository.saveAuthSessionData(email, AuthSessionData(authState))
         return Result.success(email)

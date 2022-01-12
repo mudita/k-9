@@ -7,6 +7,7 @@ import com.fsck.k9.Preferences
 import com.fsck.k9.backend.BackendManager
 import com.fsck.k9.controller.MessagingController
 import com.fsck.k9.mailstore.LocalStoreProvider
+import com.mudita.mail.interactor.delete.DeleteAccountInteractor
 import timber.log.Timber
 
 /**
@@ -17,7 +18,8 @@ class AccountRemover(
     private val messagingController: MessagingController,
     private val backendManager: BackendManager,
     private val localKeyStoreManager: LocalKeyStoreManager,
-    private val preferences: Preferences
+    private val preferences: Preferences,
+    private val deleteAccountInteractor: DeleteAccountInteractor
 ) {
 
     fun removeAccount(accountUuid: String) {
@@ -33,6 +35,8 @@ class AccountRemover(
         removeLocalStore(account)
         messagingController.deleteAccount(account)
         removeBackend(account)
+
+        deleteAccountInteractor.deleteAccount(account.email)
 
         preferences.deleteAccount(account)
 

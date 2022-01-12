@@ -24,6 +24,9 @@ class SharedPrefsAuthSessionRepository(
             ).apply()
     }
 
+    override fun removeAuthSession(username: String) =
+        sharedPreferences.edit().remove(userAuthStateKey(username)).apply()
+
     companion object {
 
         private const val AUTH_KEY = "auth_key"
