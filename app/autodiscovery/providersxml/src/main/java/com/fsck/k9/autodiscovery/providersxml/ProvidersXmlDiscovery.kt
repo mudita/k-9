@@ -4,8 +4,8 @@ import android.content.res.XmlResourceParser
 import android.net.Uri
 import com.fsck.k9.autodiscovery.api.ConnectionSettingsDiscovery
 import com.fsck.k9.autodiscovery.api.DiscoveredServerSettings
+import com.fsck.k9.autodiscovery.api.DiscoveryParams
 import com.fsck.k9.autodiscovery.api.DiscoveryResults
-import com.fsck.k9.autodiscovery.api.DiscoveryTarget
 import com.fsck.k9.helper.EmailHelper
 import com.fsck.k9.mail.AuthType
 import com.fsck.k9.mail.ConnectionSecurity
@@ -18,16 +18,19 @@ class ProvidersXmlDiscovery(
     private val xmlProvider: ProvidersXmlProvider
 ) : ConnectionSettingsDiscovery {
 
-    override fun discover(
-        email: String,
-        target: DiscoveryTarget,
-        predefinedAuthType: AuthType?
-    ): DiscoveryResults? {
+    override fun discover(discoveryParams: DiscoveryParams): DiscoveryResults? {
+        val email = discoveryParams.email
+        val authType = discoveryParams.authType
+
         val domain = EmailHelper.getDomainFromEmailAddress(email) ?: return null
 
-        val provider = findProviderForDomain(domain) ?: return null
+        val providerName: String? = discoveryParams.provider
 
-        val authType = predefinedAuthType ?: AuthType.PLAIN
+        val provider = if (providerName != null) {
+            findProvider(providerName)
+        } else {
+            findProviderForDomain(domain)
+        } ?: return null
 
         val incomingSettings = provider.toIncomingServerSettings(email, authType) ?: return null
         val outgoingSettings = provider.toOutgoingServerSettings(email, authType) ?: return null
@@ -37,7 +40,7 @@ class ProvidersXmlDiscovery(
     private fun findProviderForDomain(domain: String): Provider? {
         return try {
             xmlProvider.getXml().use { xml ->
-                parseProviders(xml, domain)
+                parseProvidersForDomain(xml, domain)
             }
         } catch (e: Exception) {
             Timber.e(e, "Error while trying to load provider settings.")
@@ -45,7 +48,7 @@ class ProvidersXmlDiscovery(
         }
     }
 
-    private fun parseProviders(xml: XmlResourceParser, domain: String): Provider? {
+    private fun parseProvidersForDomain(xml: XmlResourceParser, domain: String): Provider? {
         do {
             val xmlEventType = xml.next()
             if (xmlEventType == XmlPullParser.START_TAG && xml.name == "provider") {
@@ -89,6 +92,32 @@ class ProvidersXmlDiscovery(
         } else {
             null
         }
+    }
+
+    private fun findProvider(providerName: String): Provider? {
+        return try {
+            xmlProvider.getXml().use { xml ->
+                parseProvidersForProvider(xml, providerName)
+            }
+        } catch (e: Exception) {
+            Timber.e(e, "Error while trying to load provider settings.")
+            null
+        }
+    }
+
+    private fun parseProvidersForProvider(xml: XmlResourceParser, providerName: String): Provider? {
+        do {
+            val xmlEventType = xml.next()
+            if (xmlEventType == XmlPullParser.START_TAG && xml.name == "provider") {
+                val providerId = xml.getAttributeValue(null, "id")
+                if (providerName.equals(providerId, ignoreCase = true)) {
+                    val provider = parseProvider(xml)
+                    if (provider != null) return provider
+                }
+            }
+        } while (xmlEventType != XmlPullParser.END_DOCUMENT)
+
+        return null
     }
 
     private fun Provider.toIncomingServerSettings(email: String, authType: AuthType): DiscoveredServerSettings? {

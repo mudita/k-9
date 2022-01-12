@@ -1,9 +1,9 @@
 package com.mudita.mail.repository.providers.model
 
-enum class ProviderType {
+enum class ProviderType(val providerName: String?) {
 
-    GMAIL,
-    ICLOUD,
-    OUTLOOK,
-    MANUAL
+    GMAIL("gmail"),
+    ICLOUD(null),
+    OUTLOOK(null),
+    MANUAL(null)
 }

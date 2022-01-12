@@ -72,7 +72,7 @@ class SignInViewModel(
                         providerType,
                         authRequestData.toAuthResponseData(intent)
                     ).fold(
-                        onSuccess = navigator::moveToAccountSetupChecks,
+                        onSuccess = { navigator.moveToAccountSetupChecks(it, providerType.providerName) },
                         onFailure = ::updateErrorState
                     )
                 }
