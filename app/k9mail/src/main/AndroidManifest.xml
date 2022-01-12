@@ -148,6 +148,8 @@
             android:configChanges="locale"
             android:label="@string/manage_identities_title"/>
 
+        <activity android:name=".activity.authError.AuthenticationError"/>
+
         <activity
             android:name=".activity.EditIdentity"
             android:configChanges="locale"
