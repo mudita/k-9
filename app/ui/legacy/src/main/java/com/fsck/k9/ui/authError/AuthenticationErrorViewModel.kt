@@ -3,7 +3,6 @@ package com.fsck.k9.ui.authError
 import androidx.lifecycle.ViewModel
 import com.fsck.k9.Preferences
 import com.fsck.k9.account.AccountRemover
-import com.fsck.k9.mail.AuthType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
