@@ -70,7 +70,7 @@ class AuthenticationError : K9Activity() {
         private const val ACCOUNT_UUID = "account_uuid"
 
         @JvmStatic
-        fun authErrorIntent(context: Context?, account: Account, incoming: Boolean) =
+        fun authErrorIntent(context: Context?, account: Account) =
             Intent(context, AuthenticationError::class.java).apply {
                 putExtra(ACCOUNT_UUID, account.uuid)
             }

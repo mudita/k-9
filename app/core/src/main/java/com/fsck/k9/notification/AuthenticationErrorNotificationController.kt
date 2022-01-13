@@ -47,7 +47,7 @@ internal open class AuthenticationErrorNotificationController(
     }
 
     protected open fun createContentIntent(account: Account, incoming: Boolean): PendingIntent {
-        return actionCreator.getAuthenticationErrorIntent(account, incoming)
+        return actionCreator.getAuthenticationErrorIntent(account)
     }
 
     private val notificationManager: NotificationManagerCompat
