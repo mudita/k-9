@@ -36,32 +36,29 @@ class AuthenticationError : K9Activity() {
     }
 
     private fun handleUiState(uiState: UiState) {
-        handleReconnectButtonVisibility(uiState.shouldShowReauthorize)
-        handleAccountErrorVisibility(uiState.shouldShowAccountUuidError)
-        handleAuthorizationDescription(uiState.userName, uiState.isOAuth)
+        setupAuthenticateAgainError(uiState.shouldShowAuthenticateAgainError)
+        setupInvalidAccountError(uiState.shouldShowAccountUuidError)
+        setupAccountErrorDescription(uiState.userName)
     }
 
-    private fun handleReconnectButtonVisibility(isVisible: Boolean) {
-        findViewById<Button>(R.id.authenticationErrorReAuthorizeBt).apply {
+    private fun setupAuthenticateAgainError(isVisible: Boolean) {
+        findViewById<Button>(R.id.authenticationErrorAuthenticateAgainBt).apply {
             this.isVisible = isVisible
-            setOnClickListener { authenticationErrorViewModel.onOauthErrorAction(accountUuid) }
+            setOnClickListener { authenticationErrorViewModel.onAuthenticationErrorPrimaryActionTapped(accountUuid) }
         }
     }
 
-    private fun handleAccountErrorVisibility(isVisible: Boolean) {
+    private fun setupInvalidAccountError(isVisible: Boolean) {
         findViewById<TextView>(R.id.authenticationErrorDescriptionTv).run {
             this.isVisible = isVisible
             text = getString(R.string.authentication_error_account_error_text)
         }
     }
 
-    private fun handleAuthorizationDescription(userName: String, isOAuth: Boolean) {
+    private fun setupAccountErrorDescription(userName: String) {
         findViewById<TextView>(R.id.authenticationErrorDescriptionTv).run {
-            text = if (isOAuth) {
-                getString(R.string.authentication_error_description_oauth, userName)
-            } else {
-                getString(R.string.authentication_error_description_other, userName)
-            }
+            text = getString(R.string.authentication_error_description, userName)
+            isVisible = true
         }
     }
 
