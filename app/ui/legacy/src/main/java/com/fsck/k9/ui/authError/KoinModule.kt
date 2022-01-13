@@ -5,5 +5,5 @@ import org.koin.dsl.module
 
 val authErrorUiModule = module {
 
-    viewModel { AuthenticationErrorViewModel(get(), get(), get(), get()) }
+    viewModel { AuthenticationErrorViewModel(get(), get(), get()) }
 }
