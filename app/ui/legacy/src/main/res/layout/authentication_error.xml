@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/authenticationErrorTitleTv" />
 
     <Button
-        android:id="@+id/authenticationErrorReAuthorizeBt"
+        android:id="@+id/authenticationErrorAuthenticateAgainBt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -58,25 +58,7 @@
         android:background="@drawable/black_button"
         android:gravity="center"
         android:minHeight="48dp"
-        android:text="@string/authentication_error_action_oauth"
-        android:textColor="@color/white_pure"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/authenticationErrorDismissBt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/authenticationErrorServerSettingsBt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/black_button"
-        android:gravity="center"
-        android:minHeight="48dp"
-        android:text="@string/authentication_error_action_server"
+        android:text="@string/authentication_error_primary_action"
         android:textColor="@color/white_pure"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/authenticationErrorDismissBt"
