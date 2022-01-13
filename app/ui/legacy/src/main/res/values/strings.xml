@@ -1286,10 +1286,8 @@ You can keep this message and use it as a backup for your secret key. If you wan
     <string name="push_info_disable_push_action">Disable Push</string>
 
     <string name="authentication_error_header">Authentication error occurred</string>
-    <string name="authentication_error_description_oauth">Authentication of \n %s \n failed to continue using this inbox authorize your account again.</string>
-    <string name="authentication_error_description_other">Authentication of \n %s \n failed to continue using this inbox change server settings</string>
-    <string name="authentication_error_action_oauth">Authorize account again</string>
-    <string name="authentication_error_action_server">Change server settings</string>
+    <string name="authentication_error_description">Authentication of account \n %s \n failed. To continue using this inbox authenticate again.</string>
+    <string name="authentication_error_primary_action">Authenticate again</string>
     <string name="authentication_error_action_close">Go to message list</string>
-    <string name="authentication_error_account_error_text">Unexpected authentication error occurred</string>
+    <string name="authentication_error_account_error_text">Unexpected authentication error occurred.</string>
 </resources>
