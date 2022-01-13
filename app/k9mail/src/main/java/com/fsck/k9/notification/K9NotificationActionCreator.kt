@@ -111,7 +111,7 @@ internal class K9NotificationActionCreator(
     }
 
     override fun getAuthenticationErrorIntent(account: Account): PendingIntent {
-        val intent = AuthenticationError.authErrorIntent(context, account )
+        val intent = AuthenticationError.authErrorIntent(context, account)
         return PendingIntent.getActivity(context, account.accountNumber, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 
