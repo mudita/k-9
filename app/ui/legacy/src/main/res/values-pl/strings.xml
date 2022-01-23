@@ -296,8 +296,8 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="quiet_time_starts">Początek okresu ciszy</string>
   <string name="quiet_time_ends">Koniec okresu ciszy</string>
   <string name="account_setup_basics_title">Dodaj konto</string>
-  <string name="account_setup_basics_email_hint">Adres email</string>
-  <string name="account_setup_basics_password_hint">Hasło</string>
+  <string name="account_setup_basics_email_hint">Wprowadź adres email</string>
+  <string name="account_setup_basics_password_hint">Wprowadź hasło</string>
   <string name="account_setup_basics_show_password">Pokaż hasło</string>
   <!--Please use the same translation for "screen lock" as is used in the 'Security' section in Android's settings app-->
   <string name="account_setup_basics_show_password_need_lock">Aby zobaczyć tutaj swoje hasło, ustaw blokadę ekranu na tym urządzeniu.</string>
@@ -1076,9 +1076,27 @@ Tą wiadomość można zachować i użyć w formie kopii zapasowej twojego klucz
   <string name="push_info_disable_push_text">Jeśli nie potrzebujesz natychmiastowych powiadomień o nowych wiadomościach, wyłącz notyfikacje push i użyj regularnego odpytywania. Odpytywanie w regularnych odstępach czasu sprawdza nową pocztę i nie wymaga powiadomienia.</string>
   <string name="push_info_disable_push_action">Wyłącz powiadomienia push</string>
 
-  <string name="authentication_error_header">Uwierzytelnienie nie powiodło się</string>
-  <string name="authentication_error_description">Uwierzytelnienie użytkownika \n %s \n nie powiodło się. \n W celu dalszego korzystania z tej skrzynki odbiorczej dodaj konto ponownie.</string>
-  <string name="authentication_error_primary_action">Dodaj konto ponownie</string>
-  <string name="authentication_error_action_close">Przejdź do listy wiadomości</string>
-  <string name="authentication_error_account_error_text">Wystąpił nieoczekiwany bład zwiazany z autoryzacją.</string>
+
+  <string name="account_setup_basics_header">Zaloguj się</string>
+  <string name="account_setup_basics_header_description">Add an account you want to use with Mudita Email client.</string>
+  <string name="account_setup_basics_login">Login</string>
+  <string name="account_setup_basics_settings">Manual settings</string>
+  <string name="account_setup_incoming_advanced_settings">Advanced Settings</string>
+  <string name="account_setup_incoming_incoming_emails">Incoming emails</string>
+  <string name="account_setup_incoming_login">Login</string>
+  <string name="account_setup_outgoing_advanced_settings">Advanced Settings</string>
+  <string name="account_setup_outgoin_outgoing_emails">Outgoing emails</string>
+  <string name="account_setup_outgoing_show_pasword">Show pasword</string>
+  <string name="account_setup_incoming_show_pasword">Show pasword</string>
+  <string name="account_setup_options_inbox_behaviour">Ustaw zachowanie skrzynki</string>
+  <string name="account_setup_options_save">Save</string>
+  <string name="account_setup_names_almost_there">Almost there</string>
+  <string name="account_setup_names_additional_information">Add additional information about your inbox.</string>
+  <string name="account_setup_names_name_your_inbox">Name your inbox</string>
+  <string name="account_setup_names_display_name">Enter display name in the messages</string>
+  <string name="account_setup_names_save">Save</string>
+  <string name="account_setup_basics_show_password">Show password</string>
+  <string name="account_setup_account_type_header">Sign in</string>
+  <string name="account_setup_account_type_description">Choose the protocol you want to use with your Mail.</string>
+  <string name="account_setup_account_type_long_description">IMAP stores the message on a server and synchronizes the message across multiple devices. (Recommended) \n\n POP3 downloads the email from a server to a single device, then deletes the email from the server.</string>
 </resources>
