@@ -17,7 +17,18 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/accountSetupAccountTypeBackIv"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/authenticationErrorLogoIv"
@@ -37,7 +48,7 @@
             android:layout_marginTop="22dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:text="Sign in"
+            android:text="@string/account_setup_account_type_header"
             android:textAlignment="center"
             android:textColor="@color/black_pure"
             android:textSize="34sp"
@@ -53,13 +64,29 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:gravity="center"
-            android:text="Select Account Type"
+            android:text="@string/account_setup_account_type_description"
             android:textAlignment="center"
             android:textColor="@color/black_pure"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/authenticationErrorTitleTv" />
+
+        <TextView
+            android:id="@+id/accountSetupAccountTypeDetailedDescriptionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="21dp"
+            android:gravity="center"
+            android:text="@string/account_setup_account_type_long_description"
+            android:textAlignment="center"
+            android:textColor="#545A5E"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authenticationErrorDescriptionTv" />
 
         <Button
             android:id="@+id/imap"
@@ -70,6 +97,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/black_button"
             android:minWidth="@dimen/button_minWidth"
+            android:minHeight="48dp"
             android:padding="16dp"
             android:text="@string/account_setup_account_type_imap_action"
             android:textColor="@color/white_pure"
@@ -85,6 +113,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/black_button"
             android:minWidth="@dimen/button_minWidth"
+            android:minHeight="48dp"
             android:padding="16dp"
             android:text="@string/account_setup_account_type_pop_action"
             android:textColor="@color/white_pure"
@@ -92,6 +121,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>
 
