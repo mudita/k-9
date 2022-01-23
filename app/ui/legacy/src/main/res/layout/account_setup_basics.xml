@@ -15,13 +15,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -29,120 +29,146 @@
             android:paddingEnd="16dp">
 
             <ImageView
+                android:id="@+id/accountSetupBasicsBackIv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/ic_arrow_back" />
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/authenticationErrorLogoIv"
+                android:id="@+id/accountSetupBasicsLogoIv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:src="@drawable/ic_mudita_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/authenticationErrorTitleTv"
+                android:id="@+id/accountSetupBasicsTitleTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="22dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:text="Sign in"
+                android:text="@string/account_setup_basics_header"
                 android:textAlignment="center"
                 android:textColor="@color/black_pure"
                 android:textSize="34sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/authenticationErrorLogoIv" />
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsLogoIv" />
 
             <TextView
-                android:id="@+id/authenticationErrorDescriptionTv"
+                android:id="@+id/accountSetupBasicsDescriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:gravity="center"
-                android:text="Add an account you want to use with Mudita Email client."
+                android:text="@string/account_setup_basics_header_description"
                 android:textAlignment="center"
                 android:textColor="@color/black_pure"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/authenticationErrorTitleTv" />
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsTitleTv" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/accountSetupBasicsEmailTil"
+                style="@style/DefaultTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
-                app:hintAnimationEnabled="false"
-                app:hintEnabled="false">
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsDescriptionTv">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/account_email"
+                    style="@style/DefaultTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_default_background"
                     android:hint="@string/account_setup_basics_email_hint"
                     android:inputType="textEmailAddress"
-                    android:padding="16dp"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/accountSetupBasicsPasswordTil"
+                style="@style/DefaultTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:hintAnimationEnabled="false"
-                app:hintEnabled="false"
-                app:passwordToggleEnabled="false">
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsEmailTil">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/account_password"
+                    style="@style/DefaultTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_default_background"
                     android:hint="@string/account_setup_basics_password_hint"
                     android:inputType="textPassword"
                     android:nextFocusDown="@+id/next"
-                    android:padding="16dp"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/account_allow_client_certificate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/text_input_default_background"
+                android:minHeight="56dp"
                 android:orientation="vertical"
                 android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsPasswordTil"
                 tools:visibility="visible">
 
                 <TextView
-                    style="@style/InputLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
                     android:layout_marginTop="6dp"
-                    android:text="@string/account_setup_incoming_client_certificate_label" />
+                    android:text="@string/account_setup_incoming_client_certificate_label"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.fsck.k9.view.ClientCertificateSpinner
                     android:id="@+id/account_client_certificate_spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <CheckBox
                 android:id="@+id/account_client_certificate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/account_setup_basics_client_certificate" />
+                android:text="@string/account_setup_basics_client_certificate"
+                app:layout_constraintTop_toBottomOf="@id/account_allow_client_certificate" />
+
+            <CheckBox
+                android:id="@+id/accountSetupBasicsShowPasswordCb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_setup_basics_show_password"
+                app:layout_constraintTop_toBottomOf="@id/account_client_certificate" />
 
             <Button
                 android:id="@+id/next"
@@ -153,11 +179,13 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/black_button"
                 android:minHeight="48dp"
-                android:text="Login"
+                android:text="@string/account_setup_basics_login"
                 android:textColor="@color/white_pure"
                 app:layout_constraintBottom_toTopOf="@id/manual_setup"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsShowPasswordCb"
+                app:layout_constraintVertical_bias="1" />
 
             <Button
                 android:id="@+id/manual_setup"
@@ -166,13 +194,12 @@
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="16dp"
                 android:background="@color/transparent"
-                android:text="Advanced settings"
+                android:text="@string/account_setup_basics_settings"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_goneMarginTop="16dp" />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
