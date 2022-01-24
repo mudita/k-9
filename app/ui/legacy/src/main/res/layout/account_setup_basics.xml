@@ -82,7 +82,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/accountSetupBasicsEmailTil"
-                style="@style/DefaultTextInputLayout"
+                style="@style/DefaultAccountSetupTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -90,7 +90,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/account_email"
-                    style="@style/DefaultTextInputEditText"
+                    style="@style/DefaultAccountSetupTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_default_background"
@@ -101,7 +101,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/accountSetupBasicsPasswordTil"
-                style="@style/DefaultTextInputLayout"
+                style="@style/DefaultAccountSetupTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -110,7 +110,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/account_password"
-                    style="@style/DefaultTextInputEditText"
+                    style="@style/DefaultAccountSetupTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input_default_background"
@@ -146,16 +146,17 @@
                     android:id="@+id/account_client_certificate_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1"
                     android:layout_marginStart="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <CheckBox
                 android:id="@+id/account_client_certificate"
+                style="@style/DefaultAccountSetupCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -164,6 +165,7 @@
 
             <CheckBox
                 android:id="@+id/accountSetupBasicsShowPasswordCb"
+                style="@style/DefaultAccountSetupCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -172,15 +174,13 @@
 
             <Button
                 android:id="@+id/next"
+                style="@style/DefaultAccountSetupNextButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/black_button"
-                android:minHeight="48dp"
                 android:text="@string/account_setup_basics_login"
-                android:textColor="@color/white_pure"
                 app:layout_constraintBottom_toTopOf="@id/manual_setup"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -201,5 +201,4 @@
                 app:layout_goneMarginTop="16dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

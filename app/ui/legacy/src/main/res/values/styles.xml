@@ -125,16 +125,27 @@
         <item name="android:minHeight">48dp</item>
     </style>
 
-    <style name="DefaultTextInputLayout">
+    <style name="DefaultAccountSetupTextInputLayout">
         <item name="android:paddingTop">12dp</item>
         <item name="android:background">#F5F5F5</item>
     </style>
 
-    <style name="DefaultTextInputEditText">
+    <style name="DefaultAccountSetupTextInputEditText">
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="android:paddingBottom">16dp</item>
         <item name="android:background">@drawable/text_input_default_background</item>
+    </style>
+
+    <style name="DefaultAccountSetupCheckboxStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:buttonTint">@color/grey_medium</item>
+    </style>
+
+    <style name="DefaultAccountSetupNextButtonStyle">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColor">@color/white_pure</item>
+        <item name="android:background">@drawable/black_button</item>
     </style>
 </resources>
 

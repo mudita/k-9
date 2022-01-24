@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/account_setup_outgoin_outgoing_emails"
+            android:text="@string/account_setup_outgoing_outgoing_emails"
             android:textColor="@color/black_pure"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,14 +78,14 @@
                 android:paddingBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_username"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_username_label"
@@ -95,14 +95,14 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/account_password_layout"
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_password"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_password_label"
@@ -113,12 +113,12 @@
 
                 <CheckBox
                     android:id="@+id/accountSetupOutgoingShowPasswordCb"
+                    style="@style/DefaultAccountSetupCheckboxStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/account_setup_outgoing_show_pasword"
+                    android:text="@string/account_setup_outgoing_show_password"
                     app:layout_constraintTop_toBottomOf="@id/account_client_certificate" />
-
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -158,14 +158,14 @@
                 android:paddingEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_server"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_outgoing_smtp_server_label"
@@ -218,7 +218,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/accountSetupOutgoingPortTil"
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -228,7 +228,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/account_port"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/text_input_default_background"
@@ -241,6 +241,7 @@
 
                 <CheckBox
                     android:id="@+id/account_require_login"
+                    style="@style/DefaultAccountSetupCheckboxStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -278,24 +279,21 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
                     android:id="@+id/next"
+                    style="@style/DefaultAccountSetupNextButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/black_button"
-                    android:minHeight="48dp"
-                    android:text="Login"
+                    android:text="@string/account_setup_outgoing_login_button_text"
                     android:textColor="@color/white_pure"
                     app:layout_constraintBottom_toTopOf="@id/manual_setup"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
-
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

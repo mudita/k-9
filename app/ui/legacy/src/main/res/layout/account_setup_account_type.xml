@@ -90,33 +90,29 @@
 
         <Button
             android:id="@+id/imap"
-            android:layout_width="fill_parent"
+            style="@style/DefaultAccountSetupNextButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/black_button"
             android:minWidth="@dimen/button_minWidth"
-            android:minHeight="48dp"
             android:padding="16dp"
             android:text="@string/account_setup_account_type_imap_action"
-            android:textColor="@color/white_pure"
             app:layout_constraintBottom_toTopOf="@id/pop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/pop"
-            android:layout_width="fill_parent"
+            style="@style/DefaultAccountSetupNextButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:background="@drawable/black_button"
             android:minWidth="@dimen/button_minWidth"
-            android:minHeight="48dp"
             android:padding="16dp"
             android:text="@string/account_setup_account_type_pop_action"
-            android:textColor="@color/white_pure"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

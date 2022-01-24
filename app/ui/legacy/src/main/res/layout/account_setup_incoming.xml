@@ -77,14 +77,14 @@
                 android:paddingBottom="24dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_username"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_username_label"
@@ -94,14 +94,14 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/account_password_layout"
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_password"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_password_label"
@@ -112,10 +112,11 @@
 
                 <CheckBox
                     android:id="@+id/accountSetupIncomingPasswordCb"
+                    style="@style/DefaultAccountSetupCheckboxStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/account_setup_incoming_show_pasword"
+                    android:text="@string/account_setup_incoming_show_password"
                     app:layout_constraintTop_toBottomOf="@id/account_client_certificate" />
 
             </LinearLayout>
@@ -133,13 +134,13 @@
                 <!-- The hint text may be changed in code if the server is IMAP, etc. -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/account_server_layout"
-                    style="@style/DefaultTextInputLayout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_server"
-                        style="@style/DefaultTextInputEditText"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_pop_server_label"
@@ -192,7 +193,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/accountSetupIncomingPortTil"
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -202,7 +203,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/account_port"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/text_input_default_background"
@@ -284,19 +285,20 @@
 
                     <CheckBox
                         android:id="@+id/imap_autodetect_namespace"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/account_setup_incoming_autodetect_namespace_label" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/imap_path_prefix"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_imap_path_prefix_label"
@@ -313,6 +315,7 @@
 
                     <CheckBox
                         android:id="@+id/subscribed_folders_only"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/account_setup_incoming_subscribed_folders_only_label" />
@@ -342,13 +345,13 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/webdav_mailbox_path"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_webdav_mailbox_path_label"
@@ -363,14 +366,14 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/webdav_path_prefix"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_webdav_path_prefix_label"
@@ -385,14 +388,14 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/DefaultTextInputLayout"
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/webdav_auth_path"
-                            style="@style/DefaultTextInputEditText"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_webdav_auth_path_label"
@@ -416,12 +419,14 @@
 
                     <CheckBox
                         android:id="@+id/compression_mobile"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/account_setup_incoming_mobile_label" />
 
                     <CheckBox
                         android:id="@+id/compression_wifi"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/account_setup_incoming_compression_label"
@@ -429,6 +434,7 @@
 
                     <CheckBox
                         android:id="@+id/compression_other"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/account_setup_incoming_compression_label"
@@ -442,15 +448,13 @@
 
                 <Button
                     android:id="@+id/next"
+                    style="@style/DefaultAccountSetupNextButtonStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/black_button"
-                    android:minHeight="48dp"
                     android:text="@string/account_setup_incoming_login"
-                    android:textColor="@color/white_pure"
                     app:layout_constraintBottom_toTopOf="@id/manual_setup"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
