@@ -54,7 +54,7 @@
                 android:layout_marginTop="22dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:text="Twoja skrzynka"
+                android:text="@string/account_setup_options_header"
                 android:textAlignment="center"
                 android:textColor="@color/black_pure"
                 android:textSize="34sp"

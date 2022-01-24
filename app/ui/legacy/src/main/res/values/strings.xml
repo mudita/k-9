@@ -1313,4 +1313,5 @@ You can keep this message and use it as a backup for your secret key. If you wan
     <string name="account_setup_account_type_description">Choose the protocol you want to use with your Mail.</string>
     <string name="account_setup_account_type_long_description">IMAP stores the message on a server and synchronizes the message across multiple devices. (Recommended) \n\n POP3 downloads the email from a server to a single device, then deletes the email from the server.</string>
     <string name="account_setup_outgoing_login_button_text">Login</string>
+    <string name="account_setup_options_header">Your inbox</string>
 </resources>

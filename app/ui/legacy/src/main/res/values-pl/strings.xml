@@ -1098,4 +1098,5 @@ Tą wiadomość można zachować i użyć w formie kopii zapasowej twojego klucz
   <string name="account_setup_account_type_description">Wybierz który portokół chcesz wykorzystać w celu zapewnienia komunikacjie ze swoją skrzynką.</string>
   <string name="account_setup_account_type_long_description">IMAP przechowuje wiadomości na serwerze i snychronizuje je na wielu urządzenaich (Opcja polecana). \n\n POP3 pobiera wiadomości z serwera na jedno urządzenie, a później usuwa je z serwera.</string>
   <string name="account_setup_outgoing_login_button_text">Zaloguj się</string>
+  <string name="account_setup_options_header">Twoja skrzynka</string>
 </resources>
