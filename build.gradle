@@ -56,7 +56,8 @@ buildscript {
                 'appAuth'                      : '0.10.0',
                 'ktor'                         : '1.6.6',
                 'logback'                      : '1.2.6',
-                'browser'                      : '1.4.0'
+                'browser'                      : '1.4.0',
+                'dotsLoader'                   : '1.0.2'
         ]
 
         javaVersion = JavaVersion.VERSION_1_8
