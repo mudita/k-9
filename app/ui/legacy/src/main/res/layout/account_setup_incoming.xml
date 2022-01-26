@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/incomingTitle"
+            android:id="@+id/accountSetupIncomingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -42,14 +42,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/accountSetupIncomingSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/account_setup_incoming_incoming_emails"
             android:textColor="@color/black_pure"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/incomingTitle" />
+            app:layout_constraintTop_toBottomOf="@id/accountSetupIncomingTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -143,7 +143,7 @@
                         style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/account_setup_incoming_pop_server_label"
+                        android:hint="@string/account_setup_incoming_server_label"
                         android:inputType="textUri"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
