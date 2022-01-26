@@ -1075,6 +1075,12 @@ Tą wiadomość można zachować i użyć w formie kopii zapasowej twojego klucz
   <string name="push_info_disable_push_text">Jeśli nie potrzebujesz natychmiastowych powiadomień o nowych wiadomościach, wyłącz notyfikacje push i użyj regularnego odpytywania. Odpytywanie w regularnych odstępach czasu sprawdza nową pocztę i nie wymaga powiadomienia.</string>
   <string name="push_info_disable_push_action">Wyłącz powiadomienia push</string>
 
+
+  <string name="authentication_error_description">Uwierzytelnienie użytkownika \n %s \n nie powiodło się. Dodaj skrzynkę jeszcze raz, aby móc dalej z niej korzystać.</string>
+  <string name="authentication_error_primary_action">Uwierzytelnij się jeszcze raz</string>
+  <string name="authentication_error_action_close">Idź do listy wiadomości</string>
+  <string name="authentication_error_account_error_text">Wystąpił niespodziewany bład.</string>
+
   <string name="account_setup_basics_header">Zaloguj się</string>
   <string name="account_setup_basics_header_description">Wybierz konto, które chcesz obsługiwać z użyciem klienta Email Mudity.</string>
   <string name="account_setup_basics_login">Zaloguj się</string>
@@ -1096,4 +1102,13 @@ Tą wiadomość można zachować i użyć w formie kopii zapasowej twojego klucz
   <string name="account_setup_account_type_long_description">IMAP przechowuje wiadomości na serwerze i snychronizuje je na wielu urządzenaich (Opcja polecana). \n\n POP3 pobiera wiadomości z serwera na jedno urządzenie, a później usuwa je z serwera.</string>
   <string name="account_setup_outgoing_login_button_text">Zaloguj się</string>
   <string name="account_setup_options_header">Twoja skrzynka</string>
+  <string name="choose_folder_move_title">Przejdź do</string>
+  <string name="choose_folder_copy_title">Przenieś do...</string>
+  <string name="account_settings_open_notification_settings_miscellaneous_summary">Skonfiguruj powiadomienia o błedach i zmianach statusów</string>
+  <string name="reply_to_label">Odpowiedz do</string>
+  <string name="authentication_error_header">Wystąpił problem z uwierzytelnieniem</string>
+  <string name="account_setup_incoming_imap_incoming_emails">IMAP - poczta przychodząca</string>
+  <string name="account_setup_incoming_pop_incoming_emails">POP - poczta przychodząca</string>
+  <string name="account_setup_incoming_webd_incoming_emails">Poczta przychodząca</string>
+  <string name="account_setup_outgoing_smpt_outgoing_emails">SMTP - poczta wychodząca</string>
 </resources>

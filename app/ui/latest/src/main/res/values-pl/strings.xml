@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_header__welcome">Witaj</string>
+    <string name="app_header__description">"Bezpieczny klient poczty perfekcyjnie zsynchronizowany z ekosystemem Mudita Space."</string>
+    <string name="providers__header">Wybierz dostawcę usługi pocztowej</string>
+    <string name="provider__gmail_name">Google mail</string>
+    <string name="provider__gmail_description">Zabezpieczone z użyciem protokołu OAuth2. Aplikacja nie będzie przetrzymywać hasła do skrzynki pocztowej.</string>
+    <string name="provider__icloud_name">iCloud</string>
+    <string name="provider__icloud_description">Zabezpieczone jednorazowym hasłem. Aplikacja przetrzymuje tylko hasło wygenerowane specjalnie do zalogowania się w ramach klienta pocztowego.</string>
+    <string name="provider__outlook_name">Outlook</string>
+    <string name="provider__outlook_description">Zabezpieczone z użyciem protokołu OAuth2. Aplikacja nie będzie przetrzymywać hasła do skrzynki pocztowej.</string>
+    <string name="provider__setup_manually_name">Ustaw ręcznie</string>
+    <string name="provider__setup_manually_description">Poziom bezpieczeństwa zależny od dostawcy usługi poczty e-mail. W celu zalogowania należy podać hasło po poczty, albo wygenerowane hasło jednorazowe (w zależności od możliwości oferowanych przez dostawcę poczty).</string>
+    <string name="error_bottom_sheet_header">Wystąpił bład</string>
+    <string name="icloud_login_screen_title">Wpisz się</string>
+    <string name="icloud_login_description">Podaje dane konta iCloud</string>
+    <string name="icloud_login_email_hint">Podaj swój e-mail</string>
+    <string name="icloud_login_password_hint">Jednorazowe hasło do aplikacji</string>
+    <string name="icloud_login_show_password">Pokaż hasło</string>
+    <string name="icloud_login_next">DALEJ</string>
+    <string name="icloud_login_how_to_generate_password">JAK WYGENEROWAC HASŁO JEDNORAZOWE?</string>
+    <string name="password_info">Wygeneruj hasło jednorazowe w przeglądarce (bez ingerencji aplikacji).</string>
+    <string name="password_info_generate">Otwórz przeglądarkę</string>
+</resources>
