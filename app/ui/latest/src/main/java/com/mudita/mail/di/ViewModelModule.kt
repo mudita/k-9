@@ -1,6 +1,7 @@
 package com.mudita.mail.di
 
 import com.mudita.mail.ui.extension.getWith
+import com.mudita.mail.ui.usecase.add.viewModel.AddAccountViewModel
 import com.mudita.mail.ui.usecase.email.viewModel.EmailViewModel
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -17,6 +18,13 @@ val composeViewModelModule = module {
 
     viewModel { params ->
         EmailViewModel(
+            navigator = getWith(params),
+        )
+    }
+
+    viewModel { params ->
+        AddAccountViewModel(
+            interactor = get(),
             navigator = getWith(params),
         )
     }
