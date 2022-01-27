@@ -21,4 +21,5 @@
     <string name="icloud_login_how_to_generate_password">JAK WYGENEROWAC HASŁO JEDNORAZOWE?</string>
     <string name="password_info">Wygeneruj hasło jednorazowe w przeglądarce (bez ingerencji aplikacji).</string>
     <string name="password_info_generate">Otwórz przeglądarkę</string>
+    <string name="app_header__add_account">Dodaj konto</string>
 </resources>
