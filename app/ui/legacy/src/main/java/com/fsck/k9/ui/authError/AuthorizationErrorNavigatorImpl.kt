@@ -19,5 +19,5 @@ class AuthorizationErrorNavigatorImpl(
     override fun moveToEditOutgoingServerSettings(account: Account) =
         AccountSetupOutgoing.launchEditOutgoingSettings(context, account.uuid)
 
-    override fun moveToSignInScreen() = SignInActivity.launch(context)
+    override fun moveToSignInScreen() = SignInActivity.launchSignIn(context)
 }
