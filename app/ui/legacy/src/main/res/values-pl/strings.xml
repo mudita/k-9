@@ -196,7 +196,7 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="notification_channel_miscellaneous_title">Różne</string>
   <string name="notification_channel_miscellaneous_description">Dodatkowe powiadomienia jak błędy itp.</string>
   <string name="special_mailbox_name_inbox">Odebrane</string>
-  <string name="special_mailbox_name_outbox">Wychodzące</string>
+  <string name="special_mailbox_name_outbox">Wysłane</string>
   <string name="special_mailbox_name_drafts">Szablony</string>
   <string name="special_mailbox_name_trash">Kosz</string>
   <string name="special_mailbox_name_sent">Wysłane</string>
