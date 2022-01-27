@@ -692,7 +692,7 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="volume_navigation_title">Nawigacja przyciskiem głośności</string>
   <string name="volume_navigation_message">Wygląd wiadomości</string>
   <string name="volume_navigation_list">Różne widoki list</string>
-  <string name="show_unified_inbox_title">Pokaż zintegrowaną skrzynkę odbiorczą</string>
+  <string name="show_unified_inbox_title">Pokaż wszystkie skrzynki odbiorcze</string>
   <string name="show_starred_count_title">Pokaż liczbę oznaczonych gwiazdką</string>
   <string name="search_title"><xliff:g id="search_name">%s</xliff:g> <xliff:g id="modifier">%s</xliff:g></string>
   <string name="unread_modifier"> - Nieprzeczytane</string>
