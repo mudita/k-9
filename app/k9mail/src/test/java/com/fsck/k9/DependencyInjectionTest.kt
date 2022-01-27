@@ -9,10 +9,13 @@ import com.fsck.k9.ui.endtoend.AutocryptKeyTransferActivity
 import com.fsck.k9.ui.endtoend.AutocryptKeyTransferPresenter
 import com.fsck.k9.ui.folders.FolderNameFormatter
 import com.fsck.k9.ui.helper.SizeFormatter
+import com.mudita.mail.ui.usecase.add.navigator.AddAccountNavigator
+import com.mudita.mail.ui.usecase.add.viewModel.AddAccountViewModel
 import com.mudita.mail.ui.usecase.email.navigator.EmailNavigator
 import com.mudita.mail.ui.usecase.email.viewModel.EmailViewModel
 import com.mudita.mail.ui.usecase.signIn.navigator.SignInNavigator
 import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
+import com.mudita.mail.ui.util.BackPressHandler
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.annotation.KoinInternalApi
@@ -51,6 +54,18 @@ class DependencyInjectionTest : AutoCloseKoinTest() {
             withParameter<SignInNavigator> { mock<NavHostController>() }
             withParameter<EmailViewModel> { mock<NavHostController>() }
             withParameter<EmailNavigator> { mock<NavHostController>() }
+            withParameters<AddAccountNavigator> {
+                parametersOf(
+                    mock<BackPressHandler>(),
+                    mock<NavHostController>()
+                )
+            }
+            withParameters<AddAccountViewModel> {
+                parametersOf(
+                    mock<BackPressHandler>(),
+                    mock<NavHostController>()
+                )
+            }
         }
     }
 }
