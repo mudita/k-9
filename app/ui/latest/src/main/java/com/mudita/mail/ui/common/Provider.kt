@@ -1,4 +1,4 @@
-package com.mudita.mail.ui.usecase.signIn.view
+package com.mudita.mail.ui.common
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
