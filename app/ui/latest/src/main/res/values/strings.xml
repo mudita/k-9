@@ -12,4 +12,13 @@
     <string name="provider__setup_manually_name">Set up manually</string>
     <string name="provider__setup_manually_description">Security level depending on e-mail provider. You will need to provide your general password or an app-specific password, depending on particular e-mail provider\'s settings.</string>
     <string name="error_bottom_sheet_header">Error occurred</string>
+    <string name="icloud_login_screen_title">Sign In</string>
+    <string name="icloud_login_description">Enter your iCloud account\ncredentials</string>
+    <string name="icloud_login_email_hint">Enter your email</string>
+    <string name="icloud_login_password_hint">App-specific password</string>
+    <string name="icloud_login_show_password">Show password</string>
+    <string name="icloud_login_next">NEXT</string>
+    <string name="icloud_login_how_to_generate_password">HOW TO GENERATE AN APP-SPECIFIC PASSWORD</string>
+    <string name="password_info">Generate app-specific password in safe browser</string>
+    <string name="password_info_generate">Open browser</string>
 </resources>

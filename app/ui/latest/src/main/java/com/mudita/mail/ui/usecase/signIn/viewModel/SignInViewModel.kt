@@ -46,7 +46,11 @@ class SignInViewModel(
             ProviderType.GMAIL,
             ProviderType.OUTLOOK -> startAuthProcess(providerType)
             ProviderType.MANUAL -> navigator.moveToManualAccountSetup()
-            ProviderType.ICLOUD -> navigator.moveToAppSpecificPasswordSetup()
+            ProviderType.ICLOUD -> {
+                _uiState.update { it.copy(authIntent = null) }
+                handleAuthProcessCancellation()
+                navigator.moveToAppSpecificPasswordSetup()
+            }
         }
 
     private fun startAuthProcess(providerType: ProviderType) {
@@ -61,11 +65,7 @@ class SignInViewModel(
         viewModelScope.launchWithLoading {
             interactor.getAuthRequestData(authConfig)
                 .suspendingRunBlockOrShowError { authRequestData ->
-                    _uiState.update {
-                        it.copy(
-                            authIntent = authRequestData.intent
-                        )
-                    }
+                    _uiState.update { it.copy(authIntent = authRequestData.intent) }
                     val intent = intentChannel.receive()
                     interactor.processAuthResponseData(
                         providerType,
