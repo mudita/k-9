@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:drawSelectorOnTop="true"
         android:nestedScrollingEnabled="true"
         android:paddingTop="8dp"
         tools:listitem="@layout/message_list_item" />
