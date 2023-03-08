@@ -54,6 +54,15 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/drawer_button_add_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:src="@drawable/ringtone_ic_add"
+            app:tint="?tintColorSecondary" />
+
+        <ImageView
             android:id="@+id/drawer_button_manage_folders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -55,6 +55,7 @@ import com.mikepenz.materialdrawer.util.removeAllItems
 import com.mikepenz.materialdrawer.util.themeDrawerItem
 import com.mikepenz.materialdrawer.widget.AccountHeaderView
 import com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
+import com.mudita.mail.ui.SignInActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -77,6 +78,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
     private val buttonRow: LinearLayout = parent.findViewById(R.id.material_drawer_button_row)
     private val buttonSettings: ImageView = parent.findViewById(R.id.drawer_button_settings)
     private val buttonManageFolders: ImageView = parent.findViewById(R.id.drawer_button_manage_folders)
+    private val buttonAddAccount: ImageView = parent.findViewById(R.id.drawer_button_add_account)
     private val buttonRefreshAll: ImageView = parent.findViewById(R.id.drawer_button_refresh_all)
     private val buttonRefreshAccount: ImageView = parent.findViewById(R.id.drawer_button_refresh_account)
 
@@ -244,6 +246,7 @@ class K9Drawer(private val parent: MessageList, savedInstanceState: Bundle?) : K
         buttonManageFolders.setOnClickListener { parent.launchManageFoldersScreen() }
         buttonRefreshAccount.setOnClickListener { refreshAndShowProgress(headerView.activeProfile?.tag as Account) }
         buttonRefreshAll.setOnClickListener { refreshAndShowProgress(null) }
+        buttonAddAccount.setOnClickListener { SignInActivity.launchAdd(parent) }
 
         val showContentDescription = View.OnLongClickListener { v ->
             Toast.makeText(parent, v.contentDescription, Toast.LENGTH_SHORT).show()

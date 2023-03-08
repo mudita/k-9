@@ -44,7 +44,7 @@ class SignInActivity : K9Activity() {
         fun launchAdd(context: Context) {
             val intent = Intent(context, SignInActivity::class.java).apply {
                 putExtra(IS_SIGN_IN_KEY, false)
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             context.startActivity(intent)
         }
