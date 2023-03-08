@@ -196,7 +196,7 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="notification_channel_miscellaneous_title">Różne</string>
   <string name="notification_channel_miscellaneous_description">Dodatkowe powiadomienia jak błędy itp.</string>
   <string name="special_mailbox_name_inbox">Odebrane</string>
-  <string name="special_mailbox_name_outbox">Wychodzące</string>
+  <string name="special_mailbox_name_outbox">Wysłane</string>
   <string name="special_mailbox_name_drafts">Szablony</string>
   <string name="special_mailbox_name_trash">Kosz</string>
   <string name="special_mailbox_name_sent">Wysłane</string>
@@ -692,13 +692,13 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="volume_navigation_title">Nawigacja przyciskiem głośności</string>
   <string name="volume_navigation_message">Wygląd wiadomości</string>
   <string name="volume_navigation_list">Różne widoki list</string>
-  <string name="show_unified_inbox_title">Pokaż zintegrowaną skrzynkę odbiorczą</string>
+  <string name="show_unified_inbox_title">Pokaż wszystkie skrzynki odbiorcze</string>
   <string name="show_starred_count_title">Pokaż liczbę oznaczonych gwiazdką</string>
   <string name="search_title"><xliff:g id="search_name">%s</xliff:g> <xliff:g id="modifier">%s</xliff:g></string>
   <string name="unread_modifier"> - Nieprzeczytane</string>
   <string name="search_all_messages_title">Wszystkie wiadomości</string>
   <string name="search_all_messages_detail">Wiadomości w przeszukiwalnych folderach</string>
-  <string name="integrated_inbox_title">Zintegrowana odbiorcza</string>
+  <string name="integrated_inbox_title">Wszystkie skrzynki</string>
   <string name="integrated_inbox_detail">Nieprzeczytane wiadomości ze wszystkich kont</string>
   <string name="folder_settings_include_in_integrated_inbox_label">Integruj</string>
   <string name="folder_settings_include_in_integrated_inbox_summary">Pokazuj nieprzeczytane wiadomości w zintegrowanym widoku</string>
@@ -817,7 +817,7 @@ Wysłane z urządzenia Android za pomocą Mudita Mail. Proszę wybaczyć moją z
   <string name="unread_widget_select_account">Pokaż licznik nieprzeczytanych dla…</string>
   <string name="unread_widget_account_title">Konto</string>
   <string name="unread_widget_account_summary">Folder dla którego liczba nie przeczytanych wiadomości powinna być wyświetlana</string>
-  <string name="unread_widget_unified_inbox_account_summary">Zintegrowana skrzynka odbiorcza</string>
+  <string name="unread_widget_unified_inbox_account_summary">Wszystkie skrzynki</string>
   <string name="unread_widget_folder_enabled_title">Liczba folderów</string>
   <string name="unread_widget_folder_enabled_summary">Wyświetl licznik nieprzeczytanych wiadomości tylko dla pojedynczego folderu</string>
   <string name="unread_widget_folder_title">Folder</string>

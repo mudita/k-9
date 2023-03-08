@@ -233,7 +233,7 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="notification_channel_miscellaneous_description">Miscellaneous notifications like errors etc.</string>
 
     <string name="special_mailbox_name_inbox">Inbox</string>
-    <string name="special_mailbox_name_outbox">Outbox</string>
+    <string name="special_mailbox_name_outbox">Sent</string>
     <string name="special_mailbox_name_drafts">Drafts</string>
     <string name="special_mailbox_name_trash">Trash</string>
     <string name="special_mailbox_name_sent">Sent</string>
@@ -833,7 +833,7 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="volume_navigation_message">In message views</string>
     <string name="volume_navigation_list">In list views</string>
 
-    <string name="show_unified_inbox_title">Show Unified Inbox</string>
+    <string name="show_unified_inbox_title">Show All Inboxes</string>
     <string name="show_starred_count_title">Show starred count</string>
 
     <string name="search_title"><xliff:g id="search_name">%s</xliff:g> <xliff:g id="modifier">%s</xliff:g></string>
@@ -843,7 +843,7 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="search_all_messages_detail">All messages in searchable folders</string>
 
     <string name="integrated_inbox_title">Unified Inbox</string>
-    <string name="integrated_inbox_detail">All messages in unified folders</string>
+    <string name="integrated_inbox_detail">All messages in all inboxes</string>
 
     <string name="folder_settings_include_in_integrated_inbox_label">Unify</string>
     <string name="folder_settings_include_in_integrated_inbox_summary">All messages are shown in Unified Inbox</string>
@@ -984,7 +984,7 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="unread_widget_select_account">Show unread count for…</string>
     <string name="unread_widget_account_title">Account</string>
     <string name="unread_widget_account_summary">The account for which the unread count should be displayed</string>
-    <string name="unread_widget_unified_inbox_account_summary">Unified Inbox</string>
+    <string name="unread_widget_unified_inbox_account_summary">All inboxes</string>
     <string name="unread_widget_folder_enabled_title">Folder count</string>
     <string name="unread_widget_folder_enabled_summary">Display the unread count of only a single folder</string>
     <string name="unread_widget_folder_title">Folder</string>
