@@ -6,6 +6,7 @@ import android.content.Intent
 import com.fsck.k9.Account
 import com.fsck.k9.K9
 import com.fsck.k9.activity.MessageList
+import com.fsck.k9.activity.authError.AuthenticationError
 import com.fsck.k9.activity.compose.MessageActions
 import com.fsck.k9.activity.setup.AccountSetupIncoming
 import com.fsck.k9.activity.setup.AccountSetupOutgoing
@@ -106,6 +107,11 @@ internal class K9NotificationActionCreator(
 
     override fun getEditOutgoingServerSettingsIntent(account: Account): PendingIntent {
         val intent = AccountSetupOutgoing.intentActionEditOutgoingSettings(context, account)
+        return PendingIntent.getActivity(context, account.accountNumber, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    }
+
+    override fun getAuthenticationErrorIntent(account: Account): PendingIntent {
+        val intent = AuthenticationError.authErrorIntent(context, account)
         return PendingIntent.getActivity(context, account.accountNumber, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 

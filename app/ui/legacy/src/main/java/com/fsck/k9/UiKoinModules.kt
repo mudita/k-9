@@ -7,6 +7,7 @@ import com.fsck.k9.contacts.contactsModule
 import com.fsck.k9.fragment.fragmentModule
 import com.fsck.k9.navigation.navigationModule
 import com.fsck.k9.ui.account.accountUiModule
+import com.fsck.k9.ui.authError.authErrorUiModule
 import com.fsck.k9.ui.base.uiBaseModule
 import com.fsck.k9.ui.changelog.changelogUiModule
 import com.fsck.k9.ui.choosefolder.chooseFolderUiModule
@@ -37,5 +38,6 @@ val uiModules = listOf(
     changelogUiModule,
     messageSourceModule,
     accountUiModule,
-    navigationModule
+    navigationModule,
+    authErrorUiModule
 )

@@ -47,11 +47,7 @@ internal open class AuthenticationErrorNotificationController(
     }
 
     protected open fun createContentIntent(account: Account, incoming: Boolean): PendingIntent {
-        return if (incoming) {
-            actionCreator.getEditIncomingServerSettingsIntent(account)
-        } else {
-            actionCreator.getEditOutgoingServerSettingsIntent(account)
-        }
+        return actionCreator.getAuthenticationErrorIntent(account)
     }
 
     private val notificationManager: NotificationManagerCompat
