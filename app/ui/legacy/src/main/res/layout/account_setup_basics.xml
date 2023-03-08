@@ -1,98 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_pure"
+    android:orientation="vertical"
     tools:context="com.fsck.k9.activity.setup.AccountSetupBasics">
 
-    <include layout="@layout/toolbar" />
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="6dip"
-        android:fadingEdge="none"
-        android:scrollbarStyle="outsideInset" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:orientation="vertical" >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/account_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/account_setup_basics_email_hint"
-                    android:singleLine="true"
-                    android:inputType="textEmailAddress"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/account_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/account_setup_basics_password_hint"
-                    android:singleLine="true"
-                    android:inputType="textPassword"
-                    android:nextFocusDown="@+id/next"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        <LinearLayout
-            android:id="@+id/account_allow_client_certificate"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/accountSetupBasicsBackIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/accountSetupBasicsLogoIv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_mudita_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:text="@string/account_setup_incoming_client_certificate_label"
+                android:id="@+id/accountSetupBasicsTitleTv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                style="@style/InputLabel"
-                android:layout_marginTop="6dp"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="@string/account_setup_basics_header"
+                android:textAlignment="center"
+                android:textColor="@color/black_pure"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsLogoIv" />
 
-            <com.fsck.k9.view.ClientCertificateSpinner
-                android:id="@+id/account_client_certificate_spinner"
+            <TextView
+                android:id="@+id/accountSetupBasicsDescriptionTv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:text="@string/account_setup_basics_header_description"
+                android:textAlignment="center"
+                android:textColor="@color/black_pure"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsTitleTv" />
 
-            <com.fsck.k9.view.FoldableLinearLayout
-                android:id="@+id/foldable_advanced_options"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/accountSetupBasicsEmailTil"
+                style="@style/DefaultAccountSetupTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsDescriptionTv">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/account_email"
+                    style="@style/DefaultAccountSetupTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input_default_background"
+                    android:hint="@string/account_setup_basics_email_hint"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/accountSetupBasicsPasswordTil"
+                style="@style/DefaultAccountSetupTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:foldedLabel="@string/client_certificate_advanced_options"
-                app:unFoldedLabel="@string/client_certificate_advanced_options" >
+                app:hintAnimationEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsEmailTil">
 
-                <CheckBox
-                    android:id="@+id/account_client_certificate"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/account_password"
+                    style="@style/DefaultAccountSetupTextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/account_setup_basics_client_certificate" />
-            </com.fsck.k9.view.FoldableLinearLayout>
+                    android:background="@drawable/text_input_default_background"
+                    android:hint="@string/account_setup_basics_password_hint"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/next"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <View
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/account_allow_client_certificate"
                 android:layout_width="match_parent"
-                android:layout_height="0dip"
-                android:layout_weight="1" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/text_input_default_background"
+                android:minHeight="56dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsPasswordTil"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/account_setup_incoming_client_certificate_label"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.fsck.k9.view.ClientCertificateSpinner
+                    android:id="@+id/account_client_certificate_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <CheckBox
+                android:id="@+id/account_client_certificate"
+                style="@style/DefaultAccountSetupCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_setup_basics_client_certificate"
+                app:layout_constraintTop_toBottomOf="@id/account_allow_client_certificate" />
+
+            <CheckBox
+                android:id="@+id/accountSetupBasicsShowPasswordCb"
+                style="@style/DefaultAccountSetupCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_setup_basics_show_password"
+                app:layout_constraintTop_toBottomOf="@id/account_client_certificate" />
+
+            <Button
+                android:id="@+id/next"
+                style="@style/DefaultAccountSetupNextButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/account_setup_basics_login"
+                app:layout_constraintBottom_toTopOf="@id/manual_setup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsShowPasswordCb"
+                app:layout_constraintVertical_bias="1" />
+
+            <Button
+                android:id="@+id/manual_setup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="16dp"
+                android:background="@color/transparent"
+                android:text="@string/account_setup_basics_settings"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_goneMarginTop="16dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <include layout="@layout/wizard_setup" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

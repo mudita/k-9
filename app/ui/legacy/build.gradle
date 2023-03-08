@@ -53,6 +53,7 @@ dependencies {
     implementation "org.apache.james:apache-mime4j-core:${versions.mime4j}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinCoroutines}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinCoroutines}"
+    implementation "com.eyalbira.loadingdots:loading-dots:${versions.dotsLoader}"
 
     implementation "com.github.bumptech.glide:glide:${versions.glide}"
     annotationProcessor "com.github.bumptech.glide:compiler:${versions.glide}"

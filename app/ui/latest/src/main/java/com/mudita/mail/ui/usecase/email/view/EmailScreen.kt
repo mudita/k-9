@@ -194,7 +194,7 @@ fun EmailHeader() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(bottom = 16.dp),
             painter = painterResource(
                 id = R.drawable.ic_mudita_logo
             ),

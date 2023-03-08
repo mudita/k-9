@@ -1,68 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_pure"
     android:orientation="vertical"
     tools:context="com.fsck.k9.activity.setup.AccountSetupOptions">
 
-    <include layout="@layout/toolbar" />
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="54dip"
         android:layout_weight="1"
         android:fadingEdge="none"
-        android:padding="6dip"
-        android:scrollbarStyle="outsideInset">
+        android:fillViewport="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/accountSetupOptionsBackIv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/authenticationErrorLogoIv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_mudita_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:layout_width="fill_parent"
+                android:id="@+id/authenticationErrorTitleTv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/account_setup_options_mail_check_frequency_label"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorPrimary"
-                />
-
-            <Spinner
-                android:id="@+id/account_check_frequency"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/account_setup_options_mail_check_frequency_label" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="@string/account_setup_options_header"
+                android:textAlignment="center"
+                android:textColor="@color/black_pure"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/authenticationErrorLogoIv" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:id="@+id/authenticationErrorDescriptionTv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/account_setup_options_mail_display_count_label"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:text="@string/account_setup_options_inbox_behaviour"
+                android:textAlignment="center"
+                android:textColor="@color/black_pure"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/authenticationErrorTitleTv" />
 
-            <Spinner
-                android:id="@+id/account_display_count"
-                android:layout_width="fill_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountSetupOptionsFrequencyCl"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/account_setup_options_mail_display_count_label" />
+                android:layout_marginTop="22dp"
+                android:background="@drawable/text_input_default_background"
+                android:minHeight="56dp"
+                app:layout_constraintTop_toBottomOf="@id/authenticationErrorDescriptionTv">
+
+                <TextView
+                    android:id="@+id/accountSetupOptionsFrequencyTitleTv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/account_setup_options_mail_check_frequency_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/account_check_frequency"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/account_setup_options_mail_check_frequency_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/accountSetupOptionsFrequencyTitleTv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountSetupOptionsDisplayCountCl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/text_input_default_background"
+                android:minHeight="56dp"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupOptionsFrequencyCl">
+
+                <TextView
+                    android:id="@+id/freqlabel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/account_setup_options_mail_display_count_label"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/account_display_count"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/account_setup_options_mail_display_count_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/freqlabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <CheckBox
                 android:id="@+id/account_notify"
+                style="@style/DefaultAccountSetupCheckboxStyle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
                 android:text="@string/account_setup_options_notify_label"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accountSetupOptionsDisplayCountCl" />
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-        </LinearLayout>
+            <Button
+                android:id="@+id/next"
+                style="@style/DefaultAccountSetupNextButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="16dp"
+                android:text="@string/account_setup_options_save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/account_notify"
+                app:layout_constraintVertical_bias="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <include layout="@layout/wizard_next" />
 </LinearLayout>

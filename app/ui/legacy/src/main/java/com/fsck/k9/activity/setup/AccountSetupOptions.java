@@ -99,6 +99,11 @@ public class AccountSetupOptions extends K9Activity implements OnClickListener {
                                             .getAutomaticCheckIntervalMinutes());
         SpinnerOption.setSpinnerOptionValue(mDisplayCountView, mAccount
                                             .getDisplayCount());
+        setupOnBackIcon();
+    }
+
+    private void setupOnBackIcon() {
+        findViewById(R.id.accountSetupOptionsBackIv).setOnClickListener(v -> onBackPressed());
     }
 
     private void onDone() {

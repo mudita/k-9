@@ -79,6 +79,12 @@ public class AccountSetupNames extends K9Activity implements OnClickListener {
         if (!Utility.requiredFieldValid(mName)) {
             mDoneButton.setEnabled(false);
         }
+
+        setupOnBackIcon();
+    }
+
+    private void setupOnBackIcon() {
+        findViewById(R.id.accountSetupNamesBackIv).setOnClickListener(v -> onBackPressed());
     }
 
     private void validateFields() {

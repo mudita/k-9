@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -37,17 +38,17 @@ import com.fsck.k9.ui.settings.ExtraAccountDiscovery;
 import com.fsck.k9.view.ClientCertificateSpinner;
 import com.fsck.k9.view.ClientCertificateSpinner.OnClientCertificateChangedListener;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import timber.log.Timber;
 
+
 /**
- * Prompts the user for the email address and password.
- * Attempts to lookup default settings for the domain the user specified. If the
- * domain is known the settings are handed off to the AccountSetupCheckSettings
- * activity. If no settings are found the settings are handed off to the
- * AccountSetupAccountType activity.
+ * Prompts the user for the email address and password. Attempts to lookup default settings for the domain the user
+ * specified. If the domain is known the settings are handed off to the AccountSetupCheckSettings activity. If no
+ * settings are found the settings are handed off to the AccountSetupAccountType activity.
  */
 public class AccountSetupBasics extends K9Activity
-    implements OnClickListener, TextWatcher, OnCheckedChangeListener, OnClientCertificateChangedListener {
+        implements OnClickListener, TextWatcher, OnCheckedChangeListener, OnClientCertificateChangedListener {
     private final static String EXTRA_ACCOUNT = "com.fsck.k9.AccountSetupBasics.account";
     private final static String STATE_KEY_CHECKED_INCOMING = "com.fsck.k9.AccountSetupBasics.checkedIncoming";
 
@@ -102,6 +103,9 @@ public class AccountSetupBasics extends K9Activity
         if (intent != null) {
             checkWhetherAccountWithPredefinedEmailSetupProcess(intent);
         }
+
+        setupOnBackIcon();
+        setupShowPasswordCheckBox();
     }
 
     private void checkWhetherAccountWithPredefinedEmailSetupProcess(Intent intent) {
@@ -136,6 +140,27 @@ public class AccountSetupBasics extends K9Activity
         mEmailView.setVisibility(View.GONE);
         mPasswordView.setVisibility(View.GONE);
         onNext();
+    }
+
+    private void setupOnBackIcon() {
+        findViewById(R.id.accountSetupBasicsBackIv).setOnClickListener(v -> onBackPressed());
+    }
+
+    private void setupShowPasswordCheckBox() {
+        CheckBox showPasswordCheckBox = findViewById(R.id.accountSetupBasicsShowPasswordCb);
+        showPasswordCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            final int selection = mPasswordView.getSelectionEnd();
+            if (mPasswordView != null
+                    && mPasswordView.getTransformationMethod() instanceof PasswordTransformationMethod) {
+                mPasswordView.setTransformationMethod(null);
+            } else {
+                mPasswordView.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+            // And restore the cursor position
+            if (selection >= 0) {
+                mPasswordView.setSelection(selection);
+            }
+        });
     }
 
     private void initializeViewListeners() {
@@ -300,7 +325,8 @@ public class AccountSetupBasics extends K9Activity
         DiscoveryResults discoveryResults = providersXmlDiscovery.discover(
                 new DiscoveryParams(email, DiscoveryTarget.INCOMING_AND_OUTGOING, authType, predefinedRootDomain)
         );
-        if (discoveryResults == null || (discoveryResults.getIncoming().size() < 1 || discoveryResults.getOutgoing().size() < 1)) {
+        if (discoveryResults == null ||
+                (discoveryResults.getIncoming().size() < 1 || discoveryResults.getOutgoing().size() < 1)) {
             return null;
         }
         DiscoveredServerSettings incoming = discoveryResults.getIncoming().get(0);

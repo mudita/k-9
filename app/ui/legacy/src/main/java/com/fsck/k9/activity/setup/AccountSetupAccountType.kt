@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import com.fsck.k9.Account
 import com.fsck.k9.Preferences
 import com.fsck.k9.helper.EmailHelper.getDomainFromEmailAddress
@@ -39,6 +40,8 @@ class AccountSetupAccountType : K9Activity() {
 
         findViewById<View>(R.id.pop).setOnClickListener { setupPop3Account() }
         findViewById<View>(R.id.imap).setOnClickListener { setupImapAccount() }
+
+        findViewById<ImageView>(R.id.accountSetupAccountTypeBackIv).setOnClickListener { onBackPressed() }
     }
 
     private fun decodeArguments() {

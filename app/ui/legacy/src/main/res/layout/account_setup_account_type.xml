@@ -1,47 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/white_pure"
     android:orientation="vertical"
     tools:context="com.fsck.k9.activity.setup.AccountSetupAccountType">
 
-    <include layout="@layout/toolbar" />
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="6dip">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/accountSetupAccountTypeBackIv"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/authenticationErrorLogoIv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/ic_mudita_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:id="@+id/authenticationErrorTitleTv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="true"
-            android:paddingBottom="10dip"
-            android:text="@string/account_setup_account_type_instructions"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/account_setup_account_type_header"
+            android:textAlignment="center"
+            android:textColor="@color/black_pure"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authenticationErrorLogoIv" />
+
+        <TextView
+            android:id="@+id/authenticationErrorDescriptionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:text="@string/account_setup_account_type_description"
+            android:textAlignment="center"
+            android:textColor="@color/black_pure"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authenticationErrorTitleTv" />
+
+        <TextView
+            android:id="@+id/accountSetupAccountTypeDetailedDescriptionTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="21dp"
+            android:gravity="center"
+            android:text="@string/account_setup_account_type_long_description"
+            android:textAlignment="center"
+            android:textColor="#545A5E"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authenticationErrorDescriptionTv" />
 
         <Button
             android:id="@+id/imap"
-            android:layout_width="fill_parent"
+            style="@style/DefaultAccountSetupNextButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:minWidth="@dimen/button_minWidth"
-            android:padding="10dip"
-            android:text="@string/account_setup_account_type_imap_action" />
+            android:padding="16dp"
+            android:text="@string/account_setup_account_type_imap_action"
+            app:layout_constraintBottom_toTopOf="@id/pop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/pop"
-            android:layout_width="fill_parent"
+            style="@style/DefaultAccountSetupNextButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:minWidth="@dimen/button_minWidth"
-            android:padding="10dip"
-            android:text="@string/account_setup_account_type_pop_action" />
-
-    </LinearLayout>
-
+            android:padding="16dp"
+            android:text="@string/account_setup_account_type_pop_action"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
+

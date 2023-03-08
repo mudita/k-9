@@ -351,8 +351,8 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="quiet_time_ends">Quiet Time ends</string>
 
     <string name="account_setup_basics_title">Set up a new account</string>
-    <string name="account_setup_basics_email_hint">Email address</string>
-    <string name="account_setup_basics_password_hint">Password</string>
+    <string name="account_setup_basics_email_hint">Enter your email</string>
+    <string name="account_setup_basics_password_hint">Enter your password</string>
     <string name="account_setup_basics_show_password">Show password</string>
 
     <!-- Please use the same translation for "screen lock" as is used in the 'Security' section in Android's settings app -->
@@ -1290,4 +1290,28 @@ You can keep this message and use it as a backup for your secret key. If you wan
     <string name="authentication_error_primary_action">Authenticate again</string>
     <string name="authentication_error_action_close">Go to message list</string>
     <string name="authentication_error_account_error_text">Unexpected authentication error occurred.</string>
+
+    <string name="account_setup_basics_header">Sign in</string>
+    <string name="account_setup_basics_header_description">Add an account you want to use with Mudita Email client.</string>
+    <string name="account_setup_basics_login">Login</string>
+    <string name="account_setup_basics_settings">Manual settings</string>
+    <string name="account_setup_incoming_advanced_settings">Advanced Settings</string>
+    <string name="account_setup_incoming_incoming_emails">Incoming emails</string>
+    <string name="account_setup_incoming_login">Login</string>
+    <string name="account_setup_outgoing_advanced_settings">Advanced Settings</string>
+    <string name="account_setup_outgoing_outgoing_emails">Outgoing emails</string>
+    <string name="account_setup_outgoing_show_password">Show password</string>
+    <string name="account_setup_incoming_show_password">Show password</string>
+    <string name="account_setup_options_inbox_behaviour">Setup inbox behaviour</string>
+    <string name="account_setup_options_save">Save</string>
+    <string name="account_setup_names_almost_there">Almost there</string>
+    <string name="account_setup_names_additional_information">Add additional information about your inbox.</string>
+    <string name="account_setup_names_name_your_inbox">Name your inbox</string>
+    <string name="account_setup_names_display_name">Enter display name in the messages</string>
+    <string name="account_setup_names_save">Save</string>
+    <string name="account_setup_account_type_header">Sign in</string>
+    <string name="account_setup_account_type_description">Choose the protocol you want to use with your Mail.</string>
+    <string name="account_setup_account_type_long_description">IMAP stores the message on a server and synchronizes the message across multiple devices. (Recommended) \n\n POP3 downloads the email from a server to a single device, then deletes the email from the server.</string>
+    <string name="account_setup_outgoing_login_button_text">Login</string>
+    <string name="account_setup_options_header">Your inbox</string>
 </resources>

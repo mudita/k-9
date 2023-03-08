@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -41,8 +42,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import timber.log.Timber;
 
+
 public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
-    OnCheckedChangeListener {
+        OnCheckedChangeListener {
     private static final String EXTRA_ACCOUNT = "account";
 
     private static final String STATE_SECURITY_TYPE_POSITION = "stateSecurityTypePosition";
@@ -226,14 +228,35 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
             failure(e);
         }
 
+        setupOnBackIcon();
+        setupShowPasswordCheckBox();
+    }
+
+    private void setupOnBackIcon() {
+        findViewById(R.id.accountSetupOutgoingBackIv).setOnClickListener(v -> onBackPressed());
+    }
+
+    private void setupShowPasswordCheckBox() {
+        CheckBox showPasswordCheckBox = findViewById(R.id.accountSetupOutgoingShowPasswordCb);
+        showPasswordCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            final int selection = mPasswordView.getSelectionEnd();
+            if (mPasswordView != null
+                    && mPasswordView.getTransformationMethod() instanceof PasswordTransformationMethod) {
+                mPasswordView.setTransformationMethod(null);
+            } else {
+                mPasswordView.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+            // And restore the cursor position
+            if (selection >= 0) {
+                mPasswordView.setSelection(selection);
+            }
+        });
     }
 
     /**
-     * Called at the end of either {@code onCreate()} or
-     * {@code onRestoreInstanceState()}, after the views have been initialized,
-     * so that the listeners are not triggered during the view initialization.
-     * This avoids needless calls to {@code validateFields()} which is called
-     * immediately after this is called.
+     * Called at the end of either {@code onCreate()} or {@code onRestoreInstanceState()}, after the views have been
+     * initialized, so that the listeners are not triggered during the view initialization. This avoids needless calls
+     * to {@code validateFields()} which is called immediately after this is called.
      */
     private void initializeViewListeners() {
 
@@ -387,9 +410,8 @@ public class AccountSetupOutgoing extends K9Activity implements OnClickListener,
 
 
     /**
-     * This is invoked only when the user makes changes to a widget, not when
-     * widgets are changed programmatically.  (The logic is simpler when you know
-     * that this is the last thing called after an input change.)
+     * This is invoked only when the user makes changes to a widget, not when widgets are changed programmatically.
+     * (The logic is simpler when you know that this is the last thing called after an input change.)
      */
     private void validateFields() {
         AuthType authType = getSelectedAuthType();

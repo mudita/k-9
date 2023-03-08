@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -331,6 +332,30 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
         } catch (Exception e) {
             failure(e);
         }
+
+        setupOnBackIcon();
+        setupShowPasswordCheckBox();
+    }
+
+    private void setupOnBackIcon() {
+        findViewById(R.id.accountSetupIncomingBackIv).setOnClickListener(v -> onBackPressed());
+    }
+
+    private void setupShowPasswordCheckBox() {
+        CheckBox showPasswordCheckBox = findViewById(R.id.accountSetupIncomingPasswordCb);
+        showPasswordCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            final int selection = mPasswordView.getSelectionEnd();
+            if (mPasswordView != null
+                    && mPasswordView.getTransformationMethod() instanceof PasswordTransformationMethod) {
+                mPasswordView.setTransformationMethod(null);
+            } else {
+                mPasswordView.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+            // And restore the cursor position
+            if (selection >= 0) {
+                mPasswordView.setSelection(selection);
+            }
+        });
     }
 
     /**

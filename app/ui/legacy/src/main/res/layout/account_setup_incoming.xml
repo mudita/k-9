@@ -2,294 +2,464 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.fsck.k9.activity.setup.AccountSetupIncoming">
 
-    <include layout="@layout/toolbar"/>
+    <include
+        layout="@layout/toolbar"
+        android:visibility="gone" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white_pure">
+
+        <ImageView
+            android:id="@+id/accountSetupIncomingBackIv"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/incomingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:text="@string/account_setup_incoming_advanced_settings"
+            android:textAlignment="center"
+            android:textColor="@color/black_pure"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_setup_incoming_incoming_emails"
+            android:textColor="@color/black_pure"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/incomingTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="6dip"
-            android:fadingEdge="none"
-            android:scrollbarStyle="outsideInset">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fadingEdge="none"
+        android:paddingTop="8dp"
+        android:scrollbarStyle="outsideInset">
 
         <LinearLayout
-                android:layout_width="fill_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@color/white_pure"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="24dp">
 
-            <!-- The hint text may be changed in code if the server is IMAP, etc. -->
-            <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/account_server_layout"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/account_server"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textUri"
-                        android:hint="@string/account_setup_incoming_pop_server_label"
-                        android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                    android:text="@string/account_setup_incoming_security_label"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent"
-                    style="@style/InputLabel"
-                    android:layout_marginTop="6dp"/>
-
-            <Spinner
-                    android:id="@+id/account_security_type"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent"
-                    android:contentDescription="@string/account_setup_incoming_security_label"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
-
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/account_port"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:hint="@string/account_setup_incoming_port_label"
-                        android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
-
-                <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_username"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
                         android:hint="@string/account_setup_incoming_username_label"
+                        android:inputType="textEmailAddress"
                         android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                    android:id="@+id/account_auth_type_label"
-                    android:text="@string/account_setup_incoming_auth_type_label"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="6dp"
-                    style="@style/InputLabel"/>
-
-            <Spinner
-                    android:id="@+id/account_auth_type"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:contentDescription="@string/account_setup_incoming_auth_type_label"/>
-
-            <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/account_password_layout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing"
-                    app:endIconMode="password_toggle">
+                    android:layout_marginTop="18dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/account_password"
+                        style="@style/DefaultAccountSetupTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/account_setup_incoming_password_label"
-                        android:singleLine="true"
                         android:inputType="textPassword"
-                        android:nextFocusDown="@+id/next"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        <LinearLayout
-            android:id="@+id/account_allow_client_certificate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:visibility="visible">
-            <TextView
-                    android:text="@string/account_setup_incoming_client_certificate_label"
-                    android:layout_height="wrap_content"
+                        android:nextFocusDown="@+id/next"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/accountSetupIncomingPasswordCb"
+                    style="@style/DefaultAccountSetupCheckboxStyle"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="6dp"
-                    style="@style/InputLabel"/>
-
-            <com.fsck.k9.view.ClientCertificateSpinner
-                    android:id="@+id/account_client_certificate_spinner"
-                    android:paddingLeft="6dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
-        </LinearLayout>
+                    android:layout_marginTop="16dp"
+                    android:text="@string/account_setup_incoming_show_password"
+                    app:layout_constraintTop_toBottomOf="@id/account_client_certificate" />
 
+            </LinearLayout>
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/white_pure"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp">
+
+                <!-- The hint text may be changed in code if the server is IMAP, etc. -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/account_server_layout"
+                    style="@style/DefaultAccountSetupTextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/account_server"
+                        style="@style/DefaultAccountSetupTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/account_setup_incoming_pop_server_label"
+                        android:inputType="textUri"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/accountSetupIncomingSecurityCl"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/text_input_default_background"
+                        android:minHeight="56dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/accountSetupIncomingPortTil"
+                        app:layout_constraintStart_toEndOf="@id/accountSetupIncomingPortTil"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/accountSetupIncomingSecurityLabelTv"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_marginTop="6dp"
+                            android:paddingTop="2dp"
+                            android:text="@string/account_setup_incoming_security_label"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Spinner
+                            android:id="@+id/account_security_type"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:contentDescription="@string/account_setup_incoming_security_label"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/accountSetupIncomingSecurityLabelTv" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/accountSetupIncomingPortTil"
+                        style="@style/DefaultAccountSetupTextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/accountSetupIncomingSecurityCl"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/account_port"
+                            style="@style/DefaultAccountSetupTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/text_input_default_background"
+                            android:hint="@string/account_setup_incoming_port_label"
+                            android:inputType="number"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/text_input_default_background"
+                    android:minHeight="60dp">
+
+                    <TextView
+                        android:id="@+id/account_auth_type_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/account_setup_incoming_auth_type_label"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Spinner
+                        android:id="@+id/account_auth_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:contentDescription="@string/account_setup_incoming_auth_type_label"
+                        app:layout_constraintTop_toBottomOf="@id/account_auth_type_label" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/account_allow_client_certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/text_input_default_background"
+                    android:minHeight="56dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/accountSetupBasicsPasswordTil"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/account_setup_incoming_client_certificate_label"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.fsck.k9.view.ClientCertificateSpinner
+                        android:id="@+id/account_client_certificate_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
                     android:id="@+id/imap_path_prefix_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                <CheckBox
+                    <CheckBox
                         android:id="@+id/imap_autodetect_namespace"
-                        android:layout_height="wrap_content"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
-                        android:text="@string/account_setup_incoming_autodetect_namespace_label"/>
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_setup_incoming_autodetect_namespace_label" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/imap_path_prefix"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_imap_path_prefix_label"
                             android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-            <LinearLayout
+                <LinearLayout
+                    android:id="@+id/imap_folder_setup_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imap_folder_setup_section"
+                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                <CheckBox
+                    <CheckBox
                         android:id="@+id/subscribed_folders_only"
-                        android:layout_height="wrap_content"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
-                        android:text="@string/account_setup_incoming_subscribed_folders_only_label"
-                        />
-            </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_setup_incoming_subscribed_folders_only_label" />
+                </LinearLayout>
 
-            <LinearLayout
+                <LinearLayout
                     android:id="@+id/webdav_advanced_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                <TextView
-                        android:text="@string/advanced"
-                        android:layout_height="wrap_content"
+                    <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/advanced"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="?android:attr/textColorPrimary"
-                        android:textStyle="bold"
-                        android:layout_marginTop="4dp"/>
-            </LinearLayout>
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-            <LinearLayout
+                <LinearLayout
                     android:id="@+id/webdav_mailbox_alias_section"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/webdav_mailbox_path"
+                            style="@style/DefaultAccountSetupTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/account_setup_incoming_webdav_mailbox_path_label"
                             android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-            <LinearLayout
+                <LinearLayout
                     android:id="@+id/webdav_owa_path_section"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/webdav_path_prefix"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/account_setup_incoming_webdav_path_prefix_label"
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                        android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
-            <LinearLayout
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/webdav_path_prefix"
+                            style="@style/DefaultAccountSetupTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/account_setup_incoming_webdav_path_prefix_label"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/webdav_auth_path_section"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/webdav_auth_path"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/DefaultAccountSetupTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/account_setup_incoming_webdav_auth_path_label"
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                        android:layout_marginTop="@dimen/account_setup_margin_between_items_incoming_and_outgoing">
 
-            <TextView
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/webdav_auth_path"
+                            style="@style/DefaultAccountSetupTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/account_setup_incoming_webdav_auth_path_label"
+                            android:singleLine="true" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <TextView
                     android:id="@+id/compression_label"
-                    android:text="@string/account_setup_incoming_compression_label"
-                    android:layout_height="wrap_content"
+                    style="@style/InputLabel"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="6dp"
-                    style="@style/InputLabel"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/account_setup_incoming_compression_label" />
 
-            <LinearLayout
+                <LinearLayout
                     android:id="@+id/compression_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                <CheckBox
+                    <CheckBox
                         android:id="@+id/compression_mobile"
-                        android:layout_height="wrap_content"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
-                        android:text="@string/account_setup_incoming_mobile_label"
-                        />
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_setup_incoming_mobile_label" />
 
-                <CheckBox
+                    <CheckBox
                         android:id="@+id/compression_wifi"
-                        android:layout_height="wrap_content"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
-                        android:text="@string/account_setup_incoming_wifi_label"
+                        android:layout_height="wrap_content"
                         android:contentDescription="@string/account_setup_incoming_compression_label"
-                        />
+                        android:text="@string/account_setup_incoming_wifi_label" />
 
-                <CheckBox
+                    <CheckBox
                         android:id="@+id/compression_other"
-                        android:layout_height="wrap_content"
+                        style="@style/DefaultAccountSetupCheckboxStyle"
                         android:layout_width="wrap_content"
-                        android:text="@string/account_setup_incoming_other_label"
+                        android:layout_height="wrap_content"
                         android:contentDescription="@string/account_setup_incoming_compression_label"
-                        />
-            </LinearLayout>
+                        android:text="@string/account_setup_incoming_other_label" />
+                </LinearLayout>
 
-            <View
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/DefaultAccountSetupNextButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/account_setup_incoming_login"
+                    app:layout_constraintBottom_toTopOf="@id/manual_setup"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <include layout="@layout/wizard_next"/>
 </LinearLayout>
