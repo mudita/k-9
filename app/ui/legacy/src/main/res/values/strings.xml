@@ -384,11 +384,10 @@ Please submit bug reports, contribute new features and ask questions at
     <string name="account_setup_auth_type_tls_client_certificate">Client certificate</string>
 
     <string name="account_setup_incoming_title">Incoming server settings</string>
-    <string name="account_setup_incoming_username_label">Username</string>
+    <string name="account_setup_incoming_username_label">Login</string>
     <string name="account_setup_incoming_password_label">Password</string>
     <string name="account_setup_incoming_client_certificate_label">Client certificate</string>
-    <string name="account_setup_incoming_pop_server_label">POP3 server</string>
-    <string name="account_setup_incoming_imap_server_label">IMAP server</string>
+    <string name="account_setup_incoming_server_label">Server name</string>
     <string name="account_setup_incoming_webdav_server_label">Exchange server</string>
     <string name="account_setup_incoming_port_label">Port</string>
     <string name="account_setup_incoming_security_label">Security</string>
@@ -1296,10 +1295,12 @@ You can keep this message and use it as a backup for your secret key. If you wan
     <string name="account_setup_basics_login">Login</string>
     <string name="account_setup_basics_settings">Manual settings</string>
     <string name="account_setup_incoming_advanced_settings">Advanced Settings</string>
-    <string name="account_setup_incoming_incoming_emails">Incoming emails</string>
+    <string name="account_setup_incoming_imap_incoming_emails">IMAP - Incoming emails</string>
+    <string name="account_setup_incoming_pop_incoming_emails">POP - Incoming emails</string>
+    <string name="account_setup_incoming_webd_incoming_emails">Incoming emails</string>
     <string name="account_setup_incoming_login">Login</string>
     <string name="account_setup_outgoing_advanced_settings">Advanced Settings</string>
-    <string name="account_setup_outgoing_outgoing_emails">Outgoing emails</string>
+    <string name="account_setup_outgoing_smpt_outgoing_emails">SMTP - Outgoing emails</string>
     <string name="account_setup_outgoing_show_password">Show password</string>
     <string name="account_setup_incoming_show_password">Show password</string>
     <string name="account_setup_options_inbox_behaviour">Setup inbox behaviour</string>

@@ -20,6 +20,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fsck.k9.Account;
@@ -154,6 +155,8 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
 
         TextInputLayout serverLayoutView = findViewById(R.id.account_server_layout);
 
+        TextView screenSubtitle = findViewById(R.id.accountSetupIncomingSubtitle);
+
         mNextButton.setOnClickListener(this);
 
         mImapAutoDetectNamespaceView.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -224,7 +227,8 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
 
             mStoreType = settings.type;
             if (settings.type.equals(Protocols.POP3)) {
-                serverLayoutView.setHint(getString(R.string.account_setup_incoming_pop_server_label));
+                screenSubtitle.setText(R.string.account_setup_incoming_pop_incoming_emails);
+                serverLayoutView.setHint(getString(R.string.account_setup_incoming_server_label));
                 findViewById(R.id.imap_path_prefix_section).setVisibility(View.GONE);
                 findViewById(R.id.webdav_advanced_header).setVisibility(View.GONE);
                 findViewById(R.id.webdav_mailbox_alias_section).setVisibility(View.GONE);
@@ -234,7 +238,8 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
                 findViewById(R.id.compression_label).setVisibility(View.GONE);
                 mSubscribedFoldersOnly.setVisibility(View.GONE);
             } else if (settings.type.equals(Protocols.IMAP)) {
-                serverLayoutView.setHint(getString(R.string.account_setup_incoming_imap_server_label));
+                screenSubtitle.setText(R.string.account_setup_incoming_imap_incoming_emails);
+                serverLayoutView.setHint(getString(R.string.account_setup_incoming_server_label));
 
                 boolean autoDetectNamespace = ImapStoreSettings.getAutoDetectNamespace(settings);
                 String pathPrefix = ImapStoreSettings.getPathPrefix(settings);
@@ -254,6 +259,7 @@ public class AccountSetupIncoming extends K9Activity implements OnClickListener 
                 }
             } else if (settings.type.equals(Protocols.WEBDAV)) {
                 serverLayoutView.setHint(getString(R.string.account_setup_incoming_webdav_server_label));
+                screenSubtitle.setText(R.string.account_setup_incoming_webd_incoming_emails);
                 mConnectionSecurityChoices = new ConnectionSecurity[] {
                         ConnectionSecurity.NONE,
                         ConnectionSecurity.SSL_TLS_REQUIRED };

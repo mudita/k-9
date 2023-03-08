@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/incomingTitle"
+            android:id="@+id/accountSetupIncomingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -43,15 +43,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/accountSetupOutGoingSubtitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/account_setup_outgoing_outgoing_emails"
+            android:text="@string/account_setup_outgoing_smpt_outgoing_emails"
             android:textColor="@color/black_pure"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/incomingTitle" />
-
+            app:layout_constraintTop_toBottomOf="@id/accountSetupIncomingTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -64,7 +64,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -73,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white_pure"
                 android:orientation="vertical"
+                android:layout_marginTop="8dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingBottom="24dp">
