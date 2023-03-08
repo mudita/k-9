@@ -8,7 +8,9 @@ class SignInScreenNavigatorImpl(
     private val toSetupAccountNavigator: ToSetupAccountNavigator
 ) : SignInNavigator {
 
-    override fun moveToAccountSetupChecks(email: String, domain: String?) {
+    override fun moveToAccountSetupChecks(email: String, domain: String?) =
         toSetupAccountNavigator.moveToSetupAccount(context, email, domain)
-    }
+
+    override fun moveToManualAccountSetup() =
+        toSetupAccountNavigator.moveToManualAccountSetup(context)
 }

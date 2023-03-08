@@ -357,6 +357,13 @@ public class AccountSetupBasics extends K9Activity
                 Preferences.getPreferences(this).saveAccount(mAccount);
                 Core.setServicesEnabled(this);
                 AccountSetupNames.actionSetNames(this, mAccount);
+                if (predefinedEmail != null) {
+                    this.finish();
+                }
+            }
+        } else {
+            if (predefinedEmail != null) {
+                this.finish();
             }
         }
     }

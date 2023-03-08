@@ -1,6 +1,7 @@
 package com.mudita.mail.service.auth
 
 import android.net.Uri
+import com.fsck.k9.Preferences
 import com.fsck.k9.mail.AuthenticationFailedException
 import com.mudita.mail.repository.auth.config.AuthConfig
 import com.mudita.mail.repository.auth.session.AuthSessionData
@@ -21,7 +22,8 @@ import net.openid.appauth.TokenResponse
 class AuthServiceImpl(
     private val authorizationService: AuthorizationService,
     private val emailApiClientService: EmailApiClientService,
-    private val authSessionRepository: AuthSessionRepository
+    private val authSessionRepository: AuthSessionRepository,
+    private val preferences: Preferences
 ) : AuthService {
 
     override fun getAuthRequestData(
@@ -87,7 +89,10 @@ class AuthServiceImpl(
 
         val email = emailApiClientService.getEmail(providerType, token).getOrElse { return Result.failure(it) }
 
-        if (authSessionRepository.getAuthSessionData(email)?.authState?.refreshToken != null) {
+        val account = preferences.accounts.find { it.email == email }
+
+        if (account != null && account.isFinishedSetup) {
+            authSessionRepository.removeAuthSession(email)
             return Result.failure(IllegalArgumentException("Selected user already exists"))
         }
 

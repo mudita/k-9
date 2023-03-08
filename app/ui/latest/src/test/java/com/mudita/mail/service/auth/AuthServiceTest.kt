@@ -2,6 +2,7 @@ package com.mudita.mail.service.auth
 
 import android.content.Intent
 import android.net.Uri
+import com.fsck.k9.Preferences
 import com.mudita.mail.MuditaRobolectricTest
 import com.mudita.mail.repository.auth.session.AuthSessionData
 import com.mudita.mail.repository.auth.session.AuthSessionRepository
@@ -118,6 +119,12 @@ class AuthServiceTest : MuditaRobolectricTest() {
         }
         declare {
             mockAuthSessionRepo
+        }
+
+        declare {
+            mockk<Preferences>(relaxed = true) {
+                every { accounts } returns emptyList()
+            }
         }
 
         authService = getKoin().get()
