@@ -243,8 +243,8 @@
         <outgoing uri="smtp+tls+://smtp.mail.me.com" username="$user" />
     </provider>
     <provider id="icloud" label="iCloud" domain="icloud.com">
-        <incoming uri="imap+ssl+://imap.mail.icloud.com" username="$user" />
-        <outgoing uri="smtp+tls+://smtp.mail.icloud.com" username="$user" />
+        <incoming uri="imap+ssl+://imap.mail.me.com" username="$user" />
+        <outgoing uri="smtp+tls+://smtp.mail.me.com" username="$user" />
     </provider>
 
     <!-- Australia -->

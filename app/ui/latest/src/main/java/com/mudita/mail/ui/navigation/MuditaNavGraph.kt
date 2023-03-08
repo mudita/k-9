@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mudita.mail.ui.usecase.email.view.EmailScreen
 import com.mudita.mail.ui.usecase.signIn.view.SignInScreen
 import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -21,7 +22,13 @@ fun MuditaMailNavGraph(
         composable(SignInDestination.toRoute()) {
             val context = LocalContext.current
             SignInScreen(
-                getViewModel { parametersOf(context) }
+                getViewModel { parametersOf(context, navController) }
+            )
+        }
+        composable(EmailDestination.toRoute()) {
+            val context = LocalContext.current
+            EmailScreen(
+                getViewModel { parametersOf(context, navController) }
             )
         }
     }
