@@ -48,8 +48,8 @@ android {
         applicationId "com.mudita.mail"
         testApplicationId "com.mudita.mail.tests"
 
-        versionCode 1_004_001
-        versionName '1.4.1'
+        versionCode 1_005_000
+        versionName '1.5.0'
 
         // Keep in sync with the resource string array 'supported_languages'
         resConfigs "in", "br", "ca", "cs", "cy", "da", "de", "et", "en", "en_GB", "es", "eo", "eu", "fr", "gd", "gl",
