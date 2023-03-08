@@ -1,8 +1,10 @@
-package com.mudita.mail.ui.usecase.signIn.view
+package com.mudita.mail.ui.usecase.add.view
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mail.R
@@ -27,15 +30,14 @@ import com.mudita.mail.ui.common.LoadingBottomSheet
 import com.mudita.mail.ui.common.ModalLayout
 import com.mudita.mail.ui.common.ScreenHeader
 import com.mudita.mail.ui.theme.MuditaTheme
-import com.mudita.mail.ui.usecase.signIn.viewModel.SignInViewModel
+import com.mudita.mail.ui.usecase.add.viewModel.AddAccountViewModel
 import com.mudita.mail.ui.viewModel.isError
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun SignInScreen(
-    viewModel: SignInViewModel
+fun AddAccountScreen(
+    viewModel: AddAccountViewModel
 ) {
-
     val uiState = viewModel.uiState.collectAsState()
 
     val authLauncher = rememberLauncherForActivityResult(
@@ -65,7 +67,8 @@ fun SignInScreen(
         )
     }
 
-    SignInScreen(
+    MoveBackToolbar(viewModel::onMoveBack)
+    AddAccountScreen(
         providers = uiState.value.providers,
         bottomSheetState = bottomSheetState,
         onProviderTapAction = { viewModel.selectProvider(it) },
@@ -80,8 +83,21 @@ fun SignInScreen(
 }
 
 @Composable
+fun MoveBackToolbar(
+    onBackTapAction: () -> Unit
+) {
+    Column(modifier = Modifier.padding(20.dp)) {
+        Image(
+            modifier = Modifier.clickable { onBackTapAction() },
+            painter = painterResource(id = R.drawable.ic_arrow_back),
+            contentDescription = "Back arrow"
+        )
+    }
+}
+
+@Composable
 @OptIn(ExperimentalMaterialApi::class)
-private fun SignInScreen(
+private fun AddAccountScreen(
     providers: List<ProviderTile>,
     bottomSheetState: ModalBottomSheetState,
     bottomSheetHideAction: () -> Unit,
@@ -97,7 +113,7 @@ private fun SignInScreen(
                 verticalArrangement = Arrangement.Top
             ) {
                 ScreenHeader(
-                    titleRes = R.string.app_header__welcome,
+                    titleRes = R.string.app_header__add_account,
                     subtitleRes = R.string.app_header__description
                 )
                 AvailableProviders(
@@ -114,10 +130,10 @@ private fun SignInScreen(
 @OptIn(ExperimentalMaterialApi::class)
 @Preview
 @Composable
-fun SingInScreenPreview() {
+fun AddAccountScreenPreview() {
     MuditaTheme {
         Scaffold {
-            SignInScreen(
+            AddAccountScreen(
                 emptyList(),
                 rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden),
                 {}, {}

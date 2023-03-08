@@ -1,5 +1,7 @@
 package com.mudita.mail.di
 
+import com.mudita.mail.interactor.add.AddAccountInteractor
+import com.mudita.mail.interactor.add.AddAccountInteractorImpl
 import com.mudita.mail.interactor.delete.DeleteAccountInteractor
 import com.mudita.mail.interactor.delete.DeleteAccountInteractorImpl
 import com.mudita.mail.interactor.signIn.SignInInteractor
@@ -9,6 +11,8 @@ import org.koin.dsl.module
 val interactorModule = module {
 
     factory<SignInInteractor> { SignInInteractorImpl(get(), get(), get()) }
+
+    factory<AddAccountInteractor> { AddAccountInteractorImpl(get(), get(), get()) }
 
     factory<DeleteAccountInteractor> { DeleteAccountInteractorImpl(get()) }
 }

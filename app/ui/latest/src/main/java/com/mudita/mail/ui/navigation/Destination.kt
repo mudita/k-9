@@ -4,6 +4,8 @@ object SignInDestination : Destination("signIn")
 
 object EmailDestination : Parametrized<String>("email", "providerType")
 
+object AddAccountDestination : Destination("addAccount")
+
 sealed class Destination(
     protected open val route: String,
 ) {

@@ -155,7 +155,7 @@ open class MessageList :
         deleteIncompleteAccounts(accounts)
         val hasAccountSetup = accounts.any { it.isFinishedSetup }
         if (!hasAccountSetup) {
-            SignInActivity.launch(this)
+            SignInActivity.launchSignIn(this)
             finish()
             return
         }
